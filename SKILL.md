@@ -155,19 +155,29 @@ The interview has NO fixed number of rounds. Early rounds will naturally cover f
 
 ### Interview Loop
 
+**CRITICAL RULES — read these before asking anything:**
+
+1. **Ask exactly ONE question per round.** Never two. Never eight. ONE.
+2. **Wait for the answer before asking the next question.**
+3. **Score the answer before generating the next question.**
+4. **Display the updated scoring matrix before the next question.**
+5. **Every question MUST have multiple-choice options.** No open-ended questions. Ever.
+
+Violating rule #1 is the single most common failure mode. If you are about to present more than one question, STOP. Pick the single most important one. Ask it. Wait.
+
 Repeat until ambiguity ≤ 20% OR user exits early:
 
 #### Step 3a: Identify Weakest Cell
 
-Find the product area × dimension pair with the lowest score. When multiple cells are tied, rotate across product areas (don't drill the same area repeatedly).
+Find the ONE product area × dimension pair with the lowest score. When multiple cells are tied, rotate across product areas (don't drill the same area repeatedly).
 
-#### Step 3b: Generate & Ask Question
+#### Step 3b: Ask ONE Question
 
-Generate ONE question targeting the weakest cell. Use the question styles and tension-surfacing techniques from knowledge.md.
+Pick ONE question targeting the weakest cell — either from the Question Bank (if the cell is at 0.0) or generate one dynamically (if the cell is above 0.0). Use the question styles and tension-surfacing techniques from knowledge.md.
 
-**CRITICAL: Every single question MUST include 3-4 pre-populated multiple-choice options plus an "Other (specify)" option for free-text. NEVER ask an open-ended question without choices. This is non-negotiable.**
+**Every question MUST include 3-4 pre-populated multiple-choice options plus "Other (specify)". No exceptions. No open-ended questions.**
 
-Present each question with context:
+Present the question with context:
 
 ```
 Round [n] | [Product Area] × [Dimension] | Ambiguity: [score]%
