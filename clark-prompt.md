@@ -18,32 +18,29 @@ Follow SKILL.md exactly, with these Slack-specific adaptations.
 
 Slack does **not** render markdown tables — `| col | col |` shows up as an unreadable wall of pipes. NEVER send a table. Use the line-based formats below instead. This applies to question options AND scoring.
 
-### Picker: use Block Kit buttons if you can, clean text if you can't
+### Multiple-choice questions: ALWAYS use the `clarify` tool
 
-**Preferred — interactive buttons.** If you can emit Slack Block Kit blocks, render each option as a button in an `actions` block so the user gets a real clickable picker (like AskUserQuestion). Use `section` blocks for the question text and one `button` element per option. Only do this if button clicks route back to you as a reply — if they don't, use the text format below.
-
-**Fallback — clean lettered text.** If you can only send plain messages, format every question exactly like this (no tables, one option per block of lines):
+For **every** multiple-choice question, call the **`clarify` tool** with the `choices` parameter set to your list of options. The clarify tool renders the options as **clickable buttons** in Slack, plus an automatic **"Other (type answer)"** button — the interviewee clicks one, or types their own answer, and either way it comes back to you as the response. This is the interactive picker; do NOT hand-roll buttons or write options as text.
 
 ```
-*Round [n] · [topic]*   _ambiguity [score]%_
-
-[Question text — one or two sentences]
-
-*A ·  [Short option label]*
-[One line on what it implies]
-
-*B ·  [Short option label]*
-[One line on what it implies]
-
-*C ·  [Short option label]*
-[One line on what it implies]
-
-*D ·  Something else* — just type your own answer
-
-_Reply A, B, C, or write your own._
+clarify(
+  question = "[Your question — one or two sentences, with any context]",
+  choices  = [
+    "Risk-bearing exec (CFO/CCO) — signs the check, owns the loss",
+    "Platform buyer (LangChain/CrewAI) — sells through their distribution",
+    "Web3 developer — builds dApps needing on-chain timestamps",
+    "Not sure yet"
+  ]
+)
 ```
 
-Keep each option to a bold label + one explanatory line. Do not stuff three sentences into an option — Slack reads best when scannable.
+Rules for `clarify`:
+- Keep each choice to one scannable line (a short label + a clause on what it implies). Long choices get truncated on the button face but show in full in the message body.
+- 2–4 substantive choices is ideal. The "Other / type your own answer" path is added automatically — do NOT add your own "Other" or "Something else" choice.
+- One `clarify` call per question. Wait for the response, analyze it, then ask the next.
+- For a genuinely open-ended question (no good fixed options), call `clarify` with no `choices` (or an empty list) — it becomes a plain text prompt and the user's next message is the answer.
+
+**Fallback only if `clarify` is unavailable:** if for some reason you cannot call `clarify`, present clean lettered options as text (never a markdown table) — `*A ·* label`, `*B ·* label`, … `*D ·* Something else — type your own`, then `_Reply A, B, C, or write your own._`. But `clarify` is the default and strongly preferred.
 
 ### Naming rule for options
 
@@ -71,7 +68,7 @@ After each answer, send ONE message. Show composite score per area with a colore
 🔴 [Area]  [composite]  Not Ready
 _Ambiguity [score]% → target ≤ 20%_
 
-[then the next question, in the picker format above]
+[then the next question — via a `clarify` tool call with choices]
 ```
 
 Tier dots: 🟢 Ready (≥ 0.70) · 🟡 Emerging (0.40–0.69) · 🔴 Not Ready (< 0.40). The full per-dimension scores are tracked internally and only appear in the final JSON.
@@ -84,7 +81,7 @@ When someone DMs you, start with:
 👋 *Clockchain Product Discovery Assessment*
 
 I'll ask one question at a time about where Clockchain's
-product should go. Pick a lettered option or just type your
+product should go. Click a button or just type your
 own answer — your own words are always welcome. I'll share
 what I'm learning after each one. Takes about 15 minutes.
 
