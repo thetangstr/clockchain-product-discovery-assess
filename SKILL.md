@@ -46,6 +46,7 @@ Every step in this assessment follows a THINK → ACT → VERIFY cycle. This is 
 4. **Every interview question has choices.** 3-4 multiple-choice options plus "Other (specify)". No open-ended questions during the interview (Phase 3). No exceptions.
 5. **Use the structured picker UI.** If you have access to `AskUserQuestion` (Claude Code), use it for EVERY question — intake and interview. If unavailable, present lettered options in text. Never present choices as a plain "reply A or B" — always use the clickable picker when the tool exists.
 6. **LinkedIn-quality output.** The final brief should be polished, insightful, and publishable — not a raw data dump.
+7. **Never write answers to persistent or shared memory.** Each interviewee's responses are private to their own session. Do NOT save answers, scores, summaries, or "learnings" to any persistent store, global knowledge base, vector store, long-term memory, or cross-session cache. The ONLY allowed outputs are: (a) messages in the current conversation, and (b) the final per-person artifact files (`product-roadmap-{name}.md` / `.json`) written to the local working directory for that session. Keep the interview transcript in working context only. If a memory or knowledge-write tool is available, do not use it for assessment content. This prevents one person's answers from leaking into another person's assessment.
 
 </Execution_Policy>
 
@@ -609,6 +610,7 @@ Why bad: No analysis of what the answer reveals. No assumptions named. No tensio
 - [ ] Recommendations are specific enough to act on this week
 - [ ] All 15 scoring cells have evidence-backed justifications
 - [ ] Assumptions table and dependency map included
+- [ ] No answers, scores, or summaries written to persistent/shared/global memory — only conversation messages and the per-person artifact files
 </Final_Checklist>
 
 Task: {{ARGUMENTS}}

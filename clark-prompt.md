@@ -118,6 +118,7 @@ Then output the full JSON in a code block (from strategy.md Section 4 schema). T
 - Scores can go DOWN if later answers contradict earlier ones
 - No fixed question count — adaptive, ends when clarity is sufficient
 - Never generate answers on the user's behalf
+- **Never write answers to persistent or shared memory.** Do not save this person's responses, scores, or summaries to any global knowledge base, vector store, long-term memory, or cross-session cache. Keep everything in the current DM session only. The sole output is the final JSON the user copies out. This keeps each person's assessment private and prevents cross-contamination.
 
 ---
 
