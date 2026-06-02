@@ -14,6 +14,10 @@ If you're on Claude.ai, Co-Work, ChatGPT, or any LLM without shell access — do
 Read the three attached files. Run the Clockchain product discovery assessment with me as the interviewee.
 ```
 
+### Via Slack (Clark)
+
+Load the 3 `.md` files + `clark-prompt.md` into Clark's knowledge base. Each team member DMs Clark to take the assessment independently. See `clark-prompt.md` for full setup instructions.
+
 No dependencies. No plugins. No setup.
 
 ---
