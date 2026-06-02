@@ -150,6 +150,54 @@ Founders will say "we need to build agent identity" or "the time oracle is our m
 
 ---
 
+## Use Case & Vertical Discovery
+
+**This is one of the most important areas to probe.** The interview should actively explore which industries, job functions, and specific workflows could benefit from Clockchain's capabilities — especially at the intersection of verifiable time and AI agents.
+
+The goal is NOT to validate a pre-chosen vertical. It's to discover which use cases the interviewee has conviction on, which ones they haven't considered, and which ones surface organically during the conversation.
+
+### Industries to Explore
+
+When probing Market Understanding, push the interviewee to think about specific verticals:
+
+| Industry | Why Clockchain might matter | Probe question |
+|---|---|---|
+| **Financial services** | Trade settlement timestamps, regulatory audit trails, agent-executed transactions need provenance | "If an AI agent executes a trade, who needs to prove WHEN it happened? What's the regulatory requirement?" |
+| **Logistics & shipping** | Supply chain timestamps, proof of delivery, chain-of-custody for autonomous agents | "When a shipping agent hands off to a warehouse agent, how do they prove the handoff happened at the right time?" |
+| **Healthcare** | Patient data access logs, AI diagnostic timestamps, compliance with HIPAA audit requirements | "If an AI agent accesses patient records, who needs the timestamp? The hospital? The insurer? The regulator?" |
+| **Legal & compliance** | Contract execution timestamps, e-discovery, regulatory filings | "When was this document signed? When was this filing submitted? These are questions courts ask." |
+| **Insurance** | Claims processing by AI agents, fraud detection timestamps, proof of when damage was assessed | "If an AI agent processes a claim, the insurer needs to prove WHEN the assessment happened. Is that a use case?" |
+| **Government & public sector** | Citizen-facing AI agents need accountability, public records timestamps | "If a government AI agent makes a decision about someone's benefits, there's a legal requirement to prove when and how." |
+| **AI/ML platforms** | Agent provenance for marketplace trust, model versioning timestamps, training data lineage | "LangChain has 100K+ developers. If 1% need agent provenance, is that a market?" |
+| **Gaming & digital assets** | Provenance for AI-generated assets, timestamp proof for competitive gaming, NFT creation timestamps | "When an AI creates a game asset, who owns the provenance?" |
+
+### Job Functions to Explore
+
+Push beyond "developers" to think about which ROLES within an organization need Clockchain:
+
+| Role | Why they care | Probe question |
+|---|---|---|
+| **Chief Compliance Officer** | Regulatory audit trails for autonomous systems | "Who at a bank signs off on AI agent deployments? What do THEY need?" |
+| **CISO / Security** | Agent identity verification, breach forensics | "When an agent is compromised, how do you prove when it was created vs. when it was tampered with?" |
+| **Operations Manager** | SLA verification, workflow timestamps | "If an AI agent misses an SLA, who proves when each step happened?" |
+| **Auditor (internal/external)** | Verifiable action logs, tamper-proof timestamps | "What would an auditor need to sign off on an AI-driven process?" |
+| **Product Manager (AI platform)** | Agent provenance as a platform feature | "If you're building LangChain, do you want built-in provenance or leave it to each developer?" |
+| **Legal counsel** | Liability for autonomous agent actions | "If an AI agent causes harm, the first legal question is: who deployed it, when, and what was it authorized to do?" |
+
+### How to Use This in the Interview
+
+- **Early rounds (Vision):** "Beyond the crypto-native use case, which industry could benefit most from verifiable timestamps for AI agents?"
+- **Mid rounds (Market):** "You mentioned [industry]. Can you name a specific company in that space and the person who'd buy this?"
+- **Later rounds (Priority):** "You've mentioned financial services and logistics. If you could only serve ONE vertical in year 1, which would it be and why?"
+- **Push-back:** If the interviewee stays abstract ("many industries could use this"), push: "Name ONE specific company, ONE specific person at that company, and what they'd pay. If you can't, we haven't found the vertical yet."
+
+**Red flags:**
+- "Every industry needs timestamps" → That's not a go-to-market strategy. Which ONE first?
+- "We're horizontal, not vertical" → Horizontal products die without a wedge vertical. What's the wedge?
+- "The technology applies everywhere" → Technology is not a market. Markets are people with budgets and deadlines.
+
+---
+
 ## The Five Functional Dimensions
 
 | Dimension | Weight | What it measures | Scoring rubric |
