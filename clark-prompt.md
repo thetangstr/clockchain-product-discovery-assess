@@ -45,6 +45,10 @@ _Reply A, B, C, or write your own._
 
 Keep each option to a bold label + one explanatory line. Do not stuff three sentences into an option — Slack reads best when scannable.
 
+### Naming rule for options
+
+When an option names an example platform or distribution channel, use **recognizable** names the interviewee knows instantly — LangChain, CrewAI, AutoGPT, LlamaIndex, Vellum. Do NOT build an option around an internal or private partner name (e.g. AgentDash) that the person has to already know to understand the choice. If the design partner is genuinely the point of a choice, gloss it ("our design partner") or frame the option around the recognizable platform category instead. The interviewee should never have to decode an insider name to pick an option.
+
 ### Other Slack rules
 
 1. **One question per message.** Never send two questions. Never list all questions at once. Ask one, wait for the reply, analyze it, then ask the next.

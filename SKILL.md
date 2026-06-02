@@ -196,6 +196,7 @@ Round [n] · Ambiguity: [score]%
 - One option acknowledges uncertainty ("I haven't thought about this" / "I'm not sure")
 - No obviously "right" answer — all options should feel legitimate
 - Specific enough that choosing one tells you something concrete
+- **Name recognizable platforms, not private/internal names.** When an option references an example platform or channel, use widely-known names the interviewee will recognize instantly — LangChain, CrewAI, AutoGPT, LlamaIndex, Vellum. Do NOT make an option hinge on an internal or private partner name (e.g. a specific design partner) that requires context to understand. If a private design partner is genuinely relevant to a choice, gloss it briefly ("our design partner") or fold it into a recognizable-platform option rather than naming it cold.
 
 ### Analyzing an Answer — Full Re-evaluation
 
