@@ -92,11 +92,20 @@ Proceeding to context loading.
 
 ---
 
-## Phase 2: Context Loading & Pre-Interview Baseline
+## Phase 2: Context Loading
 
 **Prerequisite:** Phase 1 must be fully complete.
 
-### Phase 2a: Company Context
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PHASE 2 OF 4 — CONTEXT LOADING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Loading Clockchain company and competitive context.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### Company Context
 
 Load the following context (read from knowledge.md for full details):
 
@@ -109,120 +118,11 @@ Load the following context (read from knowledge.md for full details):
 - **Competitors:** Sahara AI, 0G Labs, Sentient, Story Protocol, Cronos AI Agent SDK, Eliza framework
 - **Differentiation:** None of these competitors anchor their identity primitive on a patented time oracle
 
-### Phase 2b: Pre-Interview Baseline
-
-Present the following header:
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 2 OF 4 — PRE-INTERVIEW BASELINE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Before the structured interview, we need to establish
-your current product thinking baseline.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-Ask all eight questions. These are mandatory. Every question MUST have pre-populated multiple-choice options. The user can always select "Other" and type a custom answer.
-
-**PRODUCT VISION**
-
-1. **In one sentence, what is Clockchain's core product?**
-   *(Not the technology — the product. What does a customer buy, and what outcome do they get?)*
-   - a) Cryptographically verifiable timestamps that prove when AI agent actions happened — sold as infrastructure to agent platforms
-   - b) On-chain identity (birth certificates) for AI agents — so enterprises can trust and audit autonomous systems
-   - c) A decentralized time oracle network — node operators and token holders secure the network, developers build on it
-   - d) A trust layer for AI agents — combining time provenance, identity, and receipts into one verifiable stack
-   - e) Other (specify)
-
-2. **Who is Clockchain's primary customer in the next 12 months?**
-   *(Be specific about who writes the check.)*
-   - a) AI agent platform developers (LangChain, AutoGPT, CrewAI teams) who need provenance infrastructure
-   - b) Enterprises deploying AI agents who need audit trails and compliance
-   - c) Web3 developers building dApps that need reliable on-chain timestamps
-   - d) Crypto-native projects and DAOs that need decentralized time services
-   - e) Other (specify)
-
-3. **What is the single most important thing Clockchain must get right to succeed?**
-   *(The one thing that, if you nail it, everything else follows.)*
-   - a) Ship MainNet — nothing else matters until the network is live and stable
-   - b) Developer adoption — get 10+ projects building on Clockchain before competitors lock in the market
-   - c) Product-market fit for agent identity — prove that AI platforms actually need and will pay for on-chain DIDs
-   - d) Token economics — get the token model right so the network is self-sustaining
-   - e) Other (specify)
-
-**PRODUCT PRIORITIES**
-
-4. **Which product area keeps you up at night — and why?**
-   *(What feels most uncertain or most critical?)*
-   - a) Network — will MainNet launch on time? Will it be reliable enough?
-   - b) Agent Identity — do customers actually need this? Is the timing right?
-   - c) Smart Contracts & Receipts — is this too early? Do we have the technical capacity?
-   - d) All of them equally — everything feels uncertain at this stage
-   - e) Other (specify)
-
-5. **If you could only ship ONE product area in the next 6 months, which would it be?**
-   *(Pick one. No "all of them.")*
-   - a) Network (Time Oracle / DePIN) — it's the foundation everything else depends on
-   - b) Agent Identity (DIDs / Birth Certificates) — it's the product differentiator and revenue driver
-   - c) Smart Contracts & Receipts — it's the clearest path to revenue (pay-per-attestation)
-   - d) Other (specify)
-
-6. **What is the biggest open question about Clockchain's product that you don't have an answer to yet?**
-   *(The thing you'd love clarity on but currently don't.)*
-   - a) Will AI agent platforms actually pay for on-chain identity, or is it a nice-to-have?
-   - b) Should we target Web3-native users or cross over to traditional enterprise?
-   - c) How do we get to revenue before the token launch — or do we need to?
-   - d) Is the time oracle the product, or just the infrastructure underneath the real product?
-   - e) Other (specify)
-
-**COMPETITIVE POSITION**
-
-7. **How does Clockchain's time oracle create value that competitors cannot replicate?**
-   *(Sahara AI, 0G Labs, Sentient, Story Protocol, Cronos, Eliza are all in the space. What's the moat?)*
-   - a) The US patent — we have legal protection on blockchain-based timekeeping that nobody can copy
-   - b) Time provenance as a primitive — competitors do identity or coordination, but none anchor on verifiable time
-   - c) FINMA approval + Swiss entity — regulatory credibility that competitors lack
-   - d) First-mover on agent identity with time provenance — the combination is unique even if individual pieces exist elsewhere
-   - e) Other (specify)
-
-8. **What would make you abandon the current product direction entirely?**
-   *(What signal would cause a pivot?)*
-   - a) A major L1 (Ethereum, Solana) ships native agent identity as a protocol feature — making our product redundant
-   - b) After 12 months, zero paying customers or meaningful developer adoption
-   - c) A well-funded competitor (>$50M raised) ships an identical time oracle + agent identity stack
-   - d) Nothing — the vision is right regardless of short-term signals; it's a matter of execution
-   - e) Other (specify)
-
-### Phase 2 Complete Gate
-
-After all eight questions are answered, confirm:
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-BASELINE CAPTURED
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  Core product:         [answer]
-  Primary customer:     [answer]
-  Must get right:       [answer]
-  Biggest concern:      [answer]
-  Top priority area:    [answer]
-  Open question:        [answer]
-  Competitive moat:     [answer]
-  Pivot trigger:        [answer]
-
-Proceeding to structured interview.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-Do NOT re-ask these questions during the interview. Build on this context.
-
 ---
 
 ## Phase 3: Adaptive Product Discovery Interview
 
-**Prerequisite:** Phase 2 must be fully complete with all baseline questions answered.
+**Prerequisite:** Phase 2 must be fully complete (company context loaded).
 
 ### Phase 3 Header
 
@@ -234,6 +134,8 @@ PHASE 3 OF 4 — PRODUCT DISCOVERY INTERVIEW
 Adaptive Socratic interview. One question at a time.
 Targeting the weakest clarity area with each question.
 I'll show your clarity scores after every answer.
+We stop when clarity is high enough — could be 5
+rounds or 15, depending on your answers.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
@@ -249,9 +151,11 @@ Initialize a 3×5 scoring matrix (all cells start at 0.0):
 
 Set initial ambiguity to 100%.
 
+The interview has NO fixed number of rounds. Early rounds will naturally cover foundational questions (what is the product, who is the customer, what's the priority) because those cells start at 0.0 and will be the weakest. As clarity builds, questions get more specific and probing. The interview ends when ambiguity drops below 20% — that might take 5 rounds or 15.
+
 ### Interview Loop
 
-Repeat until ambiguity ≤ 20% OR round 20 reached OR user exits early:
+Repeat until ambiguity ≤ 20% OR user exits early:
 
 #### Step 3a: Identify Weakest Cell
 
@@ -324,18 +228,20 @@ At specific rounds, shift perspective:
 
 Each mode activates ONCE, then returns to normal Socratic questioning.
 
-#### Step 3f: Soft Limits
+#### Step 3f: Exit Conditions
 
-- **Round 3+:** Allow early exit if user says "enough" or "let's go"
-- **Round 10:** Soft warning: "We're at 10 rounds. Current ambiguity: [score]%. Continue or wrap up?"
-- **Round 15:** Hard cap: "Maximum interview rounds reached. Proceeding with current clarity."
-- **Early exit:** Show warning if ambiguity > 20%, then proceed anyway
+The interview ends when clarity is sufficient. There is NO fixed round count.
+
+- **Ambiguity ≤ 20%:** Clarity threshold met — proceed to roadmap generation
+- **All 15 cells ≥ 0.5:** Sufficient coverage — proceed even if ambiguity is slightly above 20%
+- **Early exit:** If the user says "enough", "let's go", or "wrap up" — show the current ambiguity and proceed with a warning if it's above 20%
+- **Stall detection:** If ambiguity doesn't improve for 3 consecutive rounds, offer to wrap up or shift approach
 
 ---
 
 ## Phase 4: Roadmap Generation & Delivery
 
-**Prerequisite:** Phase 3 must complete (ambiguity ≤ 20%, hard cap, or early exit).
+**Prerequisite:** Phase 3 must complete (clarity threshold met or user chose early exit).
 
 ### Phase 4 Header
 
@@ -350,7 +256,7 @@ Generating priority-ranked product roadmap.
 
 ### Step 1 — Generate the Roadmap
 
-Using the final scoring matrix, all interview Q&A, and the pre-interview baseline, generate the product roadmap using the template from strategy.md. Include:
+Using the final scoring matrix and all interview Q&A, generate the product roadmap using the template from strategy.md. Include:
 
 1. **Priority ranking** — Product areas ranked by composite score
 2. **Conviction tiers** — Each area classified as Ready / Emerging / Not Ready
@@ -511,25 +417,23 @@ Why bad: Accepted a product direction without probing conviction depth. Should a
 </Examples>
 
 <Escalation_And_Stop_Conditions>
-- Hard stop at round 15 regardless of ambiguity
-- Soft warning at round 10 — offer to continue or wrap up
-- Early exit allowed at round 3+ with warning if ambiguity > 20%
-- If the interviewee can't articulate what the product IS after 3 rounds of vision probing, flag it: "Vision Clarity is critically low — the core product identity is unresolved"
+- If the interviewee can't articulate what the product IS after several vision-targeting rounds, flag it: "Vision Clarity is critically low — the core product identity is unresolved"
+- If ambiguity stalls (same score ±5% for 3 consecutive rounds), offer to wrap up or shift approach
 - If two product areas score identically, probe for dependencies: which one enables the other?
 - If all areas score below 0.4, recommend a product strategy offsite before further development
 - If the interviewee defaults to "all areas are equally important" on every question, challenge directly: "Equal priority means no priority. What ships first if you can only fund one?"
+- Early exit: user can stop anytime — show current ambiguity and proceed with a warning if above 20%
 </Escalation_And_Stop_Conditions>
 
 <Final_Checklist>
 - [ ] Intake collected (interviewee name, role, focus area)
 - [ ] Company and competitive context loaded from knowledge.md
-- [ ] Pre-interview baseline collected (all 8 questions answered)
-- [ ] Adaptive interview conducted with one question per round
+- [ ] Adaptive interview conducted with one question per round — no fixed round count
 - [ ] Each question targeted the weakest product area × dimension cell
-- [ ] 3-4 multiple-choice options provided per question (plus free-text)
+- [ ] 3-4 multiple-choice options provided per question (plus "Other" for free-text)
 - [ ] Scoring matrix updated and displayed after every round
-- [ ] Challenge modes activated at correct thresholds (round 4, 6, 8)
-- [ ] Interview completed (ambiguity ≤ 20%, hard cap, or early exit)
+- [ ] Challenge modes activated at appropriate points (contrarian, simplifier, competitor)
+- [ ] Interview completed when ambiguity ≤ 20% or user chose early exit
 - [ ] Product roadmap generated with conviction tiers and priority ranking
 - [ ] All 15 scoring cells have evidence-backed scores
 - [ ] Assumptions exposed table included in the roadmap

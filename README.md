@@ -46,8 +46,8 @@ Interviews you about Clockchain's future product direction across **3 product ar
 | Phase | What Happens |
 |-------|-------------|
 | **Phase 1: Intake** | Collects interviewee name, role, and primary focus area |
-| **Phase 2: Baseline** | Loads company/competitive context, asks 8 baseline product questions |
-| **Phase 3: Interview** | Adaptive Socratic interview — one question per round, targets the weakest scoring cell, updates the 3×5 matrix after each answer, displays progress |
+| **Phase 2: Context** | Loads Clockchain company context and competitive landscape |
+| **Phase 3: Interview** | Adaptive Socratic interview — one question per round with multiple-choice options, targets the weakest scoring cell, updates the 3×5 matrix after each answer. No fixed round count — runs until clarity threshold is met |
 | **Phase 4: Roadmap** | Generates priority-ranked product roadmap with conviction tiers, assumptions, dependencies, and recommendations |
 
 The interview includes challenge modes that activate at specific rounds:
