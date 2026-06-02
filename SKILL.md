@@ -104,107 +104,117 @@ Context loaded. Starting the interview.
 
 ## Phase 3: Adaptive Interview
 
-### Setup
+### How This Works — Message Boundaries
 
-Initialize a 3×5 scoring matrix internally (all cells at 0.0). Set ambiguity to 100%.
+**This is the most important section in the entire skill. Read it carefully.**
 
-Display:
+The interview is a CONVERSATION. Each message you send to the user contains exactly ONE question. Then you STOP and WAIT for their answer. You do NOT generate multiple questions. You do NOT generate illustrative answers. You do NOT skip ahead to the roadmap.
+
+**Your first interview message contains:**
+1. The interview header (shown below)
+2. A "Thinking" block explaining your reasoning for the first question
+3. ONE question via `AskUserQuestion` with 3-4 options
+4. NOTHING ELSE. End your message. Wait for the user's answer.
+
+**Every subsequent message (after receiving an answer) contains:**
+1. Analysis of their answer (what it reveals, assumptions, tensions)
+2. Scoring changes with justification
+3. Updated scoring matrix
+4. A "Thinking" block explaining your reasoning for the NEXT question
+5. ONE question via `AskUserQuestion` with 3-4 options
+6. NOTHING ELSE. End your message. Wait for the user's answer.
+
+**When ambiguity reaches ≤ 20% (or user exits), your next message contains:**
+1. Analysis of the final answer
+2. Final scoring matrix
+3. The full product roadmap brief (Phase 4)
+
+**Things you must NEVER do:**
+- Never ask more than one question per message
+- Never list questions for the user to "answer all at once"
+- Never generate answers on the user's behalf ("illustrative" or otherwise)
+- Never skip ahead to the roadmap before the interview is done
+- Never present questions as plain text — always use `AskUserQuestion`
+
+### Interview Header (display once, in your first interview message)
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   PRODUCT DISCOVERY INTERVIEW
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-  I'll ask one question at a time. Each has
-  multiple-choice options — pick one or write
-  your own. After each answer, I'll share what
-  I'm learning and show your clarity scores.
-
-  We stop when we have enough clarity to build
-  a useful roadmap.
+  One question at a time. Pick an option or
+  write your own. After each answer I'll share
+  what I'm learning and show your clarity scores.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-### Each Round (repeat until done)
+### Scoring Matrix (initialize internally, all cells at 0.0)
 
-Every round follows this exact sequence. Do not skip or reorder steps.
+| | Vision (30%) | Market (20%) | Technical (20%) | Priority (15%) | Risk (15%) |
+|---|---|---|---|---|---|
+| **Network** | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
+| **Agent Identity** | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
+| **Smart Contracts** | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
 
-#### 1. THINK: Choose What to Ask
+**Composite formula:** `vision × 0.30 + market × 0.20 + technical × 0.20 + priority × 0.15 + risk × 0.15`
+**Ambiguity:** `1 - average(composite_network, composite_identity, composite_contracts)`
+**Tiers:** Ready (≥ 0.70) · Emerging (0.40–0.69) · Not Ready (< 0.40)
 
-Before generating the question, reason explicitly:
+### The Thinking Block
+
+Before EVERY question, write a visible "Thinking" block that shows your strategic reasoning. This is what makes the assessment feel like a conversation with a thoughtful strategist.
 
 ```
 ━━━ Thinking ━━━
 
-Looking at the matrix, the weakest cell is [Product Area] × [Dimension]
-at [score]. [Why this matters — what we don't know yet, what assumption
-is untested, what tension exists from prior answers.]
-
-I'll ask about [specific aspect] because [reasoning about why this
-is the highest-leverage question right now].
+[Which cell is weakest and why. What you don't know yet.
+What assumption from the prior answer needs probing.
+What tension exists. Why THIS question is the highest-leverage
+one right now.]
 ```
 
-This thinking block is VISIBLE to the interviewee. It shows them the assessment is thoughtful, not mechanical. It should read like a strategist reasoning aloud.
+In early rounds when all cells are 0.0, think about which foundational question will illuminate the MOST cells at once.
 
-When cells are tied at 0.0 (early rounds), think about which foundational question will illuminate the most cells at once. A question about core product vision will inform Vision scores across all three product areas.
+### Asking a Question
 
-#### 2. ACT: Ask ONE Question
+Use `AskUserQuestion` with 3-4 options. If `AskUserQuestion` is unavailable, present lettered options — but NEVER as "reply A or B". Always use the structured picker when the tool exists.
 
-Present exactly one question with 3-4 options plus "Other (specify)". Use `AskUserQuestion` (or equivalent structured picker UI) — never plain text "reply A or B":
+Show the round number and current ambiguity:
 
 ```
 Round [n] · Ambiguity: [score]%
-
-[Question — specific, grounded in Clockchain context, probing
-a real assumption or gap. NOT generic. NOT abstract.]
-
-a) [Substantive option that reveals a specific mental model]
-b) [Different perspective — genuinely different, not a word variant]
-c) [Challenging or contrarian take — tests assumptions]
-d) [Honest uncertainty or alternative framing]
-e) Other (specify)
 ```
 
 **How to write good options:**
-- Each option should imply a DIFFERENT strategic direction
+- Each option implies a DIFFERENT strategic direction
 - Draw from: knowledge.md product areas, named competitors, prior answers, real tensions
-- One option should acknowledge uncertainty ("I haven't thought about this" / "I'm not sure")
-- Never include an obviously "right" answer — all options should feel legitimate
-- Options should be specific enough that choosing one tells you something concrete
+- One option acknowledges uncertainty ("I haven't thought about this" / "I'm not sure")
+- No obviously "right" answer — all options should feel legitimate
+- Specific enough that choosing one tells you something concrete
 
-**STOP after presenting the question. Wait for the answer. Do not continue.**
+### Analyzing an Answer
 
-#### 3. THINK: Analyze the Answer
-
-After receiving the answer, THINK deeply. Write a substantive analysis:
+After receiving the answer (in your NEXT message), write substantive analysis:
 
 ```
 ━━━ Analysis ━━━
 
 What this tells me: [2-3 sentences. What mental model does this
-reveal? What does the interviewee assume to be true? How does this
-connect to what they said before?]
+reveal? What does the interviewee assume to be true?]
 
 Assumption surfaced: [Name the untested belief. "You're assuming X,
 which implies Y. Has Y been validated?"]
 
 Tension: [Does this contradict a prior answer? "Earlier you said A,
-but this implies B. Those pull in different directions." Or: "This
-is consistent with your Round N answer — the picture is coherent."]
+but this implies B." Or: "Consistent with Round N."]
 ```
 
-This analysis is the intellectual core of the assessment. It should feel like getting feedback from a sharp strategist who's really listening — not a form processor.
-
-#### 4. ACT: Score and Display
-
-Score the affected cells with explicit justification:
+Then score with justification:
 
 ```
 Scoring:
-  [Product Area] × [Dimension]: [old] → [new]
-    Because: [one sentence defending the score]
-  [Product Area] × [Dimension]: [old] → [new]
-    Because: [one sentence]
+  [Cell]: [old] → [new] — [one sentence why]
 
 | | Vision | Market | Technical | Priority | Risk | Composite | Tier |
 |---|---|---|---|---|---|---|---|
@@ -215,35 +225,28 @@ Scoring:
 Ambiguity: [score]% → target ≤ 20%
 ```
 
-**Composite formula:** `vision × 0.30 + market × 0.20 + technical × 0.20 + priority × 0.15 + risk × 0.15`
-**Ambiguity:** `1 - average(composite_network, composite_identity, composite_contracts)`
-**Tiers:** Ready (≥ 0.70) · Emerging (0.40–0.69) · Not Ready (< 0.40)
-
-#### 5. VERIFY: Check Progress
-
-Briefly assess:
-- Is ambiguity dropping? If stalled for 3 rounds, shift approach.
-- Is the next question obvious from the analysis? (Probe the assumption you just surfaced? Explore the tension you just flagged?)
-- Are we at threshold (≤ 20%)? If yes, move to Phase 4.
-
-Then return to step 1 for the next round.
+Use the scoring rubrics from knowledge.md:
+- **0.0–0.3:** Vague, no evidence, untested assumption
+- **0.4–0.6:** Directional, some reasoning but gaps remain
+- **0.7–0.8:** Clear, evidence-backed, specific
+- **0.9–1.0:** Crystal clear, customer-validated, testable
 
 ### Challenge Modes
 
-At natural points in the interview (not rigidly at round N), shift perspective:
+At natural points (not rigidly by round number), shift perspective:
 
-- **Contrarian:** When the interviewee sounds too certain — challenge the core assumption. "What if the opposite were true?"
-- **Simplifier:** When scope is expanding — "What's the simplest version that's still valuable?"
-- **Competitor:** When differentiation is assumed — "If [specific competitor] ships this next month, what do you have that they don't?"
+- **Contrarian:** When too certain — "What if the opposite were true?"
+- **Simplifier:** When scope expanding — "What's the simplest version that's still valuable?"
+- **Competitor:** When differentiation assumed — "If [competitor] ships this next month, what do you have?"
 
-Use each mode at most once. They're lenses, not phases.
+Use each at most once.
 
 ### Exit Conditions
 
 - **Ambiguity ≤ 20%:** Proceed to Phase 4
 - **All 15 cells ≥ 0.5:** Sufficient coverage — proceed
-- **User requests exit:** Show current ambiguity, warn if above 20%, proceed
-- **Stall (no improvement for 3 rounds):** Offer to wrap up or change approach
+- **User says "enough" / "wrap up":** Show ambiguity, warn if above 20%, proceed
+- **Stall (no improvement for 3 rounds):** Offer to wrap up
 
 ---
 
