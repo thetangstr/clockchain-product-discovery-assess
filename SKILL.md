@@ -173,9 +173,22 @@ Find the ONE product area × dimension pair with the lowest score. When multiple
 
 #### Step 3b: Ask ONE Question
 
-Pick ONE question targeting the weakest cell — either from the Question Bank (if the cell is at 0.0) or generate one dynamically (if the cell is above 0.0). Use the question styles and tension-surfacing techniques from knowledge.md.
+Generate ONE question targeting the weakest cell. Every question is generated dynamically based on:
+- The target product area and dimension (from Step 3a)
+- The company context loaded in Phase 2 (from knowledge.md)
+- All prior answers and the tensions/assumptions they revealed
+- The question styles and tension-surfacing techniques from knowledge.md
 
 **Every question MUST include 3-4 pre-populated multiple-choice options plus "Other (specify)". No exceptions. No open-ended questions.**
+
+**How to generate good options:** Each option should represent a genuinely different product perspective grounded in Clockchain's actual context. Draw options from:
+- The product areas and their descriptions in knowledge.md
+- The competitive landscape (named competitors and their approaches)
+- The interviewee's prior answers (build on what they've said)
+- Real strategic tensions (infrastructure vs. product, Web3 vs. enterprise, etc.)
+- An honest "I don't know" or uncertainty variant
+
+**Do NOT present generic or abstract options.** Every option should be specific enough that picking it reveals something concrete about the interviewee's thinking.
 
 Present the question with context:
 
@@ -184,86 +197,22 @@ Round [n] | [Product Area] × [Dimension] | Ambiguity: [score]%
 
 [Question text]
 
-a) [option — a specific, substantive answer]
-b) [option — a different perspective]
-c) [option — a challenging or contrarian take]
-d) [option — an honest "I don't know" variant]
+a) [specific, substantive option grounded in Clockchain context]
+b) [different perspective, also grounded]
+c) [challenging or contrarian take]
+d) [honest uncertainty or alternative framing]
 e) Other (specify)
 ```
 
-Options should represent genuinely different perspectives, not leading choices. Include at least one option that challenges the interviewee's likely assumption.
+**Question generation by dimension** (use knowledge.md for full rubrics):
 
-### Question Bank (Starter Questions)
-
-When a cell is at 0.0, use these pre-written questions. As scores rise above 0.0, generate follow-up questions dynamically — but ALWAYS with multiple-choice options.
-
-**Vision questions (for any product area at 0.0 on Vision):**
-
-> In one sentence, what is Clockchain's core product?
-> a) Cryptographically verifiable timestamps that prove when AI agent actions happened — sold as infrastructure to agent platforms
-> b) On-chain identity (birth certificates) for AI agents — so enterprises can trust and audit autonomous systems
-> c) A decentralized time oracle network — node operators and token holders secure the network, developers build on it
-> d) A trust layer for AI agents — combining time provenance, identity, and receipts into one verifiable stack
-> e) Other (specify)
-
-> Who is Clockchain's primary customer in the next 12 months?
-> a) AI agent platform developers (LangChain, AutoGPT, CrewAI) who need provenance infrastructure
-> b) Enterprises deploying AI agents who need audit trails and compliance
-> c) Web3 developers building dApps that need reliable on-chain timestamps
-> d) Crypto-native projects and DAOs that need decentralized time services
-> e) Other (specify)
-
-**Priority questions (for any product area at 0.0 on Prioritization):**
-
-> If you could only ship ONE product area in the next 6 months, which would it be?
-> a) Network (Time Oracle / DePIN) — it's the foundation everything else depends on
-> b) Agent Identity (DIDs / Birth Certificates) — it's the product differentiator and revenue driver
-> c) Smart Contracts & Receipts — it's the clearest path to revenue (pay-per-attestation)
-> d) I genuinely don't know which should come first
-> e) Other (specify)
-
-> Which product area keeps you up at night — and why?
-> a) Network — will MainNet launch on time? Will it be reliable enough?
-> b) Agent Identity — do customers actually need this? Is the timing right?
-> c) Smart Contracts & Receipts — is this too early? Do we have the technical capacity?
-> d) All of them equally — everything feels uncertain at this stage
-> e) Other (specify)
-
-**Market questions (for any product area at 0.0 on Market):**
-
-> How does Clockchain's time oracle create value that competitors cannot replicate?
-> a) The US patent — legal protection on blockchain-based timekeeping that nobody can copy
-> b) Time provenance as a primitive — competitors do identity or coordination, but none anchor on verifiable time
-> c) FINMA approval + Swiss entity — regulatory credibility that competitors lack
-> d) First-mover on agent identity with time provenance — the combination is unique
-> e) Other (specify)
-
-> What is the biggest open question about Clockchain's product that you don't have an answer to yet?
-> a) Will AI agent platforms actually pay for on-chain identity, or is it a nice-to-have?
-> b) Should we target Web3-native users or cross over to traditional enterprise?
-> c) How do we get to revenue before the token launch — or do we need to?
-> d) Is the time oracle the product, or just the infrastructure underneath the real product?
-> e) Other (specify)
-
-**Risk questions (for any product area at 0.0 on Risk):**
-
-> What would make you abandon the current product direction entirely?
-> a) A major L1 (Ethereum, Solana) ships native agent identity as a protocol feature
-> b) After 12 months, zero paying customers or meaningful developer adoption
-> c) A well-funded competitor (>$50M raised) ships an identical time oracle + agent identity stack
-> d) Nothing — the vision is right regardless of short-term signals
-> e) Other (specify)
-
-**Technical questions (for any product area at 0.0 on Technical):**
-
-> What is the single most important thing Clockchain must get right to succeed?
-> a) Ship MainNet — nothing else matters until the network is live and stable
-> b) Developer adoption — get 10+ projects building on Clockchain before competitors lock in the market
-> c) Product-market fit for agent identity — prove that AI platforms actually need and will pay for on-chain DIDs
-> d) Token economics — get the token model right so the network is self-sustaining
-> e) Other (specify)
-
-As the interview progresses and cells rise above 0.0, stop using the question bank and generate targeted follow-up questions dynamically. But ALWAYS include multiple-choice options — no exceptions.
+| Dimension | Question style | What good options look like |
+|---|---|---|
+| Vision | "What IS this product?" | Each option is a different product framing (infrastructure vs. identity vs. trust layer vs. receipts) |
+| Market | "Who wants this and why?" | Each option is a different customer segment or competitive positioning |
+| Technical | "Can we build this?" | Each option is a different technical path, dependency, or blocker |
+| Priority | "Why this first?" | Each option is a different sequencing rationale or dependency argument |
+| Risk | "What could kill this?" | Each option is a different failure mode or existential threat |
 
 #### Step 3c: Analyze the Answer (THIS IS THE MOST IMPORTANT STEP)
 
