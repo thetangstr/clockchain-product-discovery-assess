@@ -265,16 +265,55 @@ When a cell is at 0.0, use these pre-written questions. As scores rise above 0.0
 
 As the interview progresses and cells rise above 0.0, stop using the question bank and generate targeted follow-up questions dynamically. But ALWAYS include multiple-choice options — no exceptions.
 
-#### Step 3c: Score the Answer
+#### Step 3c: Analyze the Answer (THIS IS THE MOST IMPORTANT STEP)
 
-After receiving the answer, update the relevant cell(s) in the scoring matrix. Use the scoring rubrics from knowledge.md:
+After receiving the answer, do NOT rush to the next question. Stop and THINK. Write a substantive analysis of what the answer reveals. This analysis is the core value of the assessment — without it, this is just a quiz.
 
+**For every answer, write all of the following:**
+
+1. **What this reveals:** 2-3 sentences interpreting the answer. What does this tell us about the interviewee's mental model? What assumptions are embedded in their choice?
+
+2. **Assumptions surfaced:** Name any untested beliefs the answer contains. "You said X — that assumes Y. Is Y validated or a hypothesis?"
+
+3. **Tensions or contradictions:** Does this answer conflict with anything they said earlier? Flag it. "In Round 2 you said the customer is enterprises, but here you're prioritizing developer-facing SDK tooling. Those imply different go-to-market strategies."
+
+4. **Scoring justification:** Score the relevant cell(s) and explain WHY each score is what it is. Don't just assign a number — defend it.
+
+Use the scoring rubrics from knowledge.md:
 - **0.0–0.3:** Vague, no evidence, untested assumption
 - **0.4–0.6:** Directional, some reasoning but gaps remain
 - **0.7–0.8:** Clear, evidence-backed, specific
 - **0.9–1.0:** Crystal clear, customer-validated, testable
 
-A single answer may improve multiple cells if it touches multiple dimensions or product areas. Score each affected cell independently.
+A single answer may improve multiple cells if it touches multiple dimensions or product areas. Score each affected cell independently with justification.
+
+**Example of good analysis:**
+
+```
+━━━ Round 3 Analysis ━━━
+
+What this reveals: You chose "Agent Identity is the product differentiator
+and revenue driver." This suggests you see the Network as infrastructure
+(necessary but not the thing customers buy) and Agent Identity as the
+product layer where value is captured. That's a significant framing —
+it means the Network is a cost center, not a revenue center.
+
+Assumption surfaced: This assumes agent platforms will pay for identity
+as a service. That's unvalidated — no named customers have confirmed
+willingness to pay for on-chain DIDs.
+
+Tension: In Round 1 you described the core product as "a decentralized
+time oracle network." But here you're saying the network isn't the product —
+Agent Identity is. These two framings are in tension. Which is it?
+
+Scoring:
+  Agent Identity × Vision: 0.3 → 0.5 (directional but "revenue driver"
+    claim is unvalidated — no evidence of willingness to pay)
+  Agent Identity × Priority: 0.0 → 0.6 (clear priority call, but
+    dependency on Network not addressed)
+  Network × Vision: 0.4 → 0.4 (unchanged — still unclear if Network
+    is a product or infrastructure)
+```
 
 #### Step 3d: Calculate & Display Progress
 
@@ -298,6 +337,14 @@ Display the updated matrix after each round:
 ```
 ━━━ Round [n] Complete ━━━
 
+What this reveals: [2-3 sentences of substantive analysis]
+Assumptions surfaced: [named assumptions]
+Tensions: [contradictions with prior answers, or "None yet"]
+
+Scoring changes:
+  [Cell]: [old] → [new] ([justification])
+  [Cell]: [old] → [new] ([justification])
+
 | | Vision | Market | Technical | Priority | Risk | Composite | Tier |
 |---|---|---|---|---|---|---|---|
 | Network | [s] | [s] | [s] | [s] | [s] | [c] | [tier] |
@@ -305,8 +352,12 @@ Display the updated matrix after each round:
 | Smart Contracts | [s] | [s] | [s] | [s] | [s] | [c] | [tier] |
 
 Ambiguity: [score]% | Target: ≤ 20%
-Next target: [Product Area] × [Dimension] — [why this is the weakest]
+Next question targets: [Product Area] × [Dimension] — [why this is the weakest and what we need to learn]
 ```
+
+#### Step 3e: Generate the Next Question
+
+Only AFTER displaying the full analysis and matrix, generate the next question. The question should be informed by the analysis — probe the assumptions you just surfaced, explore the tensions you just flagged, or target the gap you just identified. This is what makes the interview adaptive and Socratic, not just a checklist.
 
 #### Step 3e: Challenge Mode Triggers
 
