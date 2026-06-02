@@ -442,6 +442,58 @@ e) Other (specify)
 Why good: Uses specific competitive intel (Cronos, named and real). Each option implies a different competitive strategy. Option (d) is honest and score-relevant. The question itself builds on prior answers.
 </Good>
 
+<Good>
+Red flag triggered — push back on same cell:
+```
+━━━ Analysis ━━━
+
+What this tells me: You said "the market needs agent identity."
+That's a category-level claim, not evidence of demand.
+
+RED FLAG: "AI agents need identity" — matches knowledge.md red flag
+for Agent Identity. "Everyone says this. WHO needs it? Which agent
+platform has told you they need it?"
+
+Assumption surfaced: You're assuming demand exists because the
+concept sounds logical. But logical ≠ validated. No named customer,
+no expressed willingness to pay, no evidence of pain without identity.
+
+Tension: In Round 1 you were more specific — you named agent
+platforms as the product layer. But here you've retreated to
+"the market" which is vaguer. Score goes DOWN.
+
+Push-back: I'm staying on this cell. The answer wasn't specific
+enough to score up.
+
+Scoring (full re-evaluation):
+  Agent Identity × Market: 0.4 → 0.3 — DOWNGRADE. Round 2 named
+    framework devs as buyers (specific). Round 3 retreated to "the
+    market needs this" (vague). Net: less clarity than before.
+  Agent Identity × Vision: 0.55 → 0.55 — unchanged
+  Agent Identity × Risk: 0.2 → 0.15 — slight downgrade, inability
+    to name demand signals IS a risk signal
+
+[matrix...]
+
+Ambiguity: 86% → 88% — went UP because clarity decreased
+
+━━━ Thinking ━━━
+
+Agent Identity × Market dropped from 0.4 to 0.3. The answer hit
+a red flag — vague market claim with no evidence. I need to push
+on the SAME cell. I'll reframe to force specificity: name an
+actual company or person.
+
+Round 4 · Ambiguity: 88%
+```
+[AskUserQuestion: "I want to push on this. You said 'the market
+needs agent identity' but that's a hypothesis, not evidence. Can
+you name ONE specific company or person who has told you they need
+agent DIDs — not 'is interested,' but would be upset if Clockchain
+didn't exist?"]
+Why good: Red flag explicitly named. Score went DOWN (0.4 → 0.3). Pushed on the SAME cell instead of moving on. Question demands specific evidence. Ambiguity went UP because clarity decreased — the assessment is honest.
+</Good>
+
 <Bad>
 No think cycle:
 ```
