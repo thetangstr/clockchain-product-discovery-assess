@@ -123,37 +123,76 @@ your current product thinking baseline.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-Ask all eight questions. These are mandatory. Present each with the coaching prompt shown:
+Ask all eight questions. These are mandatory. Every question MUST have pre-populated multiple-choice options. The user can always select "Other" and type a custom answer.
 
 **PRODUCT VISION**
 
 1. **In one sentence, what is Clockchain's core product?**
    *(Not the technology — the product. What does a customer buy, and what outcome do they get?)*
+   - a) Cryptographically verifiable timestamps that prove when AI agent actions happened — sold as infrastructure to agent platforms
+   - b) On-chain identity (birth certificates) for AI agents — so enterprises can trust and audit autonomous systems
+   - c) A decentralized time oracle network — node operators and token holders secure the network, developers build on it
+   - d) A trust layer for AI agents — combining time provenance, identity, and receipts into one verifiable stack
+   - e) Other (specify)
 
 2. **Who is Clockchain's primary customer in the next 12 months?**
-   *(Web3 developers? AI agent platforms? Enterprise? Crypto traders? Be specific about who pays.)*
+   *(Be specific about who writes the check.)*
+   - a) AI agent platform developers (LangChain, AutoGPT, CrewAI teams) who need provenance infrastructure
+   - b) Enterprises deploying AI agents who need audit trails and compliance
+   - c) Web3 developers building dApps that need reliable on-chain timestamps
+   - d) Crypto-native projects and DAOs that need decentralized time services
+   - e) Other (specify)
 
 3. **What is the single most important thing Clockchain must get right to succeed?**
-   *(Not a feature list — the one thing that, if you nail it, everything else follows.)*
+   *(The one thing that, if you nail it, everything else follows.)*
+   - a) Ship MainNet — nothing else matters until the network is live and stable
+   - b) Developer adoption — get 10+ projects building on Clockchain before competitors lock in the market
+   - c) Product-market fit for agent identity — prove that AI platforms actually need and will pay for on-chain DIDs
+   - d) Token economics — get the token model right so the network is self-sustaining
+   - e) Other (specify)
 
 **PRODUCT PRIORITIES**
 
 4. **Which product area keeps you up at night — and why?**
-   *(Network infrastructure? Agent identity/DIDs? Smart contracts? What feels most uncertain or most critical?)*
+   *(What feels most uncertain or most critical?)*
+   - a) Network — will MainNet launch on time? Will it be reliable enough?
+   - b) Agent Identity — do customers actually need this? Is the timing right?
+   - c) Smart Contracts & Receipts — is this too early? Do we have the technical capacity?
+   - d) All of them equally — everything feels uncertain at this stage
+   - e) Other (specify)
 
 5. **If you could only ship ONE product area in the next 6 months, which would it be?**
-   *(Forces a priority call. No "all of them" — pick one and explain why.)*
+   *(Pick one. No "all of them.")*
+   - a) Network (Time Oracle / DePIN) — it's the foundation everything else depends on
+   - b) Agent Identity (DIDs / Birth Certificates) — it's the product differentiator and revenue driver
+   - c) Smart Contracts & Receipts — it's the clearest path to revenue (pay-per-attestation)
+   - d) Other (specify)
 
 6. **What is the biggest open question about Clockchain's product that you don't have an answer to yet?**
-   *(The thing you'd love to have clarity on but currently don't.)*
+   *(The thing you'd love clarity on but currently don't.)*
+   - a) Will AI agent platforms actually pay for on-chain identity, or is it a nice-to-have?
+   - b) Should we target Web3-native users or cross over to traditional enterprise?
+   - c) How do we get to revenue before the token launch — or do we need to?
+   - d) Is the time oracle the product, or just the infrastructure underneath the real product?
+   - e) Other (specify)
 
 **COMPETITIVE POSITION**
 
 7. **How does Clockchain's time oracle create value that competitors cannot replicate?**
-   *(Sahara AI, 0G Labs, Sentient, Story Protocol, Cronos, Eliza are all in the agent-on-chain space. What's the moat?)*
+   *(Sahara AI, 0G Labs, Sentient, Story Protocol, Cronos, Eliza are all in the space. What's the moat?)*
+   - a) The US patent — we have legal protection on blockchain-based timekeeping that nobody can copy
+   - b) Time provenance as a primitive — competitors do identity or coordination, but none anchor on verifiable time
+   - c) FINMA approval + Swiss entity — regulatory credibility that competitors lack
+   - d) First-mover on agent identity with time provenance — the combination is unique even if individual pieces exist elsewhere
+   - e) Other (specify)
 
 8. **What would make you abandon the current product direction entirely?**
-   *(What signal — from the market, technology, or team — would cause a pivot? If nothing would, why not?)*
+   *(What signal would cause a pivot?)*
+   - a) A major L1 (Ethereum, Solana) ships native agent identity as a protocol feature — making our product redundant
+   - b) After 12 months, zero paying customers or meaningful developer adoption
+   - c) A well-funded competitor (>$50M raised) ships an identical time oracle + agent identity stack
+   - d) Nothing — the vision is right regardless of short-term signals; it's a matter of execution
+   - e) Other (specify)
 
 ### Phase 2 Complete Gate
 
