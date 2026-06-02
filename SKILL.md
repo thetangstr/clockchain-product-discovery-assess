@@ -340,7 +340,7 @@ Present the priority ranking and offer next steps:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-  ASSESSMENT COMPLETE
+  ASSESSMENT COMPLETE — [Name]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   [Name] · [Role] · [Date]
@@ -349,9 +349,64 @@ Present the priority ranking and offer next steps:
   #1  [area]  · [tier]  · [composite]
   #2  [area]  · [tier]  · [composite]
   #3  [area]  · [tier]  · [composite]
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
 
-  Next: Run this with other team members to
-  compare visions and find alignment gaps.
+Then ask via `AskUserQuestion`:
+
+"Assessment saved. What's next?"
+- a) **Assess another team member** — run the assessment again with a different person in this same session. After all members are done, I'll generate a team comparison report.
+- b) **Generate team comparison now** — if other assessments already exist (product-roadmap-*.json), compare them and produce the alignment report.
+- c) **Done for now** — just save this assessment and stop.
+
+---
+
+## Phase 5: Team Comparison (when multiple assessments exist)
+
+**Prerequisite:** 2+ completed assessments in this session (product-roadmap-*.json files).
+
+When the user chooses "Assess another team member," loop back to Phase 1 (Intake) for the new person. Keep all prior assessment files. The scoring matrix resets to 0.0 for the new interviewee — each person gets a fresh assessment.
+
+When the user chooses "Generate team comparison" or after the last team member finishes:
+
+### THINK: Compare
+
+Before writing, reason through:
+- Where do the team members AGREE on priority ranking? (Strong signal — build there first)
+- Where do they DISAGREE? (Must resolve before committing resources)
+- Which product area has the widest score spread? (Biggest alignment gap)
+- Are there hidden assumptions one person holds that another has already challenged?
+
+### ACT: Write the Team Alignment Report
+
+Use the Cross-Interviewee Comparison Template from strategy.md. The report should include:
+
+1. **Priority ranking comparison** — side-by-side rankings from each person
+2. **Conviction tier comparison** — do they agree on what's Ready vs. Not Ready?
+3. **Biggest disagreements** — dimension-level score deltas > 0.3
+4. **Strongest agreements** — dimension-level score deltas < 0.1
+5. **Vision alignment analysis** — where they agree/disagree on WHAT the product is
+6. **Composite team roadmap** — averaged scores with alignment scores
+7. **Recommended alignment actions** — what to resolve, what to discuss, what to preserve
+
+Save to `team-comparison-clockchain.md` and `team-comparison-clockchain.json`.
+
+### Deliver
+
+```
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  TEAM COMPARISON COMPLETE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Compared: [Name 1], [Name 2], ...
+  Team Alignment Score: [score]%
+
+  CONSENSUS RANKING:
+  #1  [area]  · [avg composite]  · [aligned? yes/no]
+  #2  [area]  · [avg composite]  · [aligned? yes/no]
+  #3  [area]  · [avg composite]  · [aligned? yes/no]
+
+  MUST RESOLVE: [biggest disagreement area]
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
