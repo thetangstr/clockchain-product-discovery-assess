@@ -44,7 +44,8 @@ Every step in this assessment follows a THINK → ACT → VERIFY cycle. This is 
 2. **Think before every question.** Explicitly reason about which cell is weakest, why, and what you need to learn. Show this reasoning to the interviewee.
 3. **Analyze after every answer.** Write substantive analysis — what it reveals, assumptions surfaced, tensions with prior answers, scoring justification. This is the value of the assessment.
 4. **Every interview question has choices.** 3-4 multiple-choice options plus "Other (specify)". No open-ended questions during the interview (Phase 3). No exceptions.
-5. **LinkedIn-quality output.** The final brief should be polished, insightful, and publishable — not a raw data dump.
+5. **Use the structured picker UI.** If you have access to `AskUserQuestion` (Claude Code), use it for EVERY question — intake and interview. If unavailable, present lettered options in text. Never present choices as a plain "reply A or B" — always use the clickable picker when the tool exists.
+6. **LinkedIn-quality output.** The final brief should be polished, insightful, and publishable — not a raw data dump.
 
 </Execution_Policy>
 
@@ -52,7 +53,7 @@ Every step in this assessment follows a THINK → ACT → VERIFY cycle. This is 
 
 ## Phase 1: Intake
 
-Collect via structured questions with multiple-choice options. Ask these one at a time, waiting for each answer before proceeding to the next:
+Collect via structured questions. Use `AskUserQuestion` (or equivalent structured picker UI) for each question — one at a time, waiting for each answer before proceeding to the next:
 
 **Question 1: What is your name?**
 *(Free text — type your name)*
@@ -149,7 +150,7 @@ When cells are tied at 0.0 (early rounds), think about which foundational questi
 
 #### 2. ACT: Ask ONE Question
 
-Present exactly one question with 3-4 options plus "Other (specify)":
+Present exactly one question with 3-4 options plus "Other (specify)". Use `AskUserQuestion` (or equivalent structured picker UI) — never plain text "reply A or B":
 
 ```
 Round [n] · Ambiguity: [score]%
@@ -311,6 +312,14 @@ Present the priority ranking and offer next steps:
 ```
 
 </Steps>
+
+<Tool_Usage>
+- **AskUserQuestion** (or equivalent structured picker): Use for EVERY question — intake and interview. This gives the interviewee clickable options, not plain text letters. The "Other" option with free-text input is built into the tool automatically.
+- **Write**: Save the final roadmap brief as markdown and JSON artifacts.
+- **Read**: Load knowledge.md and strategy.md at the start.
+- If `AskUserQuestion` is not available (e.g., ChatGPT, plain Claude.ai), fall back to lettered options in text — but always present structured choices, never "reply A or B."
+- No external dependencies. No plugins. No API calls. This skill is fully self-contained.
+</Tool_Usage>
 
 <Examples>
 
