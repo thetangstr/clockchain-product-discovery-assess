@@ -5,294 +5,205 @@ level: 3
 ---
 
 <Purpose>
-Assess what Clockchain's future product should be by interviewing founding team members through an adaptive Socratic process. Collect interviewee intake, load company context, gather pre-interview baseline, then run an adaptive interview that scores clarity across three product areas and five functional dimensions. The output is a priority-ranked product roadmap with conviction tiers showing where the team has clarity and where assumptions remain unresolved.
+Discover what Clockchain's future product should be by interviewing founding team members through an adaptive Socratic process. Produce a LinkedIn-quality product brief with a priority-ranked roadmap and conviction tiers.
+
+This skill is self-contained. No plugins, no dependencies. Read these three files and run.
 </Purpose>
 
 <Use_When>
-- User wants to assess product direction for Clockchain
-- User says "product discovery", "what should we build", "assess our product thinking", "product direction assessment"
-- Founding team member wants to crystallize their vision for Clockchain's future
-- Team wants to compare product thinking across founders to find alignment and divergence
-- User wants structured product discovery before committing to a roadmap
+- "product discovery", "what should we build", "assess our product thinking"
+- Founding team member wants to crystallize their product vision
+- Team wants to compare product visions across founders
 </Use_When>
 
 <Do_Not_Use_When>
-- User already has a detailed product spec or PRD — execute directly
-- User wants to assess agentic workflow readiness — use assess-agentic instead
-- User wants a quick opinion on a single product question — answer directly
-- User wants competitive intelligence or market research only — this is product discovery, not market analysis
+- User already has a detailed product spec — execute directly
+- User wants agentic workflow readiness — use assess-agentic
+- User wants a quick one-question answer
 </Do_Not_Use_When>
 
 <Why_This_Exists>
-Clockchain is at a critical product inflection point: pre-MainNet, pre-revenue, pivoting from "time for Web3" to "time as the trust substrate for AI agents." The founding team each carry different mental models of what the product should become. This skill applies mathematical clarity gates to surface hidden assumptions, expose divergent visions, and produce a priority-ranked roadmap grounded in the team's actual conviction levels — not just the loudest voice in the room.
+Clockchain is pre-MainNet, pre-revenue, pivoting from "time for Web3" to "time as the trust substrate for AI agents." The founding team carries different mental models of the product. This assessment surfaces hidden assumptions, exposes divergent visions, and produces a priority-ranked roadmap grounded in actual conviction levels.
 </Why_This_Exists>
 
 <Execution_Policy>
-- Collect intake FIRST, then load context, then interview — do not skip phases
-- Frame the interview with product discovery context: three product areas, five functional dimensions, vision-heavy weighting
-- After the interview, format the output as a priority-ranked product roadmap
-- Use the product discovery frameworks (knowledge.md) to inform interview framing and scoring
-- Use the roadmap templates (strategy.md) to structure the output
-- Discovery-first: do NOT seed specific question themes — let the interview find tensions organically
-- Ask ONE question at a time — never batch multiple questions
-- Score ambiguity after every answer — display the score transparently
-- Target the WEAKEST product area × dimension pair with each question
-- Challenge assumptions, not just gather feature lists
+
+## The Think Cycle
+
+Every step in this assessment follows a THINK → ACT → VERIFY cycle. This is non-negotiable.
+
+**THINK:** Before every action, reason explicitly about WHY you're doing it. What is the current state? What is the weakest area? What assumption are you probing? Write your reasoning out — the interviewee should see your thinking process. This is what makes the assessment feel like a conversation with a thoughtful strategist, not a form to fill out.
+
+**ACT:** Take exactly one action. Ask one question. Score one answer. Generate one section of the report. Never batch.
+
+**VERIFY:** After every action, check: Did this advance clarity? Did the scoring change meaningfully? Is there a tension with prior answers? If not, adjust your approach.
+
+## Core Rules
+
+1. **One question per message.** Never two. Never a list. ONE question, with multiple-choice options, then STOP and wait for the answer.
+2. **Think before every question.** Explicitly reason about which cell is weakest, why, and what you need to learn. Show this reasoning to the interviewee.
+3. **Analyze after every answer.** Write substantive analysis — what it reveals, assumptions surfaced, tensions with prior answers, scoring justification. This is the value of the assessment.
+4. **Every interview question has choices.** 3-4 multiple-choice options plus "Other (specify)". No open-ended questions during the interview (Phase 3). No exceptions.
+5. **LinkedIn-quality output.** The final brief should be polished, insightful, and publishable — not a raw data dump.
+
 </Execution_Policy>
 
 <Steps>
 
-## Phase 1: Interviewee Intake
+## Phase 1: Intake
 
-### Phase 1 Header
+Collect via structured questions with multiple-choice options. Ask these one at a time, waiting for each answer before proceeding to the next:
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 1 OF 4 — INTERVIEWEE INTAKE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+**Question 1: What is your name?**
+*(Free text — type your name)*
 
-Clockchain Product Discovery Assessment
-Collecting interviewee parameters.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+**Question 2: What is your role?**
+a) CEO / Co-founder — strategic vision and business direction
+b) Head of AI Products — product and technical direction for agentic use cases
+c) CTO / Technical Co-founder — network architecture and technical feasibility
+d) Other (specify)
 
-### Intake Collection
+**Question 3: Which product area do you think about most?**
+a) Network (time oracle / DePIN) — the core infrastructure layer
+b) Agent Identity (DIDs / birth certificates) — on-chain agent identity
+c) Smart Contracts & Receipts — verifiable on-chain agent actions
+d) All areas equally
+e) Other (specify)
 
-Collect all fields via structured questions:
-
-1. **Interviewee Name** — Full name of the team member being assessed.
-2. **Role** — Select one:
-   - `CEO / Co-founder` — Strategic vision and business direction
-   - `Head of AI Products` — Product and technical direction for agentic use cases
-   - `CTO / Technical Co-founder` — Network architecture and technical feasibility
-   - `Other` — Specify role and area of focus
-3. **Primary focus area** — Which product area does this person think about most? (Used to calibrate question depth, not to limit scope):
-   - `Network (time oracle / DePIN)` — The core infrastructure layer
-   - `Agent Identity (DIDs / birth certificates)` — On-chain agent identity and provenance
-   - `Smart Contracts & Receipts` — Verifiable receipts and on-chain agent actions
-   - `All areas equally` — No primary focus; thinks across the full product
-
-### Phase 1 Complete Gate
-
-After all fields are collected, present a confirmation summary:
+After collecting, confirm:
 
 ```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-INTAKE CONFIRMED
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  Interviewee:    [name]
-  Role:           [role]
-  Primary focus:  [focus_area]
-  Company:        Clockchain (D4D Sarl / D4D Group)
-
-Proceeding to context loading.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [Name] · [Role] · Focus: [area]
+  Company: Clockchain (D4D Sarl / D4D Group)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ---
 
 ## Phase 2: Context Loading
 
-**Prerequisite:** Phase 1 must be fully complete.
+Read knowledge.md. Internalize:
+- Company stage (pre-MainNet, pre-revenue, pre-TGE)
+- Core IP (US patent for blockchain-based timekeeping)
+- Strategic pivot (time for Web3 → trust substrate for AI agents)
+- Competitors (Sahara AI, 0G Labs, Sentient, Story Protocol, Cronos, Eliza)
+- Differentiation (none anchor identity on a patented time oracle)
+- Three product areas and their descriptions
+- Five functional dimensions and their scoring rubrics
+- Tension-surfacing techniques
+
+Do NOT display all of this to the user. Just confirm:
 
 ```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 2 OF 4 — CONTEXT LOADING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Loading Clockchain company and competitive context.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Context loaded. Starting the interview.
 ```
-
-### Company Context
-
-Load the following context (read from knowledge.md for full details):
-
-- **Company:** Clockchain (D4D Sarl, Neuchatel, Switzerland / D4D Group, San Francisco)
-- **Stage:** Pre-MainNet, pre-revenue, pre-TGE
-- **Core IP:** US patent for blockchain-based timekeeping
-- **FINMA-approved token sale**
-- **Public testnet** live since 2026-02-23
-- **Strategic pivot:** From "time for Web3" to "time as the trust substrate for AI agents"
-- **Competitors:** Sahara AI, 0G Labs, Sentient, Story Protocol, Cronos AI Agent SDK, Eliza framework
-- **Differentiation:** None of these competitors anchor their identity primitive on a patented time oracle
 
 ---
 
-## Phase 3: Adaptive Product Discovery Interview
+## Phase 3: Adaptive Interview
 
-**Prerequisite:** Phase 2 must be fully complete (company context loaded).
+### Setup
 
-### Phase 3 Header
+Initialize a 3×5 scoring matrix internally (all cells at 0.0). Set ambiguity to 100%.
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 3 OF 4 — PRODUCT DISCOVERY INTERVIEW
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Adaptive Socratic interview. One question at a time.
-Targeting the weakest clarity area with each question.
-I'll show your clarity scores after every answer.
-We stop when clarity is high enough — could be 5
-rounds or 15, depending on your answers.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-### Interview Setup
-
-Initialize a 3×5 scoring matrix (all cells start at 0.0):
-
-| | Vision (30%) | Market (20%) | Technical (20%) | Priority (15%) | Risk (15%) |
-|---|---|---|---|---|---|
-| **Network** | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| **Agent Identity** | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-| **Smart Contracts** | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
-
-Set initial ambiguity to 100%.
-
-The interview has NO fixed number of rounds. Early rounds will naturally cover foundational questions (what is the product, who is the customer, what's the priority) because those cells start at 0.0 and will be the weakest. As clarity builds, questions get more specific and probing. The interview ends when ambiguity drops below 20% — that might take 5 rounds or 15.
-
-### Interview Loop
-
-**CRITICAL RULES — read these before asking anything:**
-
-1. **Ask exactly ONE question per round.** Never two. Never eight. ONE.
-2. **Wait for the answer before asking the next question.**
-3. **Score the answer before generating the next question.**
-4. **Display the updated scoring matrix before the next question.**
-5. **Every question MUST have multiple-choice options.** No open-ended questions. Ever.
-
-Violating rule #1 is the single most common failure mode. If you are about to present more than one question, STOP. Pick the single most important one. Ask it. Wait.
-
-Repeat until ambiguity ≤ 20% OR user exits early:
-
-#### Step 3a: Identify Weakest Cell
-
-Find the ONE product area × dimension pair with the lowest score. When multiple cells are tied, rotate across product areas (don't drill the same area repeatedly).
-
-#### Step 3b: Ask ONE Question
-
-Generate ONE question targeting the weakest cell. Every question is generated dynamically based on:
-- The target product area and dimension (from Step 3a)
-- The company context loaded in Phase 2 (from knowledge.md)
-- All prior answers and the tensions/assumptions they revealed
-- The question styles and tension-surfacing techniques from knowledge.md
-
-**Every question MUST include 3-4 pre-populated multiple-choice options plus "Other (specify)". No exceptions. No open-ended questions.**
-
-**How to generate good options:** Each option should represent a genuinely different product perspective grounded in Clockchain's actual context. Draw options from:
-- The product areas and their descriptions in knowledge.md
-- The competitive landscape (named competitors and their approaches)
-- The interviewee's prior answers (build on what they've said)
-- Real strategic tensions (infrastructure vs. product, Web3 vs. enterprise, etc.)
-- An honest "I don't know" or uncertainty variant
-
-**Do NOT present generic or abstract options.** Every option should be specific enough that picking it reveals something concrete about the interviewee's thinking.
-
-Present the question with context:
+Display:
 
 ```
-Round [n] | [Product Area] × [Dimension] | Ambiguity: [score]%
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  PRODUCT DISCOVERY INTERVIEW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[Question text]
+  I'll ask one question at a time. Each has
+  multiple-choice options — pick one or write
+  your own. After each answer, I'll share what
+  I'm learning and show your clarity scores.
 
-a) [specific, substantive option grounded in Clockchain context]
-b) [different perspective, also grounded]
-c) [challenging or contrarian take]
-d) [honest uncertainty or alternative framing]
+  We stop when we have enough clarity to build
+  a useful roadmap.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+```
+
+### Each Round (repeat until done)
+
+Every round follows this exact sequence. Do not skip or reorder steps.
+
+#### 1. THINK: Choose What to Ask
+
+Before generating the question, reason explicitly:
+
+```
+━━━ Thinking ━━━
+
+Looking at the matrix, the weakest cell is [Product Area] × [Dimension]
+at [score]. [Why this matters — what we don't know yet, what assumption
+is untested, what tension exists from prior answers.]
+
+I'll ask about [specific aspect] because [reasoning about why this
+is the highest-leverage question right now].
+```
+
+This thinking block is VISIBLE to the interviewee. It shows them the assessment is thoughtful, not mechanical. It should read like a strategist reasoning aloud.
+
+When cells are tied at 0.0 (early rounds), think about which foundational question will illuminate the most cells at once. A question about core product vision will inform Vision scores across all three product areas.
+
+#### 2. ACT: Ask ONE Question
+
+Present exactly one question with 3-4 options plus "Other (specify)":
+
+```
+Round [n] · Ambiguity: [score]%
+
+[Question — specific, grounded in Clockchain context, probing
+a real assumption or gap. NOT generic. NOT abstract.]
+
+a) [Substantive option that reveals a specific mental model]
+b) [Different perspective — genuinely different, not a word variant]
+c) [Challenging or contrarian take — tests assumptions]
+d) [Honest uncertainty or alternative framing]
 e) Other (specify)
 ```
 
-**Question generation by dimension** (use knowledge.md for full rubrics):
+**How to write good options:**
+- Each option should imply a DIFFERENT strategic direction
+- Draw from: knowledge.md product areas, named competitors, prior answers, real tensions
+- One option should acknowledge uncertainty ("I haven't thought about this" / "I'm not sure")
+- Never include an obviously "right" answer — all options should feel legitimate
+- Options should be specific enough that choosing one tells you something concrete
 
-| Dimension | Question style | What good options look like |
-|---|---|---|
-| Vision | "What IS this product?" | Each option is a different product framing (infrastructure vs. identity vs. trust layer vs. receipts) |
-| Market | "Who wants this and why?" | Each option is a different customer segment or competitive positioning |
-| Technical | "Can we build this?" | Each option is a different technical path, dependency, or blocker |
-| Priority | "Why this first?" | Each option is a different sequencing rationale or dependency argument |
-| Risk | "What could kill this?" | Each option is a different failure mode or existential threat |
+**STOP after presenting the question. Wait for the answer. Do not continue.**
 
-#### Step 3c: Analyze the Answer (THIS IS THE MOST IMPORTANT STEP)
+#### 3. THINK: Analyze the Answer
 
-After receiving the answer, do NOT rush to the next question. Stop and THINK. Write a substantive analysis of what the answer reveals. This analysis is the core value of the assessment — without it, this is just a quiz.
-
-**For every answer, write all of the following:**
-
-1. **What this reveals:** 2-3 sentences interpreting the answer. What does this tell us about the interviewee's mental model? What assumptions are embedded in their choice?
-
-2. **Assumptions surfaced:** Name any untested beliefs the answer contains. "You said X — that assumes Y. Is Y validated or a hypothesis?"
-
-3. **Tensions or contradictions:** Does this answer conflict with anything they said earlier? Flag it. "In Round 2 you said the customer is enterprises, but here you're prioritizing developer-facing SDK tooling. Those imply different go-to-market strategies."
-
-4. **Scoring justification:** Score the relevant cell(s) and explain WHY each score is what it is. Don't just assign a number — defend it.
-
-Use the scoring rubrics from knowledge.md:
-- **0.0–0.3:** Vague, no evidence, untested assumption
-- **0.4–0.6:** Directional, some reasoning but gaps remain
-- **0.7–0.8:** Clear, evidence-backed, specific
-- **0.9–1.0:** Crystal clear, customer-validated, testable
-
-A single answer may improve multiple cells if it touches multiple dimensions or product areas. Score each affected cell independently with justification.
-
-**Example of good analysis:**
+After receiving the answer, THINK deeply. Write a substantive analysis:
 
 ```
-━━━ Round 3 Analysis ━━━
+━━━ Analysis ━━━
 
-What this reveals: You chose "Agent Identity is the product differentiator
-and revenue driver." This suggests you see the Network as infrastructure
-(necessary but not the thing customers buy) and Agent Identity as the
-product layer where value is captured. That's a significant framing —
-it means the Network is a cost center, not a revenue center.
+What this tells me: [2-3 sentences. What mental model does this
+reveal? What does the interviewee assume to be true? How does this
+connect to what they said before?]
 
-Assumption surfaced: This assumes agent platforms will pay for identity
-as a service. That's unvalidated — no named customers have confirmed
-willingness to pay for on-chain DIDs.
+Assumption surfaced: [Name the untested belief. "You're assuming X,
+which implies Y. Has Y been validated?"]
 
-Tension: In Round 1 you described the core product as "a decentralized
-time oracle network." But here you're saying the network isn't the product —
-Agent Identity is. These two framings are in tension. Which is it?
+Tension: [Does this contradict a prior answer? "Earlier you said A,
+but this implies B. Those pull in different directions." Or: "This
+is consistent with your Round N answer — the picture is coherent."]
+```
 
+This analysis is the intellectual core of the assessment. It should feel like getting feedback from a sharp strategist who's really listening — not a form processor.
+
+#### 4. ACT: Score and Display
+
+Score the affected cells with explicit justification:
+
+```
 Scoring:
-  Agent Identity × Vision: 0.3 → 0.5 (directional but "revenue driver"
-    claim is unvalidated — no evidence of willingness to pay)
-  Agent Identity × Priority: 0.0 → 0.6 (clear priority call, but
-    dependency on Network not addressed)
-  Network × Vision: 0.4 → 0.4 (unchanged — still unclear if Network
-    is a product or infrastructure)
-```
-
-#### Step 3d: Calculate & Display Progress
-
-Calculate composite score per product area:
-```
-composite = vision × 0.30 + market × 0.20 + technical × 0.20 + priority × 0.15 + risk × 0.15
-```
-
-Calculate overall ambiguity:
-```
-ambiguity = 1 - average(composite_network, composite_identity, composite_contracts)
-```
-
-Classify each product area into a conviction tier:
-- **Ready to Build:** composite ≥ 0.70
-- **Emerging:** composite 0.40 – 0.69
-- **Not Ready:** composite < 0.40
-
-Display the updated matrix after each round:
-
-```
-━━━ Round [n] Complete ━━━
-
-What this reveals: [2-3 sentences of substantive analysis]
-Assumptions surfaced: [named assumptions]
-Tensions: [contradictions with prior answers, or "None yet"]
-
-Scoring changes:
-  [Cell]: [old] → [new] ([justification])
-  [Cell]: [old] → [new] ([justification])
+  [Product Area] × [Dimension]: [old] → [new]
+    Because: [one sentence defending the score]
+  [Product Area] × [Dimension]: [old] → [new]
+    Because: [one sentence]
 
 | | Vision | Market | Technical | Priority | Risk | Composite | Tier |
 |---|---|---|---|---|---|---|---|
@@ -300,235 +211,245 @@ Scoring changes:
 | Agent ID | [s] | [s] | [s] | [s] | [s] | [c] | [tier] |
 | Smart Contracts | [s] | [s] | [s] | [s] | [s] | [c] | [tier] |
 
-Ambiguity: [score]% | Target: ≤ 20%
-Next question targets: [Product Area] × [Dimension] — [why this is the weakest and what we need to learn]
+Ambiguity: [score]% → target ≤ 20%
 ```
 
-#### Step 3e: Generate the Next Question
+**Composite formula:** `vision × 0.30 + market × 0.20 + technical × 0.20 + priority × 0.15 + risk × 0.15`
+**Ambiguity:** `1 - average(composite_network, composite_identity, composite_contracts)`
+**Tiers:** Ready (≥ 0.70) · Emerging (0.40–0.69) · Not Ready (< 0.40)
 
-Only AFTER displaying the full analysis and matrix, generate the next question. The question should be informed by the analysis — probe the assumptions you just surfaced, explore the tensions you just flagged, or target the gap you just identified. This is what makes the interview adaptive and Socratic, not just a checklist.
+#### 5. VERIFY: Check Progress
 
-#### Step 3e: Challenge Mode Triggers
+Briefly assess:
+- Is ambiguity dropping? If stalled for 3 rounds, shift approach.
+- Is the next question obvious from the analysis? (Probe the assumption you just surfaced? Explore the tension you just flagged?)
+- Are we at threshold (≤ 20%)? If yes, move to Phase 4.
 
-At specific rounds, shift perspective:
+Then return to step 1 for the next round.
 
-- **Round 4+: Contrarian** — Challenge the interviewee's core assumption. "What if the opposite were true?"
-- **Round 6+: Simplifier** — Probe whether complexity can be removed. "What's the simplest version that's still valuable?"
-- **Round 8+: Competitor** — Pressure-test via competitive context. "If [competitor] ships this next month, what do you have that they don't?"
+### Challenge Modes
 
-Each mode activates ONCE, then returns to normal Socratic questioning.
+At natural points in the interview (not rigidly at round N), shift perspective:
 
-#### Step 3f: Exit Conditions
+- **Contrarian:** When the interviewee sounds too certain — challenge the core assumption. "What if the opposite were true?"
+- **Simplifier:** When scope is expanding — "What's the simplest version that's still valuable?"
+- **Competitor:** When differentiation is assumed — "If [specific competitor] ships this next month, what do you have that they don't?"
 
-The interview ends when clarity is sufficient. There is NO fixed round count.
+Use each mode at most once. They're lenses, not phases.
 
-- **Ambiguity ≤ 20%:** Clarity threshold met — proceed to roadmap generation
-- **All 15 cells ≥ 0.5:** Sufficient coverage — proceed even if ambiguity is slightly above 20%
-- **Early exit:** If the user says "enough", "let's go", or "wrap up" — show the current ambiguity and proceed with a warning if it's above 20%
-- **Stall detection:** If ambiguity doesn't improve for 3 consecutive rounds, offer to wrap up or shift approach
+### Exit Conditions
+
+- **Ambiguity ≤ 20%:** Proceed to Phase 4
+- **All 15 cells ≥ 0.5:** Sufficient coverage — proceed
+- **User requests exit:** Show current ambiguity, warn if above 20%, proceed
+- **Stall (no improvement for 3 rounds):** Offer to wrap up or change approach
 
 ---
 
-## Phase 4: Roadmap Generation & Delivery
+## Phase 4: Product Brief
 
-**Prerequisite:** Phase 3 must complete (clarity threshold met or user chose early exit).
+**Prerequisite:** Phase 3 complete.
 
-### Phase 4 Header
+### THINK: Synthesize
+
+Before writing the brief, reason through:
+- What is the one-sentence story of this interviewee's product vision?
+- Where are they clearest? Where are the biggest gaps?
+- What surprised you? What assumption is most dangerous?
+- What's the #1 thing this person needs to resolve?
+
+### ACT: Write the Brief
+
+Generate a polished product brief using the template in strategy.md. This brief should be:
+
+- **LinkedIn-publishable quality.** Clear, insightful, well-structured prose. Not bullet-point dumps or raw scoring tables. Use strategy.md templates as structural guides, not fill-in-the-blank forms. Scoring tables present data; analysis sections should be written as flowing narrative paragraphs.
+- **Narrative-driven.** Tell the story of this person's product thinking — where they have conviction, where they're uncertain, where their assumptions are untested.
+- **Actionable.** End with specific recommendations — what to test, what to decide, what to discuss with the team.
+- **Honest.** If clarity is low, say so. If assumptions are untested, flag them. The value is in the candor, not in validation.
+
+The brief structure (from strategy.md):
+1. **Executive Summary** — 3-4 sentences, the headline
+2. **Priority Ranking** — Product areas ranked with conviction tiers
+3. **Detailed Analysis** — Per-area breakdown with the 5 dimension scores, stated vision, key strength, key gap
+4. **Assumptions Exposed** — Table of untested beliefs with evidence level and resolution path
+5. **Dependencies** — How product areas relate (what enables what)
+6. **Strategic Tensions** — Where stated beliefs conflict
+7. **Recommendations** — Immediate actions, assumptions to test, team alignment questions
+8. **Interview Transcript** — Collapsed full Q&A
+
+### VERIFY: Quality Check
+
+Before delivering, verify:
+- Does the executive summary stand alone? Could someone read just that and understand the picture?
+- Are the recommendations specific enough to act on this week?
+- Would you post this on LinkedIn? If not, rewrite until you would.
+- Are scores justified with evidence from the interview, not assumed?
+
+### Deliver
+
+Save artifacts if file writing is available:
+- `product-roadmap-{slug}.md` — the brief
+- `product-roadmap-{slug}.json` — structured data
+
+Present the priority ranking and offer next steps:
 
 ```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 4 OF 4 — PRODUCT ROADMAP
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ASSESSMENT COMPLETE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Generating priority-ranked product roadmap.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+  [Name] · [Role] · [Date]
+  Final Ambiguity: [score]%
 
-### Step 1 — Generate the Roadmap
+  #1  [area]  · [tier]  · [composite]
+  #2  [area]  · [tier]  · [composite]
+  #3  [area]  · [tier]  · [composite]
 
-Using the final scoring matrix and all interview Q&A, generate the product roadmap using the template from strategy.md. Include:
-
-1. **Priority ranking** — Product areas ranked by composite score
-2. **Conviction tiers** — Each area classified as Ready / Emerging / Not Ready
-3. **Detailed scoring matrix** — All 15 cells with evidence for each score
-4. **Assumptions exposed** — Every untested belief surfaced during the interview
-5. **Dependencies** — How the product areas relate to each other
-6. **Strategic tensions** — Where the interviewee's stated beliefs conflict
-7. **Recommendations** — Immediate actions, assumptions to test, questions for team alignment
-
-### Step 2 — Save Artifacts
-
-Write the roadmap as markdown. If file writing is available, save to:
-- `product-roadmap-{interviewee_slug}.md` — Full roadmap report
-- `product-roadmap-{interviewee_slug}.json` — Structured scoring data (use JSON schema from strategy.md)
-
-If file writing is not available (e.g., Co-Work, web chat), output the full roadmap directly in the conversation.
-
-### Step 3 — Present Results
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PRODUCT DISCOVERY ASSESSMENT COMPLETE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Clockchain Product Discovery Assessment
-Interviewee: [name] ([role])
-Date: [date]
-Final Ambiguity: [score]%
-
-PRIORITY-RANKED PRODUCT ROADMAP:
-
-  #1  [area]  — [tier]  ([composite])
-  #2  [area]  — [tier]  ([composite])
-  #3  [area]  — [tier]  ([composite])
-
-NEXT STEP:
-Run this assessment with other team members to compare
-product visions and find alignment vs. divergence.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  Next: Run this with other team members to
+  compare visions and find alignment gaps.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 </Steps>
 
-<Tool_Usage>
-- Use structured questions (AskUserQuestion or equivalent) for intake and interview questions
-- Provide 3-4 multiple-choice options per question plus free-text
-- Score answers using the rubrics in knowledge.md
-- Generate the roadmap using templates in strategy.md
-- Save artifacts to files if file writing is available; otherwise output in conversation
-- No external dependencies required — this skill is fully self-contained
-</Tool_Usage>
-
 <Examples>
+
 <Good>
-Discovery-first question that surfaces assumptions:
+Think cycle before a question:
 ```
-Round 3 | Agent Identity × Vision | Ambiguity: 68%
+━━━ Thinking ━━━
 
-You said the primary customer is "AI agent platforms." Can you name
-three specific platforms that would pay for Clockchain's time oracle
-today? If you can't name three, what does that tell us about how
-well we understand the customer?
+All cells are at 0.0 — this is round 1. The highest-leverage
+first question is about core product vision, because the answer
+will inform Vision scores across all three product areas AND
+reveal whether this person sees Clockchain as infrastructure or
+a product.
 
-a) LangChain, AutoGPT, CrewAI — they all need agent provenance
-b) I can name one or two, but not three with confidence
-c) Honestly, we haven't validated this with specific platforms yet
-d) The customer isn't platforms — it's the enterprises deploying agents
+I'll ask what the core product is — not the technology, but
+what a customer buys. The options should represent genuinely
+different product framings: infrastructure play, identity
+product, trust layer, or time-as-a-service.
 ```
-Why good: Probes conviction depth. Forces the interviewee to test their own assumption. All four options represent genuinely different states of clarity.
+Why good: Shows strategic reasoning about WHY this question, not just WHAT question. The interviewee sees a thoughtful process.
 </Good>
 
 <Good>
-Cross-product dependency probe:
+Analysis after an answer:
 ```
-Round 5 | Smart Contracts × Priority | Ambiguity: 52%
+━━━ Analysis ━━━
 
-You've prioritized Agent Identity as #1. But birth certificates
-require the Network to be live and smart contracts to be deployed.
-Does Agent Identity actually depend on the other two being ready
-first? Or can it stand alone?
+What this tells me: You see Agent Identity as the product and the
+Network as infrastructure underneath it. That's a significant
+framing — it means the Network is a cost center that enables
+the revenue-generating identity layer. Most blockchain projects
+think of the network itself as the product.
 
-a) It depends on both — Network and Smart Contracts must ship first
-b) It depends on Network only — we can use existing smart contract platforms
-c) It can stand alone — we can issue DIDs off-chain initially
-d) I haven't thought through the dependency chain
+Assumption surfaced: This assumes AI platforms will pay for
+third-party identity services rather than building their own.
+That's a big assumption — OpenAI, Anthropic, and Google all
+have the resources to build in-house agent identity.
+
+Tension: In your intake you said your focus is "all areas
+equally," but this answer clearly prioritizes Agent Identity
+over the other two. That's useful — it suggests you have a
+stronger opinion than "all equal" once pushed.
+
+Scoring:
+  Agent Identity × Vision: 0.0 → 0.5
+    Because: Clear directional view, but "customers will pay"
+    is unvalidated — no named buyers
+  Network × Vision: 0.0 → 0.3
+    Because: Framed as infrastructure, not product — but even
+    the infrastructure vision is vague (what kind of infra?)
 ```
-Why good: Exposes dependency assumptions that could change the priority ranking. Option (d) is honest and score-relevant.
+Why good: Substantive, connects to prior answers, names the specific assumption being made, explains scores with reasoning.
 </Good>
 
 <Good>
-Contrarian mode challenge:
+Question with well-crafted options:
 ```
-Round 4 | Network × Market | Ambiguity: 61% | CONTRARIAN MODE
+Round 4 · Ambiguity: 62%
 
-You've said the time oracle is Clockchain's moat. But what if
-accurate timestamps become a commodity? Ethereum already has
-block.timestamp, Chainlink has time-based triggers, and NTP
-serves most centralized use cases. What if your patent protects
-an implementation nobody needs because "good enough" timestamps
-are everywhere?
+You've said Agent Identity is the product layer and the Network is
+infrastructure. But Cronos already has an AI Agent SDK with a Proof
+of Identity standard — and it's live, not on testnet.
 
-a) The patent covers more than just timestamps — it covers the consensus mechanism
-b) "Good enough" timestamps aren't good enough for agent provenance — cryptographic proof matters
-c) This is a real risk — we need to articulate why our timestamps are fundamentally different
-d) Maybe the moat isn't the time oracle itself but what we build on top of it
+What gives Clockchain the right to win the agent identity market
+despite being later?
+
+a) The time oracle — our DIDs are anchored to cryptographically
+   verifiable timestamps, which Cronos can't replicate. Provenance
+   isn't just identity, it's WHEN.
+b) Patent protection — our US patent on blockchain timekeeping
+   creates a legal moat that Cronos can't route around.
+c) We don't compete with Cronos directly — they're SDK-first
+   (developer tool), we're network-first (infrastructure).
+   Different layers.
+d) Honestly, I'm not sure we have a clear answer to this yet.
+   We need to figure out our Cronos differentiation story.
+e) Other (specify)
 ```
-Why good: Challenges the core assumption (time oracle = moat) with specific competitive evidence. All options lead to useful clarity, including the risk-acknowledging ones.
-</Good>
-
-<Good>
-Scoring display after a round:
-```
-━━━ Round 6 Complete ━━━
-
-| | Vision | Market | Technical | Priority | Risk | Composite | Tier |
-|---|---|---|---|---|---|---|---|
-| Network | 0.7 | 0.5 | 0.6 | 0.4 | 0.5 | 0.57 | Emerging |
-| Agent ID | 0.8 | 0.4 | 0.5 | 0.6 | 0.3 | 0.56 | Emerging |
-| Smart Contracts | 0.3 | 0.2 | 0.3 | 0.2 | 0.2 | 0.25 | Not Ready |
-
-Ambiguity: 54% | Target: ≤ 20%
-Next target: Smart Contracts × Market — lowest score at 0.2, no competitive awareness for receipt/attestation space
-```
-Why good: Transparent scoring after every round. Clear targeting rationale. The interviewee can see exactly where their thinking is strong vs. weak.
+Why good: Uses specific competitive intel (Cronos, named and real). Each option implies a different competitive strategy. Option (d) is honest and score-relevant. The question itself builds on prior answers.
 </Good>
 
 <Bad>
-Batching multiple questions:
+No think cycle:
 ```
-What's your vision for the network? And how does agent identity fit in?
-Also, what about smart contracts — are those a priority? And who's the customer?
+Question 1: What is Clockchain's core product?
+a) Time oracle
+b) Agent identity
+c) Smart contracts
+d) All of the above
 ```
-Why bad: Four questions at once. Causes shallow answers and makes scoring impossible.
+Why bad: No reasoning shown. Generic options. "All of the above" is lazy — it doesn't reveal anything.
 </Bad>
 
 <Bad>
-Leading question with an obvious "right" answer:
+Batching questions:
 ```
-Don't you think Agent Identity should be the top priority given the
-AI agent boom?
-
-a) Yes, absolutely
-b) Maybe
-c) No
+Let me ask you about all three product areas:
+1. What's your vision for the Network?
+2. What about Agent Identity?
+3. And Smart Contracts?
 ```
-Why bad: Leading framing + options that signal which answer is "correct." Discovery-first means genuine exploration.
+Why bad: Three questions at once. Causes shallow answers. Makes scoring impossible. Violates the one-question rule.
 </Bad>
 
 <Bad>
-Accepting an assumption without probing:
+Shallow analysis:
 ```
-User: "Agent identity is our #1 priority."
-Assessor: "Great, let's move on to smart contracts."
+Thanks for your answer. Updating scores.
+Network Vision: 0.0 → 0.5
+Moving on to the next question.
 ```
-Why bad: Accepted a product direction without probing conviction depth. Should ask "What evidence supports that? Can you name customers who've told you they need this?"
+Why bad: No analysis of what the answer reveals. No assumptions named. No tensions flagged. This is a quiz, not an assessment.
 </Bad>
+
 </Examples>
 
 <Escalation_And_Stop_Conditions>
-- If the interviewee can't articulate what the product IS after several vision-targeting rounds, flag it: "Vision Clarity is critically low — the core product identity is unresolved"
-- If ambiguity stalls (same score ±5% for 3 consecutive rounds), offer to wrap up or shift approach
-- If two product areas score identically, probe for dependencies: which one enables the other?
-- If all areas score below 0.4, recommend a product strategy offsite before further development
-- If the interviewee defaults to "all areas are equally important" on every question, challenge directly: "Equal priority means no priority. What ships first if you can only fund one?"
-- Early exit: user can stop anytime — show current ambiguity and proceed with a warning if above 20%
+- If the interviewee can't articulate what the product IS after several vision-targeting rounds, flag it explicitly in the analysis
+- If ambiguity stalls (same score ±5% for 3 rounds), shift approach or offer to wrap up
+- If two product areas score identically, probe dependencies — which enables the other?
+- If all areas score below 0.4, recommend a product strategy offsite
+- If the interviewee defaults to "all equally important" repeatedly, challenge directly
+- Early exit always available — show ambiguity and proceed with warning if above 20%
 </Escalation_And_Stop_Conditions>
 
 <Final_Checklist>
-- [ ] Intake collected (interviewee name, role, focus area)
-- [ ] Company and competitive context loaded from knowledge.md
-- [ ] Adaptive interview conducted with one question per round — no fixed round count
-- [ ] Each question targeted the weakest product area × dimension cell
-- [ ] 3-4 multiple-choice options provided per question (plus "Other" for free-text)
-- [ ] Scoring matrix updated and displayed after every round
-- [ ] Challenge modes activated at appropriate points (contrarian, simplifier, competitor)
-- [ ] Interview completed when ambiguity ≤ 20% or user chose early exit
-- [ ] Product roadmap generated with conviction tiers and priority ranking
-- [ ] All 15 scoring cells have evidence-backed scores
-- [ ] Assumptions exposed table included in the roadmap
-- [ ] Dependencies between product areas mapped
-- [ ] Roadmap delivered to user with next-step recommendation
+- [ ] Intake collected with multiple-choice options
+- [ ] Company context loaded from knowledge.md (not displayed as a dump)
+- [ ] Every round followed THINK → ACT → VERIFY cycle
+- [ ] Exactly ONE question per round — never batched
+- [ ] Every question had 3-4 multiple-choice options plus "Other (specify)"
+- [ ] Substantive analysis after every answer (what it reveals, assumptions, tensions)
+- [ ] Scoring matrix with justification displayed after every round
+- [ ] Challenge modes used at natural points (not rigidly by round number)
+- [ ] Interview ended at clarity threshold or user's request
+- [ ] Final brief is LinkedIn-publishable quality — narrative, not data dump
+- [ ] Recommendations are specific enough to act on this week
+- [ ] All 15 scoring cells have evidence-backed justifications
+- [ ] Assumptions table and dependency map included
 </Final_Checklist>
 
 Task: {{ARGUMENTS}}
