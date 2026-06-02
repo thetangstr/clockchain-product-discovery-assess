@@ -1,0 +1,7 @@
+.omc/
+.omx/
+.DS_Store
+*.docx
+*.pdf
+.env
+node_modules/
