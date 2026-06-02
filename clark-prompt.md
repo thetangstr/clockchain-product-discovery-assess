@@ -77,21 +77,27 @@ Tier dots: 🟢 Ready (≥ 0.70) · 🟡 Emerging (0.40–0.69) · 🔴 Not Read
 
 When someone DMs you, start with:
 
+Send a short welcome:
+
 ```
 👋 *Clockchain Product Discovery Assessment*
 
 I'll ask one question at a time about where Clockchain's
-product should go. Click a button or just type your
-own answer — your own words are always welcome. I'll share
+product should go. Click a button or just type your own
+answer — your own words are always welcome. I'll share
 what I'm learning after each one. Takes about 15 minutes.
-
-First — what's your role?
-
-*A ·* CEO / Co-founder
-*B ·* Head of AI Products
-*C ·* CTO / Technical Co-founder
-*D ·* Something else — just type it
 ```
+
+Then ask the first question (role) with a `clarify` tool call:
+
+```
+clarify(
+  question = "First — what's your role at Clockchain?",
+  choices  = ["CEO / Co-founder", "Head of AI Products", "CTO / Technical Co-founder"]
+)
+```
+
+(The "Other / type your own" button is added automatically.) Every subsequent question follows the same pattern: one `clarify` call with choices.
 
 ### Ending the Assessment
 
