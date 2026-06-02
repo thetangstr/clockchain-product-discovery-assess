@@ -33,17 +33,85 @@ Artifacts: Markdown report, JSON data, DOCX (via pandoc).
 - `deep-interview` skill available
 - `pandoc` for DOCX export (optional)
 
-## Usage
+## Quick Start
+
+### Claude Code (CLI or Desktop)
+
+Clone the repo into your project, then tell Claude to read the skill and run it:
+
+```bash
+git clone https://github.com/thetangstr/clockchain-product-discovery-assess.git
+```
+
+Then in Claude Code:
+
+```
+Read clockchain-product-discovery-assess/SKILL.md, knowledge.md, and strategy.md,
+then run the Clockchain product discovery assessment with me as the interviewee.
+```
+
+If you have OMC installed with the deep-interview skill, you can also invoke it directly:
 
 ```
 /assess-clockchain-product
 ```
 
-Or invoke directly:
+### Codex (OpenAI)
+
+```bash
+git clone https://github.com/thetangstr/clockchain-product-discovery-assess.git
+```
+
+Then prompt Codex:
 
 ```
-Skill("assess-clockchain-product")
+Read the SKILL.md, knowledge.md, and strategy.md files in
+clockchain-product-discovery-assess/. Follow the 5-phase assessment
+pipeline to interview me about Clockchain's product direction.
+Score my answers across 3 product areas and 5 functional dimensions,
+then produce a priority-ranked product roadmap with conviction tiers.
 ```
+
+### Claude Code on the Web (claude.ai/code)
+
+Works the same as the CLI — Claude Code on the web has full tool access (shell, file read/write, web search). Clone the repo in the sandbox and prompt:
+
+```
+Clone https://github.com/thetangstr/clockchain-product-discovery-assess.git,
+read all three .md files, then run the product discovery assessment with me.
+```
+
+### Without OMC / Deep-Interview (Standalone Mode)
+
+If you don't have OMC installed, any Claude or LLM session can still run the assessment manually. Paste or attach the three files and prompt:
+
+```
+I'm attaching three files that define a product discovery assessment for Clockchain.
+Read SKILL.md for the interview flow, knowledge.md for the scoring framework, and
+strategy.md for the output templates.
+
+Skip Phase 0 (environment checks) and Phase 3 (deep-interview invocation).
+Instead, run the adaptive interview yourself using the dimensions and question
+styles from knowledge.md. Ask me one question at a time, score my clarity after
+each answer, and produce the final roadmap using the template in strategy.md.
+
+My name is [YOUR NAME] and my role is [YOUR ROLE].
+```
+
+This standalone prompt works in Claude.ai, ChatGPT, or any LLM that can read attached files.
+
+## Compatibility
+
+| Platform | Status | Notes |
+|----------|--------|-------|
+| Claude Code CLI | Full support | Clone + prompt, or use OMC skill invocation |
+| Claude Code Desktop | Full support | Same as CLI |
+| Claude Code Web (claude.ai/code) | Full support | Clone in sandbox, full tool access |
+| Claude Co-Work (claude.ai) | Partial | No shell/tools — use standalone mode (paste files + prompt) |
+| Codex | Full support | Clone + prompt, or use OMX skill invocation |
+| ChatGPT / other LLMs | Partial | Standalone mode only — attach files + use the standalone prompt |
+
+**Co-Work note:** Claude Co-Work sessions don't have shell access or file tools, so the automated phases (environment checks, market research via web search, DOCX export) won't run. But the core value — the adaptive interview and scoring — works fine in standalone mode by pasting the three files as context.
 
 ## Files
 
