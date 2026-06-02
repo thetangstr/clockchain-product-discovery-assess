@@ -72,6 +72,13 @@ Founders will say "we need to build agent identity" or "the time oracle is our m
 - How does DePIN positioning affect go-to-market? Does Clockchain need physical node operators?
 - What happens to the network if MainNet launch is delayed 6+ months?
 
+**Push until you hear:** A specific statement about whether the network is the product or infrastructure for other products. A named use case where someone pays for timestamps. A concrete MainNet timeline with dependencies named.
+
+**Red flags — push harder:**
+- "The network is the foundation of everything" → Too vague. Foundation for WHAT? Who uses the foundation directly?
+- "The token captures the value" → That's tokenomics, not product. What does the network DO for a customer?
+- "We're a DePIN project" → DePIN is a category, not a product. What does a node operator get? What does a timestamp consumer get?
+
 **Technical context:**
 - Public testnet live since 2026-02-23
 - US patent for blockchain-based timekeeping
@@ -94,6 +101,14 @@ Founders will say "we need to build agent identity" or "the time oracle is our m
 - How do you handle identity revocation when an agent is compromised?
 - Does agent identity require MainNet, or can it work on testnet/L2?
 
+**Push until you hear:** A named company or person who has expressed need for agent identity. A specific use case where the lack of agent identity causes measurable pain. A concrete MVP scope (what's in v1 vs. what's deferred).
+
+**Red flags — push harder:**
+- "AI agents need identity" → Everyone says this. WHO needs it? Which agent platform has told you they need it?
+- "The market is moving toward agent identity" → Name the signal. What happened last month that proves this?
+- "We'll be the standard" → Standards are adopted, not declared. What makes developers choose YOUR DID over building their own?
+- "Birth certificates are a cool concept" → Cool isn't a business. Who would pay $X/month for this?
+
 **Technical context:**
 - Core operations: mint, verify, revoke agent identity certificates
 - Smart contracts deployed to testnet
@@ -115,6 +130,13 @@ Founders will say "we need to build agent identity" or "the time oracle is our m
 - Who needs receipts? Regulatory compliance? Audit trails? Inter-agent trust?
 - How does this differ from existing attestation standards (EAS, Verax)?
 - Is this a near-term revenue driver or a long-term ecosystem play?
+
+**Push until you hear:** A specific scenario where a verifiable receipt changes an outcome (prevented fraud, enabled compliance, unlocked a transaction). A named buyer who needs receipts specifically (not identity, not timestamps — receipts). A cost/benefit analysis even if rough.
+
+**Red flags — push harder:**
+- "Receipts are important for trust" → Trust between whom? In what scenario? What happens without the receipt?
+- "This is our revenue model" → At what price? At what volume? Who's paying and what's their alternative?
+- "This builds on Agent Identity" → If it depends on identity, is it actually a separate product or just a feature of identity?
 
 **Technical context:**
 - Stretch goal in current OKRs (Product D in the prior assessment)

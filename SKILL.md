@@ -193,28 +193,64 @@ Round [n] · Ambiguity: [score]%
 - No obviously "right" answer — all options should feel legitimate
 - Specific enough that choosing one tells you something concrete
 
-### Analyzing an Answer
+### Analyzing an Answer — Full Re-evaluation
 
-After receiving the answer (in your NEXT message), write substantive analysis:
+After receiving the answer, do NOT just score the latest answer in isolation. **Re-evaluate the ENTIRE interview transcript so far** — every prior answer together with the new one. This is the deep-interview pattern: each round's scoring considers the full picture, not just the delta.
+
+#### Step 1: Check answer quality — Push or Accept?
+
+Before scoring, evaluate whether the answer is SPECIFIC ENOUGH to score. Use these criteria:
+
+**Push until you hear:**
+- Vision: A one-sentence product statement that a customer could understand. Named outcome. Named buyer.
+- Market: Specific company names, named people, dollar amounts, evidence of demand (not "the market needs this").
+- Technical: Named dependencies, concrete timelines, specific blockers (not "we'll figure it out").
+- Priority: A forced-rank with reasoning, not "all equally important."
+- Risk: Named failure modes with trigger signals (not "nothing can go wrong").
+
+**Red flags — push harder if you hear these:**
+- "The market is huge" → Ask: "Who specifically?"
+- "People are interested" → Ask: "Who would be genuinely upset if this disappeared?"
+- "We just need to execute" → Ask: "Execute on what, specifically?"
+- "All areas are equally important" → Challenge: "Equal priority means no priority. What ships first if you can only fund one?"
+- "We'll figure out the customer later" → Push: "Name one person who would pay today."
+- "The technology speaks for itself" → Push: "Technology doesn't buy things. Who writes the check?"
+
+**If the answer is too vague:** Don't score it up. Instead, your NEXT question should push on the SAME cell — reframed to demand more specificity. Say: "I want to push on this. [Reason the answer was vague]. Can you be more specific?"
+
+**If the answer is specific and evidence-backed:** Score it up and move to the next weakest cell.
+
+#### Step 2: Full-transcript analysis
+
+Write substantive analysis that considers ALL prior answers together:
 
 ```
 ━━━ Analysis ━━━
 
 What this tells me: [2-3 sentences. What mental model does this
-reveal? What does the interviewee assume to be true?]
+reveal? How does this fit with EVERYTHING they've said so far?
+What picture is emerging across all rounds?]
 
 Assumption surfaced: [Name the untested belief. "You're assuming X,
 which implies Y. Has Y been validated?"]
 
-Tension: [Does this contradict a prior answer? "Earlier you said A,
-but this implies B." Or: "Consistent with Round N."]
+Tension: [Does this contradict ANY prior answer? Reference the
+specific round. Or: note how it's consistent and what pattern
+is forming across answers.]
+
+Push-back: [If the answer hit a red flag, state it directly.
+"You said 'the market needs this' — that's a hypothesis, not
+evidence. I'll push on this next."]
 ```
 
-Then score with justification:
+#### Step 3: Re-score the ENTIRE matrix
+
+Re-evaluate ALL 15 cells in light of the full transcript. Not just the cell the question targeted — an answer about Vision might reveal something about Risk or Priority too. An answer that contradicts a prior answer might cause a PREVIOUS score to go DOWN.
 
 ```
-Scoring:
-  [Cell]: [old] → [new] — [one sentence why]
+Scoring (full re-evaluation):
+  [Cell]: [old] → [new] — [one sentence why, citing specific rounds]
+  [Cell]: [old] → [new] — [revised because Round N contradicted Round M]
 
 | | Vision | Market | Technical | Priority | Risk | Composite | Tier |
 |---|---|---|---|---|---|---|---|
@@ -224,6 +260,8 @@ Scoring:
 
 Ambiguity: [score]% → target ≤ 20%
 ```
+
+**Scores can go DOWN.** If Round 5 contradicts Round 2, the cell that Round 2 improved should be re-evaluated. This is what makes the assessment honest.
 
 Use the scoring rubrics from knowledge.md:
 - **0.0–0.3:** Vague, no evidence, untested assumption
