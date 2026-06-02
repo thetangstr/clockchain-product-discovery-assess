@@ -135,6 +135,9 @@ The interview is a CONVERSATION. Each message you send to the user contains exac
 - Never generate answers on the user's behalf ("illustrative" or otherwise)
 - Never skip ahead to the roadmap before the interview is done
 - Never present questions as plain text — always use `AskUserQuestion`
+- **Never say "Question X of Y" or "Q1 of 8" or any numbered-of-total format.** There is NO fixed number of questions. The interview is adaptive — it ends when clarity is sufficient, not after a set count.
+- **Never create a "Pre-Interview Baseline" phase.** There is NO baseline phase. Phase 2 is context loading (silent — you read knowledge.md). Phase 3 is the interview. Go directly from context loading to your first interview question.
+- **Never invent phases, sub-phases, or step numbers that are not in this file.** Follow the 4 phases defined here exactly: Intake → Context Loading → Adaptive Interview → Product Brief. Nothing else.
 
 ### Interview Header (display once, in your first interview message)
 
