@@ -1,12 +1,26 @@
 # Clockchain Product Discovery Assessment
 
-A self-contained assessment skill that interviews Clockchain founding team members through an adaptive Socratic process to discover and crystallize product direction. Produces a priority-ranked product roadmap with conviction tiers.
+## Run It
 
-No dependencies. No plugins. Just clone, read, and run.
+Copy this prompt into Claude Code, Codex, or any AI coding agent:
+
+```
+Clone https://github.com/thetangstr/clockchain-product-discovery-assess.git then read SKILL.md, knowledge.md, and strategy.md. Run the Clockchain product discovery assessment with me as the interviewee.
+```
+
+If you're on Claude.ai, Co-Work, ChatGPT, or any LLM without shell access — download the three `.md` files, upload them to your chat, and send:
+
+```
+Read the three attached files. Run the Clockchain product discovery assessment with me as the interviewee.
+```
+
+No dependencies. No plugins. No setup.
+
+---
 
 ## What It Does
 
-Assesses product thinking across **3 product areas** and **5 functional dimensions**:
+Interviews you about Clockchain's future product direction across **3 product areas** and **5 functional dimensions**, then produces a priority-ranked product roadmap with conviction tiers.
 
 **Product Areas:**
 - Network (Time Oracle / DePIN)
@@ -14,79 +28,18 @@ Assesses product thinking across **3 product areas** and **5 functional dimensio
 - Smart Contracts & Receipts
 
 **Functional Dimensions (weighted):**
-- Vision Clarity (30%)
-- Market Understanding (20%)
-- Technical Feasibility (20%)
-- Prioritization (15%)
-- Risk Awareness (15%)
+- Vision Clarity (30%) · Market Understanding (20%) · Technical Feasibility (20%) · Prioritization (15%) · Risk Awareness (15%)
 
-## Output
-
-A priority-ranked product roadmap with conviction tiers:
-- **Ready to Build** (composite score >= 0.70)
-- **Emerging** (0.40 - 0.69)
-- **Not Ready** (< 0.40)
-
-Plus: detailed 15-cell scoring matrix, assumptions exposed, dependency map, strategic tensions, and actionable recommendations.
-
-## Quick Start
-
-### Claude Code (CLI, Desktop, or Web)
-
-```bash
-git clone https://github.com/thetangstr/clockchain-product-discovery-assess.git
-```
-
-Then prompt Claude:
-
-```
-Read clockchain-product-discovery-assess/SKILL.md, knowledge.md, and strategy.md,
-then run the Clockchain product discovery assessment with me as the interviewee.
-```
-
-That's it. Claude reads the three files, follows the 4-phase pipeline, and runs the full assessment.
-
-### Codex
-
-```bash
-git clone https://github.com/thetangstr/clockchain-product-discovery-assess.git
-```
-
-```
-Read the SKILL.md, knowledge.md, and strategy.md files in
-clockchain-product-discovery-assess/. Follow the 4-phase assessment
-pipeline to interview me about Clockchain's product direction.
-Score my answers across 3 product areas and 5 functional dimensions,
-then produce a priority-ranked product roadmap with conviction tiers.
-```
-
-### Claude.ai / Co-Work / ChatGPT / Any LLM
-
-No shell needed. Upload or paste all three files (SKILL.md, knowledge.md, strategy.md) and prompt:
-
-```
-I'm sharing three files that define a product discovery assessment for Clockchain.
-
-- SKILL.md — the interview flow and scoring logic
-- knowledge.md — the product areas, dimensions, and scoring rubrics
-- strategy.md — the output templates
-
-Run the full assessment with me as the interviewee. Ask one question at a time
-with multiple-choice options, score my clarity after each answer, and produce
-the final priority-ranked product roadmap when we're done.
-
-My name is [YOUR NAME] and my role is [YOUR ROLE].
-```
+**Output:** Priority-ranked roadmap with conviction tiers — **Ready to Build** (>= 0.70), **Emerging** (0.40–0.69), **Not Ready** (< 0.40) — plus a 15-cell scoring matrix, assumptions exposed, dependency map, and recommendations.
 
 ## Compatibility
 
-| Platform | Works? | How |
-|----------|--------|-----|
-| Claude Code (CLI / Desktop / Web) | Yes | Clone repo, prompt to read and run |
-| Codex | Yes | Clone repo, prompt to read and run |
-| Claude.ai / Co-Work | Yes | Upload or paste the three .md files |
-| ChatGPT | Yes | Upload or paste the three .md files |
-| Any LLM with file input | Yes | Upload or paste the three .md files |
+| Platform | Works? |
+|----------|--------|
+| Claude Code (CLI / Desktop / Web) | Yes |
+| Codex | Yes |
+| Claude.ai / Co-Work | Yes |
+| ChatGPT / any LLM | Yes |
 
 ## How It Works
 
