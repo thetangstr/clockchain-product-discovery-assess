@@ -352,22 +352,21 @@ Present the priority ranking and offer next steps:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-Then ask via `AskUserQuestion`:
-
-"Assessment saved. What's next?"
-- a) **Assess another team member** — run the assessment again with a different person in this same session. After all members are done, I'll generate a team comparison report.
-- b) **Generate team comparison now** — if other assessments already exist (product-roadmap-*.json), compare them and produce the alignment report.
-- c) **Done for now** — just save this assessment and stop.
+The assessment is complete. Each person runs this independently in their own Claude Code or Codex session — they clone the repo, the agent interviews them, and saves their individual roadmap files.
 
 ---
 
-## Phase 5: Team Comparison (when multiple assessments exist)
+## Phase 5: Team Comparison (run separately by whoever collects results)
 
-**Prerequisite:** 2+ completed assessments in this session (product-roadmap-*.json files).
+**How it works:** Each team member takes the assessment in their own session. They each get `product-roadmap-{name}.md` and `product-roadmap-{name}.json` files. To generate the team comparison, collect all the JSON files into one directory and prompt:
 
-When the user chooses "Assess another team member," loop back to Phase 1 (Intake) for the new person. Keep all prior assessment files. The scoring matrix resets to 0.0 for the new interviewee — each person gets a fresh assessment.
+```
+Read all product-roadmap-*.json files in this directory, then read
+strategy.md from the clockchain-product-discovery-assess repo.
+Generate the team comparison report.
+```
 
-When the user chooses "Generate team comparison" or after the last team member finishes:
+**Prerequisite:** 2+ completed `product-roadmap-*.json` files in the working directory.
 
 ### THINK: Compare
 

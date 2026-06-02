@@ -65,7 +65,21 @@ The interview includes challenge modes that activate at specific rounds:
 
 ## Team Comparison
 
-Run the assessment with multiple team members, then use the cross-interviewee comparison template (in `strategy.md`) to identify alignment vs. divergence across the founding team.
+Each team member runs the assessment independently in their own session. Then collect the results and generate a comparison:
+
+**Step 1:** Send each person the one-liner prompt from the top of this README. They run it in their own Claude Code, Codex, or Co-Work session.
+
+**Step 2:** Each person's session produces `product-roadmap-{name}.md` and `product-roadmap-{name}.json`.
+
+**Step 3:** Collect all the `.json` files into one directory, then prompt:
+
+```
+Read all product-roadmap-*.json files in this directory, then read
+strategy.md from the clockchain-product-discovery-assess repo.
+Generate the team comparison report.
+```
+
+The comparison report shows: priority ranking alignment, conviction tier agreement, biggest disagreements (score delta > 0.3), vision alignment analysis, and recommended actions to resolve divergence.
 
 ## Based On
 
