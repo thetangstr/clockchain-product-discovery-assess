@@ -5,7 +5,7 @@ level: 3
 ---
 
 <Purpose>
-Assess what Clockchain's future product should be by interviewing founding team members through an adaptive Socratic process. Collect minimum intake (interviewee name, role), then hand off to the deep-interview skill for discovery-first requirements gathering — framed specifically for product direction across three product areas and five functional dimensions. The output is a priority-ranked product roadmap with conviction tiers showing where the team has clarity and where assumptions remain unresolved.
+Assess what Clockchain's future product should be by interviewing founding team members through an adaptive Socratic process. Collect interviewee intake, load company context, gather pre-interview baseline, then run an adaptive interview that scores clarity across three product areas and five functional dimensions. The output is a priority-ranked product roadmap with conviction tiers showing where the team has clarity and where assumptions remain unresolved.
 </Purpose>
 
 <Use_When>
@@ -17,157 +17,38 @@ Assess what Clockchain's future product should be by interviewing founding team 
 </Use_When>
 
 <Do_Not_Use_When>
-- User already has a detailed product spec or PRD — use the appropriate planning or execution skill directly
+- User already has a detailed product spec or PRD — execute directly
 - User wants to assess agentic workflow readiness — use assess-agentic instead
 - User wants a quick opinion on a single product question — answer directly
 - User wants competitive intelligence or market research only — this is product discovery, not market analysis
 </Do_Not_Use_When>
 
 <Why_This_Exists>
-Clockchain is at a critical product inflection point: pre-MainNet, pre-revenue, pivoting from "time for Web3" to "time as the trust substrate for AI agents." The founding team (Ken, Yang, Tetsuji) each carry different mental models of what the product should become. This skill applies mathematical clarity gates to surface hidden assumptions, expose divergent visions, and produce a priority-ranked roadmap grounded in the team's actual conviction levels — not just the loudest voice in the room.
+Clockchain is at a critical product inflection point: pre-MainNet, pre-revenue, pivoting from "time for Web3" to "time as the trust substrate for AI agents." The founding team each carry different mental models of what the product should become. This skill applies mathematical clarity gates to surface hidden assumptions, expose divergent visions, and produce a priority-ranked roadmap grounded in the team's actual conviction levels — not just the loudest voice in the room.
 </Why_This_Exists>
 
 <Execution_Policy>
-- Phase 0 detects all prerequisites. If any are missing, the skill attempts installation via Bash (npm, omc setup, omx setup). For omc setup / omx setup the user must run these in a separate terminal — the skill will prompt and wait.
-- Collect intake FIRST, then hand off to deep-interview — do not skip intake
-- Frame the deep-interview with product discovery seed context: three product areas, five functional dimensions, vision-heavy weighting
-- Use `--standard` deep-interview depth for all assessments
-- After deep-interview crystallizes, format the spec as a priority-ranked product roadmap
-- pandoc is required for DOCX export — offer to install or skip, but do not silently continue
-- Use the product discovery frameworks (knowledge.md) to inform interview framing
+- Collect intake FIRST, then load context, then interview — do not skip phases
+- Frame the interview with product discovery context: three product areas, five functional dimensions, vision-heavy weighting
+- After the interview, format the output as a priority-ranked product roadmap
+- Use the product discovery frameworks (knowledge.md) to inform interview framing and scoring
 - Use the roadmap templates (strategy.md) to structure the output
 - Discovery-first: do NOT seed specific question themes — let the interview find tensions organically
+- Ask ONE question at a time — never batch multiple questions
+- Score ambiguity after every answer — display the score transparently
+- Target the WEAKEST product area × dimension pair with each question
+- Challenge assumptions, not just gather feature lists
 </Execution_Policy>
 
 <Steps>
 
-## Phase 0: Environment Verification
-
-**Policy:** Check all prerequisites first. If anything is missing, offer to install it via Bash — the user will interact with the setup wizard if needed. Do not exit silently.
-
-### Step 1: Detect active runtime
-
-Execute in parallel:
-
-```
-omc --version 2>/dev/null | head -1
-omx --version 2>/dev/null | head -1
-```
-
-### Step 2: Verify required executables
-
-Execute in parallel:
-
-```
-pandoc --version 2>/dev/null | head -1
-```
-
-### Step 3: Present missing prerequisites with install options
-
-After all checks complete, handle each missing item.
-
-**If OMC is not found:**
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-OMC NOT FOUND — Two-Step Install
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Step 1: Installing OMC package now (takes 2-5 minutes on first run)...
-```
-
-Run via Bash:
-```
-npm i -g oh-my-claude-sisyphus@latest
-```
-
-After npm install completes, ask the user to confirm they've
-run `omc setup` in a separate terminal, then proceed to
-Step 4 to verify deep-interview.
-
-**If OMX is not found:**
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-OMX NOT FOUND — Two-Step Install
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Step 1: Installing OMX package now...
-```
-
-Run via Bash:
-```
-npm install -g @openai/codex oh-my-codex
-```
-
-After npm install completes, ask the user to run `omx setup`
-in a **separate terminal**, then confirm below.
-
-**If pandoc is not found:**
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PANDOC NOT FOUND
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-pandoc is required to generate the DOCX deliverable.
-```
-
-Options (via AskUserQuestion):
-1. **Show install instructions** — Display: `brew install pandoc` (macOS), `sudo apt-get install pandoc` (Linux)
-2. **Skip DOCX** — Continue without DOCX export; markdown and JSON will still be produced
-3. **Cancel and exit**
-
-**If deep-interview is not found (after OMC/OMX installed):**
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-deep-interview NOT FOUND
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-The deep-interview skill is not available yet.
-Please run the setup in a separate terminal, then confirm below.
-```
-
-Use `AskUserQuestion`:
-1. **I've run `omc setup` / `omx setup` in a separate terminal — continue**
-2. **Show instructions** — display: `omc setup` (OMC) or `omx setup` (OMX)
-3. **Cancel and exit**
-
-**If all prerequisites are confirmed present:** Proceed to Step 4.
-
-### Step 4: Verify deep-interview is accessible
-
-For OMC: Run `omc skills list 2>/dev/null | grep deep-interview`.
-For OMX: Run `omx skills list 2>/dev/null | grep deep-interview`.
-
-If deep-interview still not found, go back to the deep-interview not found step above.
-
-### Step 5: Set runtime context
-
-Record the following variables:
-
-| Variable | OMC Value | OMX Value |
-|----------|-----------|-----------|
-| `runtime` | `OMC` | `OMX` |
-| `runtime_host` | `Claude Code` | `Codex` |
-| `runtime_output_dir` | `.omc/specs` | `.omx/specs` |
-
----
-
-**Phase 0 Complete Gate:** Proceed to Phase 1 only when OMC or OMX is confirmed, deep-interview is confirmed available, and the user has chosen how to handle pandoc.
-
----
-
 ## Phase 1: Interviewee Intake
-
-**Prerequisite:** Phase 0 must be fully complete. Do not begin intake until the environment verification gate passes.
 
 ### Phase 1 Header
 
 ```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 1 OF 5 — INTERVIEWEE INTAKE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PHASE 1 OF 4 — INTERVIEWEE INTAKE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Clockchain Product Discovery Assessment
@@ -177,7 +58,7 @@ Collecting interviewee parameters.
 
 ### Intake Collection
 
-Collect all fields via `AskUserQuestion` using a multi-question form:
+Collect all fields via structured questions:
 
 1. **Interviewee Name** — Full name of the team member being assessed.
 2. **Role** — Select one:
@@ -209,91 +90,40 @@ Proceeding to context loading.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-Proceed to Phase 2 only after presenting this confirmation.
-
 ---
 
-## Phase 2: Context Loading
+## Phase 2: Context Loading & Pre-Interview Baseline
 
-**Prerequisite:** Phase 1 must be fully complete with all intake fields confirmed.
+**Prerequisite:** Phase 1 must be fully complete.
 
-### Phase 2 Header
+### Phase 2a: Company Context
 
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 2 OF 5 — CONTEXT LOADING
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Load the following context (read from knowledge.md for full details):
 
-Loading Clockchain context and competitive landscape.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
+- **Company:** Clockchain (D4D Sarl, Neuchatel, Switzerland / D4D Group, San Francisco)
+- **Stage:** Pre-MainNet, pre-revenue, pre-TGE
+- **Core IP:** US patent for blockchain-based timekeeping
+- **FINMA-approved token sale**
+- **Public testnet** live since 2026-02-23
+- **Strategic pivot:** From "time for Web3" to "time as the trust substrate for AI agents"
+- **Competitors:** Sahara AI, 0G Labs, Sentient, Story Protocol, Cronos AI Agent SDK, Eliza framework
+- **Differentiation:** None of these competitors anchor their identity primitive on a patented time oracle
 
-### Context Protocol
+### Phase 2b: Pre-Interview Baseline
 
-1. **Load existing project context:**
-   - Read `.omc/specs/assess-clockchain.md` if it exists (prior readiness assessment)
-   - Read `.omc/specs/assess-clockchain.json` if it exists (structured data)
-   - Note key findings: AI maturity scores, pilot roadmap, pre-kickoff blockers
-2. **Load company context:**
-   - Company: Clockchain (D4D Sarl, Neuchatel, Switzerland / D4D Group, San Francisco)
-   - Stage: Pre-MainNet, pre-revenue, pre-TGE
-   - Core IP: US patent for blockchain-based timekeeping
-   - FINMA-approved token sale
-   - Public testnet live since 2026-02-23
-3. **Load competitive landscape:**
-   - Sahara AI — economic and coordination layer for agents
-   - 0G Labs — "the blockchain for AI agents" (modular storage + compute + DA)
-   - Sentient — open-source AI Layer 1
-   - Story Protocol — ATCP/IP framework for agent-to-agent IP trading
-   - Cronos AI Agent SDK — Proof of Identity standard for agents
-   - Eliza framework — agent runtime with built-in wallet
-4. **Note Clockchain's differentiation:** None of these competitors anchor their identity primitive on a patented time oracle. The wedge is time provenance as the trust substrate.
-
-### Context Output
+Present the following header:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-CONTEXT LOADED
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  Company:          Clockchain (D4D Sarl / D4D Group)
-  Stage:            Pre-MainNet, pre-revenue, pre-TGE
-  Core IP:          US patent — blockchain timekeeping
-  Differentiation:  Time provenance as trust substrate
-  Competitors:      6 identified (Sahara AI, 0G Labs,
-                    Sentient, Story Protocol, Cronos, Eliza)
-  Prior assessment: [found | not found]
-
-Proceeding to pre-interview context.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-### Phase 2 Complete Gate
-
-Proceed to Phase 2b only after the context is loaded and displayed.
-
----
-
-## Phase 2b: Pre-Interview Product Context
-
-**Prerequisite:** Phase 2 must be fully complete with context loaded and displayed.
-
-### Phase 2b Header
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 2b OF 5 — PRE-INTERVIEW PRODUCT CONTEXT
+PHASE 2 OF 4 — PRE-INTERVIEW BASELINE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Before the structured interview, we need to establish
-your current product thinking baseline. These questions
-define your starting position.
+your current product thinking baseline.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-### Context Questions
-
-Present as a structured form. All eight questions are mandatory. Frame each as shown:
+Ask all eight questions. These are mandatory. Present each with the coaching prompt shown:
 
 **PRODUCT VISION**
 
@@ -325,13 +155,13 @@ Present as a structured form. All eight questions are mandatory. Frame each as s
 8. **What would make you abandon the current product direction entirely?**
    *(What signal — from the market, technology, or team — would cause a pivot? If nothing would, why not?)*
 
-### Phase 2b Complete Gate
+### Phase 2 Complete Gate
 
-After all eight questions are answered, present:
+After all eight questions are answered, confirm:
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PRE-INTERVIEW CONTEXT — CONFIRMED
+BASELINE CAPTURED
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   Core product:         [answer]
@@ -347,429 +177,325 @@ Proceeding to structured interview.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-Inject all eight answers into the Phase 3 seed prompt. The deep-interview must not re-ask these questions — it builds on this context.
+Do NOT re-ask these questions during the interview. Build on this context.
 
 ---
 
-## Phase 2c: Market & Technology Research
+## Phase 3: Adaptive Product Discovery Interview
 
-**Prerequisite:** Phase 2b must be fully complete with all context questions answered.
-
-### Phase 2c Header
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 2c OF 5 — MARKET & TECHNOLOGY RESEARCH
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Researching current market context for each product area.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**Policy:** This phase is mandatory. Do not skip or abbreviate. Interview questions are sharpened by current market intelligence.
-
-### Research Scope
-
-Research each of the three product areas:
-
-| Product Area | Research Questions |
-|---|---|
-| **Network (Time Oracle / DePIN)** | DePIN market size and growth? Competing time oracle or timestamp solutions? Oracle networks (Chainlink, API3, Pyth) — how do they handle time? Blockchain timestamp manipulation attacks and mitigations? |
-| **Agent Identity (DIDs / Birth Certificates)** | W3C DID standard adoption? Competing agent identity solutions (Cronos PoI, Story Protocol ATCP/IP)? Enterprise demand for AI agent provenance and auditability? Regulatory signals on AI agent identification? |
-| **Smart Contracts & Receipts** | On-chain receipt/attestation standards (EAS, Verax)? Agent action logging solutions? Competing smart contract platforms for agent operations? Gas cost benchmarks for attestation-heavy workloads? |
-
-**Search commands:**
-```
-WebSearch: "DePIN time oracle blockchain 2026"
-WebSearch: "AI agent identity DID blockchain 2026"
-WebSearch: "on-chain attestation agent actions 2026"
-WebSearch: "decentralized agent identity standard"
-```
-
-### Research Output
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-MARKET RESEARCH — CLOCKCHAIN PRODUCT AREAS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-  Network (Time Oracle / DePIN):
-  [2-3 sentence summary of competitive landscape]
-
-  Agent Identity (DIDs / Birth Certificates):
-  [2-3 sentence summary of competitive landscape]
-
-  Smart Contracts & Receipts:
-  [2-3 sentence summary of competitive landscape]
-
-  Key Insight:
-  [1-2 sentences on the most important finding]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-**Time limit:** 10 minutes maximum. Record findings and note gaps for the interview to probe.
-
-### Phase 2c Complete Gate
-
-Proceed to Phase 3 only when the Market Research output is written and displayed.
-
----
-
-## Phase 3: Structured Interview — Deep Interview
-
-**Prerequisite:** Phases 1, 2, 2b, and 2c must ALL be fully complete.
+**Prerequisite:** Phase 2 must be fully complete with all baseline questions answered.
 
 ### Phase 3 Header
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 3 OF 5 — STRUCTURED PRODUCT DISCOVERY INTERVIEW
+PHASE 3 OF 4 — PRODUCT DISCOVERY INTERVIEW
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Initiating deep-interview for [interviewee_name].
-This phase uses a Socratic methodology to surface
-hidden assumptions, expose conviction levels, and
-score clarity across product areas and dimensions.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-### Invocation
-
-**For OMC (Claude Code):**
-```
-Skill("oh-my-claudecode:deep-interview", "--standard Clockchain product discovery assessment for [interviewee_name]")
-```
-
-**For OMX (Codex):**
-```
-$deep-interview "--standard Clockchain product discovery assessment for [interviewee_name]"
-```
-
-### Seed Prompt Construction
-
-Include all prior phase outputs:
-
-```
---standard Clockchain product discovery assessment for [interviewee_name]
-
-This is a PRODUCT DISCOVERY assessment, not an agentic readiness assessment.
-The goal is to discover what Clockchain's future product should be by probing
-the interviewee's product thinking across three product areas and five
-functional dimensions.
-
-Interviewee context — do not re-ask; build on this:
-- Name: [from Phase 1]
-- Role: [from Phase 1]
-- Primary focus area: [from Phase 1]
-- Core product vision: [from Phase 2b]
-- Primary customer: [from Phase 2b]
-- Must get right: [from Phase 2b]
-- Biggest concern: [from Phase 2b]
-- Top priority area: [from Phase 2b]
-- Open question: [from Phase 2b]
-- Competitive moat: [from Phase 2b]
-- Pivot trigger: [from Phase 2b]
-- Market research: [from Phase 2c]
-
-Company context:
-- Clockchain: decentralized time oracle, DePIN, pre-MainNet
-- Core IP: US patent for blockchain-based timekeeping
-- FINMA-approved token sale
-- Competitors: Sahara AI, 0G Labs, Sentient, Story Protocol, Cronos, Eliza
-- Differentiation: time provenance as trust substrate
-- Prior readiness assessment: [summary from Phase 2]
-
-Product discovery framing:
-Discovery-first — do not seed specific question themes. Let the interview
-find tensions organically. The interviewer should surface assumptions, not
-gather feature lists.
-
-THREE PRODUCT AREAS to score:
-1. Network (Time Oracle / DePIN) — the core infrastructure layer
-2. Agent Identity (DIDs / Birth Certificates) — on-chain agent identity and provenance
-3. Smart Contracts & Receipts — verifiable receipts and on-chain agent actions
-
-FIVE FUNCTIONAL DIMENSIONS per product area:
-1. Vision Clarity (30%) — What is this product and who is it for?
-2. Market Understanding (20%) — Competitive landscape, user needs, timing
-3. Technical Feasibility (20%) — Can we build this with current capabilities?
-4. Prioritization (15%) — What should we build first and why?
-5. Risk Awareness (15%) — What could go wrong?
-
-Scoring: Score each product area on each dimension (15 cells total).
-Composite score per area = vision×0.30 + market×0.20 + technical×0.20 + priority×0.15 + risk×0.15
-
-Conviction tiers:
-- Ready to Build (≥ 0.7 composite) — team has clarity and conviction
-- Emerging (0.4 – 0.69) — some clarity but unresolved assumptions
-- Not Ready (< 0.4) — too many unknowns to commit resources
-
-Output: Priority-ranked product roadmap across the 3 areas with conviction tiers.
-```
-
-### Hard Stop Condition
-
-**If the invocation returns an error or deep-interview is unavailable:** Stop immediately. Output:
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ASSESSMENT INTERRUPTED
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-The deep-interview skill could not be invoked.
-Error: [error_message]
-
-Please ensure:
-  - OMC/OMX is properly installed
-  - deep-interview skill is available
-  - Runtime is restarted if recently installed
-
-Restart and invoke /assess-clockchain-product to resume.
+Adaptive Socratic interview. One question at a time.
+Targeting the weakest clarity area with each question.
+I'll show your clarity scores after every answer.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-Do not proceed with manual interviewing. Exit the skill.
+### Interview Setup
+
+Initialize a 3×5 scoring matrix (all cells start at 0.0):
+
+| | Vision (30%) | Market (20%) | Technical (20%) | Priority (15%) | Risk (15%) |
+|---|---|---|---|---|---|
+| **Network** | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
+| **Agent Identity** | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
+| **Smart Contracts** | 0.0 | 0.0 | 0.0 | 0.0 | 0.0 |
+
+Set initial ambiguity to 100%.
+
+### Interview Loop
+
+Repeat until ambiguity ≤ 20% OR round 20 reached OR user exits early:
+
+#### Step 3a: Identify Weakest Cell
+
+Find the product area × dimension pair with the lowest score. When multiple cells are tied, rotate across product areas (don't drill the same area repeatedly).
+
+#### Step 3b: Generate & Ask Question
+
+Generate ONE question targeting the weakest cell. Use the question styles and tension-surfacing techniques from knowledge.md.
+
+Present each question with context:
+
+```
+Round [n] | [Product Area] × [Dimension] | Ambiguity: [score]%
+
+[Question text]
+```
+
+Provide 3-4 multiple-choice options plus free-text. Options should represent genuinely different perspectives, not leading choices. Include at least one option that challenges the interviewee's likely assumption.
+
+#### Step 3c: Score the Answer
+
+After receiving the answer, update the relevant cell(s) in the scoring matrix. Use the scoring rubrics from knowledge.md:
+
+- **0.0–0.3:** Vague, no evidence, untested assumption
+- **0.4–0.6:** Directional, some reasoning but gaps remain
+- **0.7–0.8:** Clear, evidence-backed, specific
+- **0.9–1.0:** Crystal clear, customer-validated, testable
+
+A single answer may improve multiple cells if it touches multiple dimensions or product areas. Score each affected cell independently.
+
+#### Step 3d: Calculate & Display Progress
+
+Calculate composite score per product area:
+```
+composite = vision × 0.30 + market × 0.20 + technical × 0.20 + priority × 0.15 + risk × 0.15
+```
+
+Calculate overall ambiguity:
+```
+ambiguity = 1 - average(composite_network, composite_identity, composite_contracts)
+```
+
+Classify each product area into a conviction tier:
+- **Ready to Build:** composite ≥ 0.70
+- **Emerging:** composite 0.40 – 0.69
+- **Not Ready:** composite < 0.40
+
+Display the updated matrix after each round:
+
+```
+━━━ Round [n] Complete ━━━
+
+| | Vision | Market | Technical | Priority | Risk | Composite | Tier |
+|---|---|---|---|---|---|---|---|
+| Network | [s] | [s] | [s] | [s] | [s] | [c] | [tier] |
+| Agent ID | [s] | [s] | [s] | [s] | [s] | [c] | [tier] |
+| Smart Contracts | [s] | [s] | [s] | [s] | [s] | [c] | [tier] |
+
+Ambiguity: [score]% | Target: ≤ 20%
+Next target: [Product Area] × [Dimension] — [why this is the weakest]
+```
+
+#### Step 3e: Challenge Mode Triggers
+
+At specific rounds, shift perspective:
+
+- **Round 4+: Contrarian** — Challenge the interviewee's core assumption. "What if the opposite were true?"
+- **Round 6+: Simplifier** — Probe whether complexity can be removed. "What's the simplest version that's still valuable?"
+- **Round 8+: Competitor** — Pressure-test via competitive context. "If [competitor] ships this next month, what do you have that they don't?"
+
+Each mode activates ONCE, then returns to normal Socratic questioning.
+
+#### Step 3f: Soft Limits
+
+- **Round 3+:** Allow early exit if user says "enough" or "let's go"
+- **Round 10:** Soft warning: "We're at 10 rounds. Current ambiguity: [score]%. Continue or wrap up?"
+- **Round 15:** Hard cap: "Maximum interview rounds reached. Proceeding with current clarity."
+- **Early exit:** Show warning if ambiguity > 20%, then proceed anyway
 
 ---
 
-## Phase 4: Interview Completion
+## Phase 4: Roadmap Generation & Delivery
 
-**Prerequisite:** Phase 3 must be invoked. This phase is passive.
+**Prerequisite:** Phase 3 must complete (ambiguity ≤ 20%, hard cap, or early exit).
 
 ### Phase 4 Header
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 4 OF 5 — INTERVIEW IN PROGRESS
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Deep-interview is conducting the Socratic assessment.
-This phase runs autonomously until the interview
-reaches clarity threshold or round limit.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
-### Behavior During Phase 4
-
-- **Do not answer questions** posed by deep-interview — it handles the interview loop
-- **Do not intervene** in the Socratic questioning
-- **Wait** for deep-interview to signal completion
-
-### Completion Criteria
-
-Deep-interview ends when:
-- Ambiguity score ≤ 0.2
-- All product areas scored across all dimensions
-- Round 20 cap reached
-- User requests early exit
-
-### Post-Completion Gate
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-INTERVIEW COMPLETE — CRYSTALLIZING ROADMAP
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Crystallized spec saved to:
-[runtime_output_dir]/deep-interview-[slug].md
-
-Ambiguity score: [score]
-Product areas scored: [count]/3
-
-Proceeding to roadmap generation.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-```
-
----
-
-## Phase 5: Deliverable Generation & Roadmap Delivery
-
-**Prerequisite:** Phase 4 must complete with deep-interview returning a crystallized spec.
-
-### Phase 5 Header
-
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PHASE 5 OF 5 — ROADMAP GENERATION
+PHASE 4 OF 4 — PRODUCT ROADMAP
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Generating priority-ranked product roadmap.
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-### Step 1 — Read crystallized spec
+### Step 1 — Generate the Roadmap
 
-Read the file at `{runtime_output_dir}/deep-interview-{slug}.md`. Confirm the file exists and contains content. If missing or empty, stop and report.
+Using the final scoring matrix, all interview Q&A, and the pre-interview baseline, generate the product roadmap using the template from strategy.md. Include:
 
-### Step 2 — Generate product roadmap
+1. **Priority ranking** — Product areas ranked by composite score
+2. **Conviction tiers** — Each area classified as Ready / Emerging / Not Ready
+3. **Detailed scoring matrix** — All 15 cells with evidence for each score
+4. **Assumptions exposed** — Every untested belief surfaced during the interview
+5. **Dependencies** — How the product areas relate to each other
+6. **Strategic tensions** — Where the interviewee's stated beliefs conflict
+7. **Recommendations** — Immediate actions, assumptions to test, questions for team alignment
 
-Using the crystallized spec, the pre-interview context, and the market research, generate the product roadmap using the template from strategy.md.
+### Step 2 — Save Artifacts
 
-### Step 3 — Save markdown artifact
+Write the roadmap as markdown. If file writing is available, save to:
+- `product-roadmap-{interviewee_slug}.md` — Full roadmap report
+- `product-roadmap-{interviewee_slug}.json` — Structured scoring data (use JSON schema from strategy.md)
 
-Write the roadmap to `{runtime_output_dir}/product-roadmap-{interviewee_slug}.md`.
+If file writing is not available (e.g., Co-Work, web chat), output the full roadmap directly in the conversation.
 
-### Step 4 — Save JSON artifact
-
-Extract and write structured fields to `{runtime_output_dir}/product-roadmap-{interviewee_slug}.json`:
-- interviewee, role, product_areas (with per-dimension scores), conviction_tiers, priority_ranking, timestamp
-
-### Step 5 — Export DOCX
-
-Verify pandoc is available, then export:
-
-```bash
-pandoc {runtime_output_dir}/product-roadmap-{interviewee_slug}.md \
-  -o {runtime_output_dir}/product-roadmap-{interviewee_slug}.docx \
-  --from=markdown \
-  --toc \
-  --toc-depth=2 \
-  --metadata title="Clockchain Product Discovery: {interviewee_name}" \
-  --metadata author="Clockchain Product Team" \
-  --metadata date="{ISO_date}"
-```
-
-**If DOCX export fails:** Report the pandoc error. Do not downgrade silently.
-
-### Step 6 — Present deliverables
+### Step 3 — Present Results
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-PRODUCT DISCOVERY ASSESSMENT DELIVERED
+PRODUCT DISCOVERY ASSESSMENT COMPLETE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 Clockchain Product Discovery Assessment
-Interviewee: [interviewee_name] ([role])
-Date: [ISO_date]
+Interviewee: [name] ([role])
+Date: [date]
+Final Ambiguity: [score]%
 
 PRIORITY-RANKED PRODUCT ROADMAP:
 
-  #1  [product_area]  — [conviction_tier]  ([composite_score])
-  #2  [product_area]  — [conviction_tier]  ([composite_score])
-  #3  [product_area]  — [conviction_tier]  ([composite_score])
-
-ARTIFACTS:
-  - Markdown roadmap:  [path]/product-roadmap-[slug].md
-  - Word document:     [path]/product-roadmap-[slug].docx
-  - JSON artifact:     [path]/product-roadmap-[slug].json
+  #1  [area]  — [tier]  ([composite])
+  #2  [area]  — [tier]  ([composite])
+  #3  [area]  — [tier]  ([composite])
 
 NEXT STEP:
 Run this assessment with other team members to compare
-product visions and identify alignment vs. divergence.
+product visions and find alignment vs. divergence.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-ASSESSMENT COMPLETE
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
-
-**Policy:** Stop here. Do not offer planning, execution, or implementation. The roadmap is the deliverable.
 
 </Steps>
 
 <Tool_Usage>
-- Use `WebFetch` or `Bash` with `curl` for market research
-- Use `AskUserQuestion` for intake collection (structured form, not open Q&A)
-- Use `Skill()` to invoke deep-interview only for OMC; use `$deep-interview` for OMX
-- Use `Read` to load the crystallized spec from deep-interview output and prior assessment context
-- Use `Write` to save markdown and JSON artifacts
-- Use `Bash` with `pandoc` for DOCX export
+- Use structured questions (AskUserQuestion or equivalent) for intake and interview questions
+- Provide 3-4 multiple-choice options per question plus free-text
+- Score answers using the rubrics in knowledge.md
+- Generate the roadmap using templates in strategy.md
+- Save artifacts to files if file writing is available; otherwise output in conversation
+- No external dependencies required — this skill is fully self-contained
 </Tool_Usage>
 
 <Examples>
 <Good>
-Intake form presented clearly:
-```
-Let me assess your product thinking for Clockchain.
-
-Interviewee: Yang Tang
-Role: Head of AI Products
-Primary focus: Agent Identity (DIDs / birth certificates)
-```
-Why good: User can see exactly what's being assessed, correct any errors before proceeding.
-</Good>
-
-<Good>
 Discovery-first question that surfaces assumptions:
 ```
+Round 3 | Agent Identity × Vision | Ambiguity: 68%
+
 You said the primary customer is "AI agent platforms." Can you name
 three specific platforms that would pay for Clockchain's time oracle
 today? If you can't name three, what does that tell us about how
 well we understand the customer?
+
+a) LangChain, AutoGPT, CrewAI — they all need agent provenance
+b) I can name one or two, but not three with confidence
+c) Honestly, we haven't validated this with specific platforms yet
+d) The customer isn't platforms — it's the enterprises deploying agents
 ```
-Why good: Probes the depth of conviction behind a stated belief. Forces the interviewee to test their own assumption rather than accepting it at face value.
+Why good: Probes conviction depth. Forces the interviewee to test their own assumption. All four options represent genuinely different states of clarity.
 </Good>
 
 <Good>
-Cross-product area probe:
+Cross-product dependency probe:
 ```
-You've prioritized Agent Identity as the #1 product area. But birth
-certificates require the Network to be live and smart contracts to
-be deployed. Does Agent Identity actually depend on the other two
-areas being ready first? Or can it stand alone?
+Round 5 | Smart Contracts × Priority | Ambiguity: 52%
+
+You've prioritized Agent Identity as #1. But birth certificates
+require the Network to be live and smart contracts to be deployed.
+Does Agent Identity actually depend on the other two being ready
+first? Or can it stand alone?
+
+a) It depends on both — Network and Smart Contracts must ship first
+b) It depends on Network only — we can use existing smart contract platforms
+c) It can stand alone — we can issue DIDs off-chain initially
+d) I haven't thought through the dependency chain
 ```
-Why good: Exposes dependency assumptions between product areas that could change the priority ranking.
+Why good: Exposes dependency assumptions that could change the priority ranking. Option (d) is honest and score-relevant.
 </Good>
 
 <Good>
-Vision clarity probe:
+Contrarian mode challenge:
 ```
-You described the Network as "a decentralized time oracle for Web3."
-But the company is pivoting to "time as the trust substrate for AI agents."
-Which is the actual product — time for Web3 or time for AI? Can it be both,
-or does trying to serve both audiences dilute the value proposition?
+Round 4 | Network × Market | Ambiguity: 61% | CONTRARIAN MODE
+
+You've said the time oracle is Clockchain's moat. But what if
+accurate timestamps become a commodity? Ethereum already has
+block.timestamp, Chainlink has time-based triggers, and NTP
+serves most centralized use cases. What if your patent protects
+an implementation nobody needs because "good enough" timestamps
+are everywhere?
+
+a) The patent covers more than just timestamps — it covers the consensus mechanism
+b) "Good enough" timestamps aren't good enough for agent provenance — cryptographic proof matters
+c) This is a real risk — we need to articulate why our timestamps are fundamentally different
+d) Maybe the moat isn't the time oracle itself but what we build on top of it
 ```
-Why good: Surfaces a real strategic tension in Clockchain's positioning. The interviewee must reconcile two potentially competing visions.
+Why good: Challenges the core assumption (time oracle = moat) with specific competitive evidence. All options lead to useful clarity, including the risk-acknowledging ones.
 </Good>
 
 <Good>
-Risk awareness probe:
+Scoring display after a round:
 ```
-Clockchain's differentiation is the patented time oracle. What happens if
-a major L1 (Ethereum, Solana) ships native high-resolution timestamps
-as a protocol feature? Does the patent protect against that, or does it
-only cover a specific implementation?
+━━━ Round 6 Complete ━━━
+
+| | Vision | Market | Technical | Priority | Risk | Composite | Tier |
+|---|---|---|---|---|---|---|---|
+| Network | 0.7 | 0.5 | 0.6 | 0.4 | 0.5 | 0.57 | Emerging |
+| Agent ID | 0.8 | 0.4 | 0.5 | 0.6 | 0.3 | 0.56 | Emerging |
+| Smart Contracts | 0.3 | 0.2 | 0.3 | 0.2 | 0.2 | 0.25 | Not Ready |
+
+Ambiguity: 54% | Target: ≤ 20%
+Next target: Smart Contracts × Market — lowest score at 0.2, no competitive awareness for receipt/attestation space
 ```
-Why good: Tests whether the team has thought about existential competitive risks, not just feature-level competition.
+Why good: Transparent scoring after every round. Clear targeting rationale. The interviewee can see exactly where their thinking is strong vs. weak.
 </Good>
 
-<Good>
-Market understanding probe with competitive context:
+<Bad>
+Batching multiple questions:
 ```
-Cronos has an AI Agent SDK with a Proof of Identity standard. Story Protocol
-has ATCP/IP for agent-to-agent communication. Both are live. Clockchain's
-Agent Identity is on testnet. What gives Clockchain the right to win this
-market despite being later?
+What's your vision for the network? And how does agent identity fit in?
+Also, what about smart contracts — are those a priority? And who's the customer?
 ```
-Why good: Uses specific competitive intelligence to pressure-test the interviewee's conviction. Not adversarial — genuinely probing whether there's a defensible answer.
-</Good>
+Why bad: Four questions at once. Causes shallow answers and makes scoring impossible.
+</Bad>
+
+<Bad>
+Leading question with an obvious "right" answer:
+```
+Don't you think Agent Identity should be the top priority given the
+AI agent boom?
+
+a) Yes, absolutely
+b) Maybe
+c) No
+```
+Why bad: Leading framing + options that signal which answer is "correct." Discovery-first means genuine exploration.
+</Bad>
+
+<Bad>
+Accepting an assumption without probing:
+```
+User: "Agent identity is our #1 priority."
+Assessor: "Great, let's move on to smart contracts."
+```
+Why bad: Accepted a product direction without probing conviction depth. Should ask "What evidence supports that? Can you name customers who've told you they need this?"
+</Bad>
 </Examples>
 
 <Escalation_And_Stop_Conditions>
-- If the selected runtime's deep-interview invocation returns an error or deep-interview is unavailable: **hard stop.** Do not proceed with manual interviewing. Report the error and exit.
-- Hard stop at deep-interview round 20 regardless of ambiguity
-- If the interviewee can't articulate what the product IS after 3 rounds of vision probing, flag it explicitly: "Vision Clarity is critically low — the core product identity is unresolved"
+- Hard stop at round 15 regardless of ambiguity
+- Soft warning at round 10 — offer to continue or wrap up
+- Early exit allowed at round 3+ with warning if ambiguity > 20%
+- If the interviewee can't articulate what the product IS after 3 rounds of vision probing, flag it: "Vision Clarity is critically low — the core product identity is unresolved"
 - If two product areas score identically, probe for dependencies: which one enables the other?
 - If all areas score below 0.4, recommend a product strategy offsite before further development
 - If the interviewee defaults to "all areas are equally important" on every question, challenge directly: "Equal priority means no priority. What ships first if you can only fund one?"
 </Escalation_And_Stop_Conditions>
 
 <Final_Checklist>
-- [ ] **Phase 0 — Prerequisites confirmed present (FAIL HARD if any missing):**
-  - [ ] OMC or OMX installed and verified
-  - [ ] deep-interview skill confirmed available through selected runtime
-  - [ ] pandoc installed and verified
 - [ ] Intake collected (interviewee name, role, focus area)
-- [ ] Company and competitive context loaded
-- [ ] Pre-interview product context collected (all 8 questions answered)
-- [ ] Market & technology research performed (Phase 2c — mandatory)
-- [ ] Deep-interview seeded with product discovery framing + 3 product areas + 5 functional dimensions
-- [ ] Deep-interview completed (or user exited early)
-- [ ] Crystallized spec read from `{runtime_output_dir}/deep-interview-{slug}.md`
+- [ ] Company and competitive context loaded from knowledge.md
+- [ ] Pre-interview baseline collected (all 8 questions answered)
+- [ ] Adaptive interview conducted with one question per round
+- [ ] Each question targeted the weakest product area × dimension cell
+- [ ] 3-4 multiple-choice options provided per question (plus free-text)
+- [ ] Scoring matrix updated and displayed after every round
+- [ ] Challenge modes activated at correct thresholds (round 4, 6, 8)
+- [ ] Interview completed (ambiguity ≤ 20%, hard cap, or early exit)
 - [ ] Product roadmap generated with conviction tiers and priority ranking
-- [ ] Markdown saved to `{runtime_output_dir}/product-roadmap-{slug}.md`
-- [ ] JSON artifact saved to `{runtime_output_dir}/product-roadmap-{slug}.json`
-- [ ] DOCX exported to `{runtime_output_dir}/product-roadmap-{slug}.docx`
-- [ ] Deliverable presented to user with priority ranking summary
+- [ ] All 15 scoring cells have evidence-backed scores
+- [ ] Assumptions exposed table included in the roadmap
+- [ ] Dependencies between product areas mapped
+- [ ] Roadmap delivered to user with next-step recommendation
 </Final_Checklist>
 
 Task: {{ARGUMENTS}}
