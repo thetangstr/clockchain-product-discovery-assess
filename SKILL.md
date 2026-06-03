@@ -43,7 +43,10 @@ Every step in this assessment follows a THINK → ACT → VERIFY cycle. This is 
 1. **One question per message.** Never two. Never a list. ONE question, with multiple-choice options, then STOP and wait for the answer.
 2. **Think before every question.** Explicitly reason about which cell is weakest, why, and what you need to learn. Show this reasoning to the interviewee.
 3. **Analyze after every answer.** Write substantive analysis — what it reveals, assumptions surfaced, tensions with prior answers, scoring justification. This is the value of the assessment.
-4. **Every interview question has choices.** 3-4 multiple-choice options plus "Other (specify)". No open-ended questions during the interview (Phase 3). No exceptions.
+4. **Every interview question has 3-4 substantive choices, plus an "Other / type your own" path.**
+   - **Claude Code:** provide **3-4 real options only** (max 4) and let `AskUserQuestion` supply the "Other" free-text choice automatically. Do NOT add your own "Other (specify)" option — it would show up as a duplicate.
+   - **Codex / plain chat:** add an explicit final `Other — type your own` to the lettered list (no tool provides it for you).
+   No open-ended interview questions in Phase 3. No exceptions.
 5. **Use the best structured-choice mechanism your environment offers — adapt to the platform:**
    - **Claude Code:** use the `AskUserQuestion` tool for EVERY question (intake + interview) — it gives clickable options with a built-in "Other" free-text field.
    - **Codex / ChatGPT / plain chat (no question tool):** present the options as a clean lettered list (`A)`, `B)`, `C)`, … plus `D) Other — type your own`), then wait for the reply. This is the correct fallback — do not treat the lack of a picker tool as a blocker.
@@ -58,23 +61,22 @@ Every step in this assessment follows a THINK → ACT → VERIFY cycle. This is 
 
 ## Phase 1: Intake
 
-Collect via structured questions. Use `AskUserQuestion` (or equivalent structured picker UI) for each question — one at a time, waiting for each answer before proceeding to the next:
+Ask these one at a time, waiting for each answer. (Reminder per Core Rule 4: in Claude Code the `AskUserQuestion` "Other" is automatic — omit the explicit "Other" lines below; in Codex/plain chat, keep them.)
 
-**Question 1: What is your name?**
-*(Free text — type your name)*
+**Question 1: What is your name?** — ask as a plain open question (a name has no options; don't force it into a picker).
 
-**Question 2: What is your role?**
+**Question 2: What is your role?** *(role options)*
 a) CEO / Co-founder — strategic vision and business direction
 b) Head of AI Products — product and technical direction for agentic use cases
 c) CTO / Technical Co-founder — network architecture and technical feasibility
-d) Other (specify)
+d) Other — type your own *(Codex/text only; automatic in Claude Code)*
 
-**Question 3: Which product area do you think about most?**
+**Question 3: Which product area do you think about most?** *(pick one)*
 a) Network (time oracle / DePIN) — the core infrastructure layer
 b) Agent Identity (DIDs / birth certificates) — on-chain agent identity
 c) Smart Contracts & Receipts — verifiable on-chain agent actions
 d) All areas equally
-e) Other (specify)
+*(Codex/text adds: e) Other — type your own; in Claude Code that's automatic)*
 
 After collecting, confirm:
 
@@ -418,7 +420,7 @@ Save to `team-comparison-clockchain.md` and `team-comparison-clockchain.json`.
 </Steps>
 
 <Tool_Usage>
-- **AskUserQuestion** (or equivalent structured picker): Use for EVERY question — intake and interview. This gives the interviewee clickable options, not plain text letters. The "Other" option with free-text input is built into the tool automatically.
+- **AskUserQuestion** (or equivalent structured picker): Use for EVERY interview question. Pass **at most 4 real options** (the tool's limit). The "Other / type your own" free-text choice is built in automatically — do NOT add your own "Other" option (it would duplicate). Give each question a short `header` label.
 - **Write**: Save the final roadmap brief as markdown and JSON artifacts.
 - **Read**: Load knowledge.md and strategy.md at the start.
 - If `AskUserQuestion` is not available (e.g., ChatGPT, plain Claude.ai), fall back to lettered options in text — but always present structured choices, never "reply A or B."
@@ -500,9 +502,8 @@ c) We don't compete with Cronos directly — they're SDK-first
    Different layers.
 d) Honestly, I'm not sure we have a clear answer to this yet.
    We need to figure out our Cronos differentiation story.
-e) Other (specify)
 ```
-Why good: Uses specific competitive intel (Cronos, named and real). Each option implies a different competitive strategy. Option (d) is honest and score-relevant. The question itself builds on prior answers.
+Why good: Uses specific competitive intel (Cronos, named and real). Each option implies a different competitive strategy. Option (d) is honest and score-relevant. Four real options — in Claude Code the "Other" free-text is automatic (no explicit "Other" option needed); in Codex/text you'd add `e) Other — type your own`. The question builds on prior answers.
 </Good>
 
 <Good>
@@ -606,7 +607,7 @@ Why bad: No analysis of what the answer reveals. No assumptions named. No tensio
 - [ ] Company context loaded from knowledge.md (not displayed as a dump)
 - [ ] Every round followed THINK → ACT → VERIFY cycle
 - [ ] Exactly ONE question per round — never batched
-- [ ] Every question had 3-4 multiple-choice options plus "Other (specify)"
+- [ ] Every question had 3-4 substantive options (≤4 in Claude Code; "Other" automatic there, explicit in Codex/text — no duplicate "Other")
 - [ ] Substantive analysis after every answer (what it reveals, assumptions, tensions)
 - [ ] Scoring matrix with justification displayed after every round
 - [ ] Challenge modes used at natural points (not rigidly by round number)
