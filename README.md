@@ -2,6 +2,20 @@
 
 A Socratic interview that surfaces what each Clockchain exec/lead actually thinks about the **customer, product-market fit, and market** — then a cross-exec report showing where leadership agrees and diverges on who the customer is. Built for the Head of AI Product to run with the other execs.
 
+## ⚠️ First — on claude.ai (web Claude Code)? Enable Capabilities
+
+If you're running this in **Claude Code on claude.ai (web)**, turn the sandbox on *before* you start — otherwise it can't clone the repo, read the files, or write your result.
+
+1. Open **Settings → Capabilities**
+2. Enable **Code execution and file creation**
+3. Enable **network access** (network egress) — needed to clone the GitHub repo
+
+- **Free / Pro / Max:** toggle these yourself under Settings → Capabilities.
+- **Team:** on by default at the org level (network egress enabled).
+- **Enterprise:** an admin enables it at **Organization settings → Capabilities**; it may use a two-gate model (admin enables org-wide **and** each user opts in), so you might need both.
+
+*Not on web?* Skip this — the Claude Code CLI, Desktop, and Codex don't need it. (Or, on plain claude.ai chat with no sandbox, just upload the three files — see below.)
+
 ## Run It
 
 Copy this prompt into Claude Code, Codex, or any AI coding agent:

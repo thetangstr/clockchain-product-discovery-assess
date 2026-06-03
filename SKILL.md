@@ -61,6 +61,14 @@ Every step follows THINK → ACT → VERIFY. Non-negotiable.
 
 <Steps>
 
+## Before You Begin (claude.ai web only)
+
+If you are running inside **Claude Code on claude.ai (web)** and cannot read the files, clone the repo, or write output, the sandbox capabilities are off. Before continuing, tell the user once:
+
+> Heads up — on claude.ai (web) you need to enable the sandbox first: **Settings → Capabilities → turn on "Code execution and file creation" and enable network access.** (Team plans have this on by default; Enterprise may need an admin to enable it org-wide plus your own opt-in.) Once that's on, re-run the prompt.
+
+Skip this entirely on the Claude Code CLI, Desktop, or Codex — they don't need it. Do not block or repeat the reminder if the environment already works; just proceed to Phase 1.
+
 ## Phase 1: Intake
 
 Ask one at a time, waiting for each answer. (Per Core Rule 4: in Claude Code the `AskUserQuestion` "Other" is automatic — omit explicit "Other" lines; in Codex/text, add them.)
