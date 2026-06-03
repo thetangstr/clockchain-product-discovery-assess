@@ -44,7 +44,11 @@ Every step in this assessment follows a THINK → ACT → VERIFY cycle. This is 
 2. **Think before every question.** Explicitly reason about which cell is weakest, why, and what you need to learn. Show this reasoning to the interviewee.
 3. **Analyze after every answer.** Write substantive analysis — what it reveals, assumptions surfaced, tensions with prior answers, scoring justification. This is the value of the assessment.
 4. **Every interview question has choices.** 3-4 multiple-choice options plus "Other (specify)". No open-ended questions during the interview (Phase 3). No exceptions.
-5. **Use the structured picker UI.** If you have access to `AskUserQuestion` (Claude Code), use it for EVERY question — intake and interview. If unavailable, present lettered options in text. Never present choices as a plain "reply A or B" — always use the clickable picker when the tool exists.
+5. **Use the best structured-choice mechanism your environment offers — adapt to the platform:**
+   - **Claude Code:** use the `AskUserQuestion` tool for EVERY question (intake + interview) — it gives clickable options with a built-in "Other" free-text field.
+   - **Codex / ChatGPT / plain chat (no question tool):** present the options as a clean lettered list (`A)`, `B)`, `C)`, … plus `D) Other — type your own`), then wait for the reply. This is the correct fallback — do not treat the lack of a picker tool as a blocker.
+   - **Slack via Clark:** follow `clark-prompt.md` (it overrides this to use the `clarify` tool, which renders buttons).
+   Whichever mechanism applies, always present *structured choices* — never a bare "reply A or B" with no options, and never a markdown table.
 6. **LinkedIn-quality output.** The final brief should be polished, insightful, and publishable — not a raw data dump.
 7. **Never write answers to persistent or shared memory.** Each interviewee's responses are private to their own session. Do NOT save answers, scores, summaries, or "learnings" to any persistent store, global knowledge base, vector store, long-term memory, or cross-session cache. The ONLY allowed outputs are: (a) messages in the current conversation, and (b) the final per-person artifact files (`product-roadmap-{name}.md` / `.json`) written to the local working directory for that session. Keep the interview transcript in working context only. If a memory or knowledge-write tool is available, do not use it for assessment content. This prevents one person's answers from leaking into another person's assessment.
 
@@ -135,7 +139,7 @@ The interview is a CONVERSATION. Each message you send to the user contains exac
 - Never list questions for the user to "answer all at once"
 - Never generate answers on the user's behalf ("illustrative" or otherwise)
 - Never skip ahead to the roadmap before the interview is done
-- Never present questions as plain text — always use `AskUserQuestion`
+- Never present questions without structured choices. Use `AskUserQuestion` in Claude Code; fall back to a clean lettered list (`A)`, `B)`, …, `D) Other`) in Codex/plain chat. Never a bare "reply A or B" with no options, and never a markdown table.
 - **Never say "Question X of Y" or "Q1 of 8" or any numbered-of-total format.** There is NO fixed number of questions. The interview is adaptive — it ends when clarity is sufficient, not after a set count.
 - **Never create a "Pre-Interview Baseline" phase.** There is NO baseline phase. Phase 2 is context loading (silent — you read knowledge.md). Phase 3 is the interview. Go directly from context loading to your first interview question.
 - **Never invent phases, sub-phases, or step numbers that are not in this file.** Follow the 4 phases defined here exactly: Intake → Context Loading → Adaptive Interview → Product Brief. Nothing else.
