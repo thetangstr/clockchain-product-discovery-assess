@@ -197,6 +197,18 @@ Round [n] · Ambiguity: [score]%
 - Specific enough that choosing one tells you something concrete about their customer/market model
 - **Name recognizable platforms and real buyer roles** (LangChain, CrewAI; CFO, Chief Compliance Officer, Head of Platform) — never an internal/private partner name the interviewee must already know.
 
+**Single-select vs multi-select — choose deliberately:**
+
+Default to **single-select** — forcing one choice IS the Socratic pressure (it exposes their real priority and conviction). But use **multi-select** when the goal is to map breadth before forcing a choice:
+- **Multi-select fits** exploratory/landscape questions: "Which of these verticals could feel this pain — select all that apply?", "Which buyer roles have you *actually* spoken to?", "Which competitors do you watch?", "Which of these demand signals have you actually seen?"
+- **Single-select fits** forcing-function questions: "Who is THE #1 customer?", "What's the ONE wedge you'd ship first?", "If you had to pick one vertical for year 1?" — NEVER multi; the point is the hard choice.
+- **The power pattern — cast wide, then force the choice:** ask a multi-select to surface the landscape ("which of these are even relevant?"), then immediately follow with a single-select that forces priority among what they picked ("of the 3 you selected, which ONE is the beachhead, and why?"). This reveals both how they see the space AND where their conviction actually is — and a refusal to narrow is itself a finding (score Customer Clarity lower).
+
+Per platform:
+- **Claude Code:** pass `multiSelect: true` to `AskUserQuestion` for multi-select questions; omit it (single) otherwise.
+- **Codex / plain chat:** for multi-select, say "Select all that apply — reply with the letters (e.g., `A, C`)."
+- **Slack (Clark):** the `clarify` buttons are single-select; for a multi-select question, follow `clark-prompt.md` (list the options in the text and ask them to reply with the numbers that apply).
+
 ### Analyzing an Answer — Full Re-evaluation
 
 Do NOT score the latest answer in isolation. **Re-evaluate the ENTIRE transcript** — every prior answer with the new one. Each round's scoring considers the full picture of their product/market thinking.
@@ -394,7 +406,7 @@ Save to `team-product-market-clockchain.md` and `.json`.
 </Steps>
 
 <Tool_Usage>
-- **AskUserQuestion** (or equivalent structured picker): Use for EVERY interview question. Pass **at most 4 real options** (the tool's limit). The "Other / type your own" free-text is built in automatically — do NOT add your own "Other" option. Give each question a short `header` label.
+- **AskUserQuestion** (or equivalent structured picker): Use for EVERY interview question. Pass **at most 4 real options** (the tool's limit). The "Other / type your own" free-text is built in automatically — do NOT add your own "Other" option. Give each question a short `header` label. Pass `multiSelect: true` for "select all that apply" questions (see Single-select vs multi-select); omit it for forcing-function questions.
 - **Write**: Save the per-person brief as markdown and JSON.
 - **Read**: Load knowledge.md and strategy.md at the start.
 - If `AskUserQuestion` is unavailable (Codex, ChatGPT, plain Claude.ai), fall back to a lettered list with an explicit "Other" — always structured choices, never "reply A or B."
@@ -463,6 +475,38 @@ d) Honestly we haven't validated who feels this pain hardest yet
 Why good: Each option is a different, named buyer with a different budget owner. Option (d) is honest and score-relevant. Built on the prior answer.
 </Good>
 
+<Good>
+Cast wide with multi-select, then force the choice:
+```
+Round 3 · Ambiguity: 64%   [multi-select]
+
+Before we narrow — which of these verticals do you think could feel the
+"prove when an agent acted" pain acutely enough to pay? Select all that apply.
+
+a) Financial services (compliance / audit trails)
+b) Insurance (disputed agent claims)
+c) Healthcare (HIPAA access logs)
+d) Logistics (chain-of-custody handoffs)
+```
+[Claude Code: AskUserQuestion with multiSelect: true. Codex: "reply with the
+letters, e.g. A, B". Slack: numbered text list, "reply with the numbers."]
+
+→ Exec picks a, b, d. NEXT message forces the choice (single-select):
+```
+Round 4 · Ambiguity: 58%
+
+You picked financial services, insurance, and logistics. Pre-PMF, you get
+ONE beachhead. Which one do you go after first — and what makes that buyer
+more reachable or more desperate than the other two?
+
+a) Financial services — biggest compliance budgets, but long sales cycles
+b) Insurance — acute disputed-claim pain, named claims buyer
+c) Logistics — high agent-to-agent volume, but who owns the budget?
+d) I'm not sure which is the wedge yet
+```
+Why good: The multi-select surfaces how broadly they see the landscape; the single-select follow-up forces the conviction. Refusing to narrow (or picking d) is itself a finding — score Customer Clarity lower. This is the wide-then-narrow pattern.
+</Good>
+
 <Bad>
 Startup-thesis framing (the OLD frame — avoid):
 ```
@@ -505,6 +549,7 @@ Why bad: Four questions at once, no reasoning shown. Shallow answers, impossible
 - [ ] Every round followed THINK → ACT → VERIFY
 - [ ] Exactly ONE question per round — never batched
 - [ ] Questions used structured choices (AskUserQuestion in Claude Code, ≤4 real options; lettered list in Codex) — no duplicate "Other", no tables
+- [ ] Used multi-select for landscape/breadth questions and single-select for forcing-function ones; followed wide multi-selects with a single-select "which ONE" to force priority
 - [ ] Led with Customer Clarity, then PMF (the two priorities)
 - [ ] Substantive analysis after every answer (customer/market model, assumptions, tensions)
 - [ ] 5-dimension scorecard with justification after every round

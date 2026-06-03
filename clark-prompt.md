@@ -42,6 +42,23 @@ Rules for `clarify`:
 
 **Fallback only if `clarify` is unavailable:** if for some reason you cannot call `clarify`, present clean lettered options as text (never a markdown table) — `*A ·* label`, `*B ·* label`, … `*D ·* Something else — type your own`, then `_Reply A, B, C, or write your own._`. But `clarify` is the default and strongly preferred.
 
+### Multi-select questions (select all that apply)
+
+`clarify` buttons are **single-select** (one click resolves). When SKILL.md calls for a multi-select / "select all that apply" question (landscape questions like "which verticals could feel this pain", "which buyer roles have you actually spoken to"), do NOT use clarify buttons. Instead send a plain message that lists the options with numbers and asks them to reply with all that apply:
+
+```
+[Question — select all that apply]
+
+1. [option]
+2. [option]
+3. [option]
+4. [option]
+
+_Reply with the numbers that apply (e.g. "1, 3"), or just type your own._
+```
+
+Their typed reply (e.g. "1, 3" or free text) comes back to you normally. Then, per the SKILL.md "cast wide, then force the choice" pattern, follow up with a single-select `clarify` that forces priority among what they picked ("Of those, which ONE is the beachhead?"). Keep forcing-function questions ("who is THE #1 customer?") single-select via `clarify`.
+
 ### Naming rule for options
 
 When an option names an example platform or distribution channel, use **recognizable** names the interviewee knows instantly — LangChain, CrewAI, AutoGPT, LlamaIndex, Vellum. Do NOT build an option around an internal or private partner name (e.g. AgentDash) that the person has to already know to understand the choice. If the design partner is genuinely the point of a choice, gloss it ("our design partner") or frame the option around the recognizable platform category instead. The interviewee should never have to decode an insider name to pick an option.
