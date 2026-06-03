@@ -14,6 +14,8 @@ If you're running this in **Claude Code on claude.ai (web)**, turn the sandbox o
 - **Team:** on by default at the org level (network egress enabled).
 - **Enterprise:** an admin enables it at **Organization settings → Capabilities**; it may use a two-gate model (admin enables org-wide **and** each user opts in), so you might need both.
 
+**How it runs on web:** the repo clones into an Anthropic-hosted cloud sandbox (not your computer), and any files Claude writes live there too. That sandbox is **ephemeral — wiped when the session ends, with no download button.** So when the interview finishes, **copy the JSON Claude prints in the chat** (it always prints it) — that copy is what you keep and send to the Head of AI Product.
+
 *Not on web?* Skip this — the Claude Code CLI, Desktop, and Codex don't need it. (Or, on plain claude.ai chat with no sandbox, just upload the three files — see below.)
 
 ## Run It
@@ -90,7 +92,7 @@ Challenge lenses appear at natural points (not by round number): a **Contrarian*
 
 Each exec runs the interview independently, then the Head of AI Product aggregates:
 
-**Step 1:** Send each exec the one-liner prompt above (or have them DM Clark). They each produce `product-market-{name}.md` + `.json`.
+**Step 1:** Send each exec the one-liner prompt above (or have them DM Clark). Each finishes with a brief + JSON — saved as `product-market-{name}.md` + `.json` on the CLI/Desktop, or **printed in the chat to copy** on claude.ai web and Slack (the sandbox/DM is ephemeral). Each exec sends you their JSON.
 
 **Step 2:** Collect all the `.json` files into one directory, then prompt:
 

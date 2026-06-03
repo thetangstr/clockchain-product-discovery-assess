@@ -339,9 +339,14 @@ Structure (from strategy.md):
 
 ### Deliver
 
-Save artifacts if file writing is available:
+**Always print the full brief AND the full JSON in the chat as copyable code blocks — do not rely on saved files alone.** On claude.ai (web), files live in an ephemeral cloud sandbox that is wiped when the session ends, with no download button — so the chat copy is the durable artifact. Then, if file writing is available, ALSO save:
 - `product-market-{slug}.md` — the brief
 - `product-market-{slug}.json` — structured data (schema in strategy.md)
+
+Order of delivery:
+1. The summary box (below)
+2. The full narrative brief (the Phase 4 sections) as readable text
+3. The complete JSON in a fenced ```json code block — tell the user: "Copy this JSON and send it to the Head of AI Product for the leadership alignment report." (On web, this copy is the only thing that survives the session.)
 
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -361,7 +366,7 @@ Save artifacts if file writing is available:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-Each exec runs this independently in their own session (Claude Code / Codex / Slack via Clark) and saves their file.
+Each exec runs this independently in their own session (Claude Code / Codex / Slack via Clark). The output to collect is the **JSON printed in the chat** — copy it out (on web especially, the saved file does not persist past the session).
 
 ---
 
