@@ -1,22 +1,24 @@
-# Clockchain Product Discovery Assessment
+# Clockchain Product & Market Discovery
+
+A Socratic interview that surfaces what each Clockchain exec/lead actually thinks about the **customer, product-market fit, and market** — then a cross-exec report showing where leadership agrees and diverges on who the customer is. Built for the Head of AI Product to run with the other execs.
 
 ## Run It
 
 Copy this prompt into Claude Code, Codex, or any AI coding agent:
 
 ```
-Clone https://github.com/thetangstr/clockchain-product-discovery-assess.git then read SKILL.md, knowledge.md, and strategy.md. Run the Clockchain product discovery assessment with me as the interviewee.
+Clone https://github.com/thetangstr/clockchain-product-discovery-assess.git then read SKILL.md, knowledge.md, and strategy.md. Run the Clockchain product & market discovery interview with me as the interviewee.
 ```
 
 If you're on Claude.ai, Co-Work, ChatGPT, or any LLM without shell access — download the three `.md` files, upload them to your chat, and send:
 
 ```
-Read the three attached files. Run the Clockchain product discovery assessment with me as the interviewee.
+Read the three attached files. Run the Clockchain product & market discovery interview with me as the interviewee.
 ```
 
 ### Via Slack (Clark)
 
-Load the 3 `.md` files + `clark-prompt.md` into Clark's knowledge base. Each team member DMs Clark to take the assessment independently. See `clark-prompt.md` for full setup instructions.
+Load the 3 `.md` files + `clark-prompt.md` into Clark's knowledge base. Each exec DMs Clark to take it independently (clickable buttons via the `clarify` tool). See `clark-prompt.md` for setup.
 
 No dependencies. No plugins. No setup.
 
@@ -24,67 +26,68 @@ No dependencies. No plugins. No setup.
 
 ## What It Does
 
-Interviews you about Clockchain's future product direction across **3 product areas** and **5 functional dimensions**, then produces a priority-ranked product roadmap with conviction tiers.
+Hard, Socratic, **product- and market-focused** questions — aimed at customers and demand, not "is this a viable bet." It scores each exec's clarity across **5 product/market dimensions**:
 
-**Product Areas:**
-- Network (Time Oracle / DePIN)
-- Agent Identity (DIDs / Birth Certificates)
-- Smart Contracts & Receipts
+| Dimension | Weight | What it surfaces |
+|---|---|---|
+| **Customer Clarity** | 25% | Who exactly is the customer — vertical, the buyer who pays vs. the user |
+| **Product-Market Fit Evidence** | 25% | The pain, how acute, the pull/demand signal, the wedge |
+| **Market & Industry Insight** | 20% | Industry dynamics, where value pools, timing |
+| **Competitive Positioning** | 15% | How Clockchain wins vs Sahara/0G/Cronos and the status quo |
+| **Product Goals & Vision** | 15% | What the product is trying to become; the 12-month goal |
 
-**Functional Dimensions (weighted):**
-- Vision Clarity (30%) · Market Understanding (20%) · Technical Feasibility (20%) · Prioritization (15%) · Risk Awareness (15%)
+Customer and PMF are weighted highest. The three product areas (Network, Agent Identity, Smart Contracts) are **topics the questions draw from**, not a scoring grid.
 
-**Output:** Priority-ranked roadmap with conviction tiers — **Ready to Build** (>= 0.70), **Emerging** (0.40–0.69), **Not Ready** (< 0.40) — plus a 15-cell scoring matrix, assumptions exposed, dependency map, and recommendations.
+**Per-exec output:** a LinkedIn-quality product/market profile — their customer thesis, PMF read, market view, positioning, goals, the assumptions exposed, and where their thinking is Sharp vs Hazy. (`product-market-{name}.md` + `.json`)
+
+**Team output:** a leadership alignment report showing whether the execs name the **same customer** and the **same core pain** — the single most valuable thing to know.
 
 ## Compatibility
 
-| Platform | Works? |
-|----------|--------|
-| Claude Code (CLI / Desktop / Web) | Yes |
-| Codex | Yes |
-| Claude.ai / Co-Work | Yes |
-| ChatGPT / any LLM | Yes |
+| Platform | Works? | Interaction |
+|----------|--------|-------------|
+| Claude Code (CLI / Desktop / Web) | Yes | `AskUserQuestion` clickable picker |
+| Codex / ChatGPT / any LLM | Yes | Clean lettered options |
+| Claude.ai / Co-Work | Yes | Lettered options |
+| Slack (Clark) | Yes | `clarify` tool → buttons |
 
 ## How It Works
 
 | Phase | What Happens |
 |-------|-------------|
-| **Phase 1: Intake** | Collects interviewee name, role, and primary focus area |
-| **Phase 2: Context** | Loads Clockchain company context and competitive landscape |
-| **Phase 3: Interview** | Adaptive Socratic interview — one question per round with multiple-choice options, targets the weakest scoring cell, updates the 3×5 matrix after each answer. No fixed round count — runs until clarity threshold is met |
-| **Phase 4: Roadmap** | Generates priority-ranked product roadmap with conviction tiers, assumptions, dependencies, and recommendations |
+| **1. Intake** | Name and role |
+| **2. Context** | Loads Clockchain company/market context (silent) |
+| **3. Interview** | Adaptive Socratic interview — one question per round, leads with Customer then PMF, re-scores the full transcript after each answer, pushes back on "the market needs this." No fixed count — runs until clarity is sufficient |
+| **4. Brief** | Generates the per-exec product/market profile + JSON |
+| **5. Team Comparison** | (Run by the Head of AI Product) compares all execs' profiles into a leadership alignment report |
 
-The interview includes challenge modes that activate at specific rounds:
-- **Round 4+:** Contrarian — challenges core assumptions
-- **Round 6+:** Simplifier — probes for unnecessary complexity
-- **Round 8+:** Competitor — pressure-tests via competitive context
+Challenge lenses appear at natural points (not by round number): a **Contrarian** flip ("what if your real customer is the opposite?"), a **Status-Quo test** ("what's the customer doing today without you?"), and a **Competitor test**.
 
 ## Files
 
-| File | Lines | Purpose |
-|------|-------|---------|
-| `SKILL.md` | ~550 | Assessment engine — 4-phase pipeline, interview loop, scoring logic, challenge modes |
-| `knowledge.md` | ~270 | Domain knowledge — 3 product areas, 5 dimensions, scoring rubrics, competitive landscape, tension-surfacing techniques |
-| `strategy.md` | ~370 | Report templates — individual roadmap, cross-interviewee comparison, JSON schema |
+| File | Purpose |
+|------|---------|
+| `SKILL.md` | Interview engine — phases, think→analyze→score loop, 5-dimension scoring, platform handling |
+| `knowledge.md` | Domain knowledge — company/market context, candidate verticals & buyer personas, dimension rubrics, customer/PMF red flags, competitors |
+| `strategy.md` | Output templates — per-exec brief, leadership alignment report, JSON schema |
+| `clark-prompt.md` | Slack-only adaptation (the `clarify` tool + data isolation). Not loaded for Claude Code / Codex runs. |
 
 ## Team Comparison
 
-Each team member runs the assessment independently in their own session. Then collect the results and generate a comparison:
+Each exec runs the interview independently, then the Head of AI Product aggregates:
 
-**Step 1:** Send each person the one-liner prompt from the top of this README. They run it in their own Claude Code, Codex, or Co-Work session.
+**Step 1:** Send each exec the one-liner prompt above (or have them DM Clark). They each produce `product-market-{name}.md` + `.json`.
 
-**Step 2:** Each person's session produces `product-roadmap-{name}.md` and `product-roadmap-{name}.json`.
-
-**Step 3:** Collect all the `.json` files into one directory, then prompt:
+**Step 2:** Collect all the `.json` files into one directory, then prompt:
 
 ```
-Read all product-roadmap-*.json files in this directory, then read
+Read all product-market-*.json files in this directory, then read
 strategy.md from the clockchain-product-discovery-assess repo.
-Generate the team comparison report.
+Generate the leadership product/market alignment report.
 ```
 
-The comparison report shows: priority ranking alignment, conviction tier agreement, biggest disagreements (score delta > 0.3), vision alignment analysis, and recommended actions to resolve divergence.
+The report leads with **customer alignment** (do they name the same buyer?) and **PMF alignment** (same pain, same pull?), then flags the dangerous misalignments to resolve before committing GTM and roadmap.
 
 ## Based On
 
-Format modeled after [agentdash-assess-skill](https://github.com/thetangstr/agentdash-assess-skill).
+Question format inspired by [agentdash-assess-skill](https://github.com/thetangstr/agentdash-assess-skill) and YC-office-hours-style Socratic probing — reframed from startup-viability to product/market discovery.

@@ -1,8 +1,8 @@
-# Clark Setup — Clockchain Product Discovery Assessment via Slack
+# Clark Setup — Clockchain Product & Market Discovery via Slack
 
 ## How It Works
 
-Load SKILL.md, knowledge.md, and strategy.md into Clark's context. Each team member DMs Clark to take the assessment independently. Clark interviews them one question at a time, scores their answers, and produces a JSON result at the end.
+Load SKILL.md, knowledge.md, and strategy.md into Clark's context. Each exec/lead DMs Clark to take the interview independently. Clark probes their thinking on the customer, product-market fit, and market — one question at a time — scores clarity across 5 product/market dimensions, and produces a JSON result at the end.
 
 ## System Prompt for Clark
 
@@ -10,7 +10,7 @@ Copy everything below the line into Clark's system prompt or knowledge base, alo
 
 ---
 
-You are running a Clockchain Product Discovery Assessment. You have three instruction files loaded: SKILL.md (the interview engine), knowledge.md (domain knowledge and scoring rubrics), and strategy.md (output templates).
+You are running a Clockchain Product & Market Discovery interview on behalf of the Head of AI Product. Your job is to surface what this exec thinks about the customer, product-market fit, and market — and score how clear (vs hand-wavy) that thinking is. You have three instruction files loaded: SKILL.md (the interview engine), knowledge.md (domain knowledge and scoring rubrics), and strategy.md (output templates).
 
 Follow SKILL.md exactly, with these Slack-specific adaptations.
 
@@ -56,22 +56,24 @@ When an option names an example platform or distribution channel, use **recogniz
 
 ### Slack-Friendly Scoring Format (no tables)
 
-After each answer, send ONE message. Show composite score per area with a colored tier dot — NOT the full 15-cell matrix (that goes in the final JSON only):
+After each answer, send ONE message. Show the 5 product/market dimensions with a colored clarity dot:
 
 ```
 *What I'm hearing*
-[2-3 sentences — what this reveals, the key assumption, any tension with an earlier answer]
+[2-3 sentences — what this reveals about their customer/market thinking, the key assumption, any tension with an earlier answer. Flag if their named customer and the pain they describe point at different buyers.]
 
 *Where we are*
-🟢 [Area]  [composite]  Ready
-🟡 [Area]  [composite]  Emerging
-🔴 [Area]  [composite]  Not Ready
+🟢 Customer Clarity      [score]
+🟡 Product-Market Fit    [score]
+🟡 Market & Industry     [score]
+🔴 Competitive Position  [score]
+🟡 Product Goals         [score]
 _Ambiguity [score]% → target ≤ 20%_
 
 [then the next question — via a `clarify` tool call with choices]
 ```
 
-Tier dots: 🟢 Ready (≥ 0.70) · 🟡 Emerging (0.40–0.69) · 🔴 Not Ready (< 0.40). The full per-dimension scores are tracked internally and only appear in the final JSON.
+Clarity dots: 🟢 Sharp (≥ 0.70) · 🟡 Forming (0.40–0.69) · 🔴 Hazy (< 0.40). Lead early questions with Customer Clarity, then Product-Market Fit (the two priorities).
 
 ### Starting the Assessment
 
@@ -80,12 +82,13 @@ When someone DMs you, start with:
 Send a short welcome:
 
 ```
-👋 *Clockchain Product Discovery Assessment*
+👋 *Clockchain — Product & Market Discovery*
 
-I'll ask one question at a time about where Clockchain's
-product should go. Click a button or just type your own
-answer — your own words are always welcome. I'll share
-what I'm learning after each one. Takes about 15 minutes.
+I'll ask about who Clockchain's customer is, whether
+there's real demand, and how you read the market — one
+question at a time. Click a button or just type your own
+answer. I'll share what I'm learning after each one.
+Takes about 15 minutes.
 ```
 
 Then ask the first question (role) with a `clarify` tool call:
@@ -93,7 +96,7 @@ Then ask the first question (role) with a `clarify` tool call:
 ```
 clarify(
   question = "First — what's your role at Clockchain?",
-  choices  = ["CEO / Co-founder", "Head of AI Products", "CTO / Technical Co-founder"]
+  choices  = ["CEO / Co-founder", "Head of AI Products", "CTO / Technical Co-founder", "Head of Growth / GTM / BD"]
 )
 ```
 
@@ -101,19 +104,22 @@ clarify(
 
 ### Ending the Assessment
 
-When ambiguity reaches ≤ 20% or the user wants to wrap up, generate the product roadmap brief from strategy.md. Then output the JSON artifact as a code block:
+When ambiguity reaches ≤ 20% or the user wants to wrap up, generate the product & market brief from strategy.md. Then output the JSON artifact as a code block:
 
 ```
-✅ Assessment complete!
+✅ Done — here's your product & market profile:
 
-Your priority-ranked product roadmap:
+Customer thesis: [one line — who you think the customer is]
+PMF read: [Strong / Plausible-unproven / No evidence yet]
 
-#1 [area] · [tier] · [score]
-#2 [area] · [tier] · [score]
-#3 [area] · [tier] · [score]
+🟢 Customer Clarity      [score]
+🟡 Product-Market Fit    [score]
+🟡 Market & Industry     [score]
+🔴 Competitive Position  [score]
+🟡 Product Goals         [score]
 
-📄 Full report and JSON below. Share the JSON with
-your team lead to generate the comparison report.
+📄 Full brief and JSON below. Send the JSON to Yang
+(Head of AI Product) for the leadership alignment report.
 ```
 
 Then output the full JSON in a code block (from strategy.md Section 4 schema). This is what gets collected for the team comparison.
@@ -139,8 +145,8 @@ Then output the full JSON in a code block (from strategy.md Section 4 schema). T
 3. **Collect:** Each person's assessment ends with a JSON code block. They copy it and send it to you
 4. **Compare:** Put all JSONs in a directory. Prompt Claude Code:
    ```
-   Read all product-roadmap-*.json files and strategy.md.
-   Generate the team comparison report.
+   Read all product-market-*.json files and strategy.md.
+   Generate the leadership product/market alignment report.
    ```
 
 ## Data Isolation — Read This Before Distributing
@@ -161,7 +167,7 @@ Hermes scopes each conversation by a **session key**. Whether two people's answe
 
 1. **Persistent memory / vector store.** The session key isolates the *conversation buffer*. If Hermes also writes "learnings" to a global knowledge base during conversations, that's a second leak channel. Confirm Clark does NOT write assessment answers to any shared/global memory store. The 3 loaded instruction files are read-only reference — that's fine; the concern is write-back of answers.
 
-2. **Output filenames.** Each person copies their own JSON out of their own DM and sends it to the collector. Name each file with the person's name (`product-roadmap-yang-tang.json`) so they don't overwrite when collected into one folder.
+2. **Output filenames.** Each person copies their own JSON out of their own DM and sends it to the collector. Name each file with the person's name (`product-market-ken-yamada.json`) so they don't overwrite when collected into one folder.
 
 ## Why Slack Works for This
 
