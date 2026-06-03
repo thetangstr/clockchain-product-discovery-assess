@@ -65,11 +65,10 @@ Ask these one at a time, waiting for each answer. (Reminder per Core Rule 4: in 
 
 **Question 1: What is your name?** — ask as a plain open question (a name has no options; don't force it into a picker).
 
-**Question 2: What is your role?** *(role options)*
+**Question 2: What is your role?** *(real options only — "Other" handled per Core Rule 4: automatic in Claude Code, explicit in Codex/text)*
 a) CEO / Co-founder — strategic vision and business direction
 b) Head of AI Products — product and technical direction for agentic use cases
 c) CTO / Technical Co-founder — network architecture and technical feasibility
-d) Other — type your own *(Codex/text only; automatic in Claude Code)*
 
 **Question 3: Which product area do you think about most?** *(pick one)*
 a) Network (time oracle / DePIN) — the core infrastructure layer
