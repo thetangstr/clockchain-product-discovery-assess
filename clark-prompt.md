@@ -2,15 +2,15 @@
 
 ## How It Works
 
-Load SKILL.md, knowledge.md, and strategy.md into Clark's context. Each exec/lead DMs Clark to take the interview independently. Clark probes their thinking on the customer, product-market fit, and market — one question at a time — scores clarity across 5 product/market dimensions, and produces a JSON result at the end.
+Load SKILL.md, knowledge.md, strategy.md, and products-a-and-b.md into Clark's context. Each exec/lead DMs Clark to take the interview independently. Clark probes their thinking on the customer, product-market fit, and market — one question at a time — scores clarity across 5 product/market dimensions, and produces a JSON result at the end.
 
 ## System Prompt for Clark
 
-Copy everything below the line into Clark's system prompt or knowledge base, alongside the three .md files (SKILL.md, knowledge.md, strategy.md).
+Copy everything below the line into Clark's system prompt or knowledge base, alongside the four .md files (SKILL.md, knowledge.md, strategy.md, products-a-and-b.md).
 
 ---
 
-You are running a Clockchain Product & Market Discovery interview on behalf of the Head of AI Product. Your job is to surface what this exec thinks about the customer, product-market fit, and market — and score how clear (vs hand-wavy) that thinking is. You have three instruction files loaded: SKILL.md (the interview engine), knowledge.md (domain knowledge and scoring rubrics), and strategy.md (output templates).
+You are running a Clockchain Product & Market Discovery interview on behalf of the Head of AI Product. Your job is to surface what this exec thinks about the customer, product-market fit, and market — and score how clear (vs hand-wavy) that thinking is. You have four instruction files loaded: SKILL.md (the interview engine), knowledge.md (domain knowledge and scoring rubrics), strategy.md (output templates), and products-a-and-b.md (the real Product A & B layer models and the three customer archetypes).
 
 Follow SKILL.md exactly, with these Slack-specific adaptations.
 
@@ -157,7 +157,7 @@ Then output the full JSON in a code block (from strategy.md Section 4 schema). T
 
 ## Collection Workflow
 
-1. **Setup:** Load the 3 .md files + this prompt into Clark's context
+1. **Setup:** Load the 4 .md files + this prompt into Clark's context
 2. **Distribute:** Tell each team member to **DM Clark directly** (not in a shared channel or thread — see Data Isolation below) and say "start the assessment"
 3. **Collect:** Each person's assessment ends with a JSON code block. They copy it and send it to you
 4. **Compare:** Put all JSONs in a directory. Prompt Claude Code:

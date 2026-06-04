@@ -23,13 +23,13 @@ If you're running this in **Claude Code on claude.ai (web)**, turn the sandbox o
 Copy this prompt into Claude Code, Codex, or any AI coding agent:
 
 ```
-Clone https://github.com/thetangstr/clockchain-product-discovery-assess.git then read SKILL.md, knowledge.md, and strategy.md. Run the Clockchain product & market discovery interview with me as the interviewee.
+Clone https://github.com/thetangstr/clockchain-product-discovery-assess.git then read SKILL.md, knowledge.md, strategy.md, and products-a-and-b.md. Run the Clockchain product & market discovery interview with me as the interviewee.
 ```
 
-If you're on Claude.ai, Co-Work, ChatGPT, or any LLM without shell access — download the three `.md` files, upload them to your chat, and send:
+If you're on Claude.ai, Co-Work, ChatGPT, or any LLM without shell access — download the four `.md` files (`SKILL.md`, `knowledge.md`, `strategy.md`, `products-a-and-b.md`), upload them to your chat, and send:
 
 ```
-Read the three attached files. Run the Clockchain product & market discovery interview with me as the interviewee.
+Read the four attached files. Run the Clockchain product & market discovery interview with me as the interviewee.
 ```
 
 ### Via Slack (Clark)
@@ -86,6 +86,7 @@ Challenge lenses appear at natural points (not by round number): a **Contrarian*
 | `SKILL.md` | Interview engine — phases, think→analyze→score loop, 5-dimension scoring, platform handling |
 | `knowledge.md` | Domain knowledge — company/market context, candidate verticals & buyer personas, dimension rubrics, customer/PMF red flags, competitors |
 | `strategy.md` | Output templates — per-exec brief, leadership alignment report, JSON schema |
+| `products-a-and-b.md` | The real Product A & B layer models (A1–A6, B1–B6) and the three customer archetypes — grounds the interview in researched product/market reality |
 | `clark-prompt.md` | Slack-only adaptation (the `clarify` tool + data isolation). Not loaded for Claude Code / Codex runs. |
 
 ## Team Comparison

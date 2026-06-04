@@ -103,6 +103,13 @@ Read knowledge.md. Internalize (do NOT dump to the user):
 - The 5 product/market dimensions and their rubrics
 - Customer-test, PMF-test, and market red flags
 
+**Also read `products-a-and-b.md` if present.** It grounds the three topics in the real, researched product layers and customer archetypes:
+- **Network** = the substrate (customer-dedicated subnets + 5-layer court-admissible audit chain)
+- **Agent Identity** = Product A — Agent Notarized Identity (layers A1–A6)
+- **Smart Contracts & Receipts** = Product B — Agent Notarized Receipt, via the Agent-SDK (layers B1–B6)
+- **The three customer archetypes** — orchestration platforms · products embedding SDKs · cybersecurity & regulated verticals — each with a different buyer. Use these as concrete customer options and to test for the stated-customer-vs-pain-owner mismatch.
+Use the canonical names (Agent Notarized Identity / Receipt) — "Birth Certificate" and "Smart Receipt" are deprecated. If the file is absent, run from knowledge.md alone.
+
 Just confirm:
 
 ```
