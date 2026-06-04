@@ -52,7 +52,7 @@ Narrative. What they're trying to build in 12 months, the definition of success,
 ## Assumptions Exposed
 | # | Assumption (untested belief) | Evidence level | How to validate |
 |---|---|---|---|
-| 1 | {e.g. "platforms will pay for third-party identity"} | {none / anecdotal / data} | {specific test + signal} |
+| 1 | {e.g. "platforms will pay for third-party identity"} | {none / anecdotal / validated} | {specific test + signal} |
 
 ## Sharpest vs Haziest
 - **Sharpest:** {dimension} — {why their thinking here is solid}
@@ -166,7 +166,7 @@ File: `product-market-{slug}.json`
   "corePain": "",
   "pullEvidence": "",
   "assumptionsExposed": [
-    { "assumption": "", "evidenceLevel": "none|anecdotal|data", "howToValidate": "" }
+    { "assumption": "", "evidenceLevel": "none|anecdotal|validated", "howToValidate": "" }
   ],
   "customerPmfMismatch": "{describe if the stated customer and the pain owner differ, else null}",
   "sharpest": "",

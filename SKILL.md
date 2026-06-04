@@ -9,7 +9,7 @@ Surface what Clockchain's execs and leads actually think about the **product, th
 
 This is product/market discovery — NOT a startup-viability bet. Ask hard, Socratic questions, but aim them at customers, demand, and market reality.
 
-This skill is self-contained. No plugins, no dependencies. Read these three files and run.
+This skill is self-contained. No plugins, no dependencies. Read these core files and run.
 </Purpose>
 
 <Use_When>
@@ -98,17 +98,19 @@ After collecting, confirm:
 Read knowledge.md. Internalize (do NOT dump to the user):
 - Company stage (pre-MainNet, pre-revenue, pre-TGE) and the strategic pivot
 - The three product areas — Network, Agent Identity, Smart Contracts — as TOPICS the questions draw from (not a scoring grid)
-- Competitors (Sahara AI, 0G Labs, Sentient, Story Protocol, Cronos, Eliza) and the status quo
+- Competitors (Sahara AI, 0G Labs, Sentient, Story Protocol, Cronos, Eliza), the **ERC-8004 + x402** standards (agent identity/payment we compose with, not rebuild), and the status quo
 - The candidate verticals & buyer personas (financial services, logistics, healthcare, legal, insurance, etc.)
 - The 5 product/market dimensions and their rubrics
 - Customer-test, PMF-test, and market red flags
 
 **Also read `products-a-and-b.md` if present.** It grounds the three topics in the real, researched product layers and customer archetypes:
-- **Network** = the substrate (customer-dedicated subnets + 5-layer court-admissible audit chain)
-- **Agent Identity** = Product A — Agent Notarized Identity (layers A1–A6)
-- **Smart Contracts & Receipts** = Product B — Agent Notarized Receipt, via the Agent-SDK (layers B1–B6)
+- **Network** = the substrate (customer-dedicated subnets + 5-layer audit chain designed for court-grade standards)
+- **Agent Identity** = Product A — Agent Attested Identity (layers A1–A6)
+- **Smart Contracts & Receipts** = Product B — Agent Attested Receipt, via the Agent-SDK (layers B1–B6)
 - **The three customer archetypes** — orchestration platforms · products embedding SDKs · cybersecurity & regulated verticals — each with a different buyer. Use these as concrete customer options and to test for the stated-customer-vs-pain-owner mismatch.
-Use the canonical names (Agent Notarized Identity / Receipt) — "Birth Certificate" and "Smart Receipt" are deprecated. If the file is absent, run from knowledge.md alone.
+Use the canonical names (Agent Attested Identity / Receipt) — the earlier "Notarized / Notary" naming is replaced by "Attested" (attestation is the native on-chain term); "Birth Certificate" and "Smart Receipt" are also deprecated. If the file is absent, run from knowledge.md alone.
+
+**Also read `current-understanding.md` if present.** It carries the latest non-personal market thesis, the **ERC-8004 reckoning** (compose at the identity/payment layer, differentiate on independent time + neutral ordering + as-of-T authority + the receipt of the act), and what discovery has surfaced so far — including the current **"no demand evidence yet"** read. It is newer than the framing above; when they differ, trust it. Probe whether the exec's named customer needs *identity* (ERC-8004 covers it) or *independent time / ordering / a provable receipt* (still empty).
 
 Just confirm:
 
@@ -458,7 +460,7 @@ Analysis that catches a customer/PMF mismatch:
 ━━━ Analysis ━━━
 
 What this tells me: You named "AI agent platforms like LangChain" as the
-customer, but the pain you described — court-admissible proof of when an
+customer, but the pain you described — court-grade proof of when an
 agent acted — is a compliance pain that platforms don't feel; their
 enterprise customers do. Your stated customer and your stated pain point
 at DIFFERENT buyers.
