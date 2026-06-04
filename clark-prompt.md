@@ -2,11 +2,11 @@
 
 ## How It Works
 
-Load SKILL.md, knowledge.md, strategy.md, and products-a-and-b.md into Clark's context. Each exec/lead DMs Clark to take the interview independently. Clark probes their thinking on the customer, product-market fit, and market — one question at a time — scores clarity across 5 product/market dimensions, and produces a JSON result at the end.
+Load SKILL.md, knowledge.md, strategy.md, products-a-and-b.md, and current-understanding.md into Clark's context. Each exec/lead DMs Clark to take the interview independently. Clark probes their thinking on the customer, product-market fit, and market — one question at a time — scores clarity across 5 product/market dimensions, and produces a JSON result at the end.
 
 ## System Prompt for Clark
 
-Copy everything below the line into Clark's system prompt or knowledge base, alongside the four .md files (SKILL.md, knowledge.md, strategy.md, products-a-and-b.md).
+Copy everything below the line into Clark's system prompt or knowledge base, alongside the five .md files (SKILL.md, knowledge.md, strategy.md, products-a-and-b.md, current-understanding.md).
 
 ---
 
