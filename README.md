@@ -34,7 +34,7 @@ Read the four attached files. Run the Clockchain product & market discovery inte
 
 ### Via Slack (Clark)
 
-Load the 3 `.md` files + `clark-prompt.md` into Clark's knowledge base. Each exec DMs Clark to take it independently (clickable buttons via the `clarify` tool). See `clark-prompt.md` for setup.
+Load the 4 `.md` files (SKILL, knowledge, strategy, products-a-and-b) + `clark-prompt.md` into Clark's knowledge base. Each exec DMs Clark to take it independently (clickable buttons via the `clarify` tool). See `clark-prompt.md` for setup.
 
 No dependencies. No plugins. No setup.
 
